@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام إدارة الاستثمارات</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Cairo -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dark-theme.css">
+
+    <!-- هنا محتوى HTML الأصلي كما هو -->
+    <!-- ... -->
+
+    <!-- JavaScript - نقطة الدخول الرئيسية -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
+    <!-- رأس الصفحة -->
+  <header>
+    <div class="header-content">
+      <div class="header-title">
+        <i class="fas fa-chart-line"></i>
+        <h1>نظام إدارة الاستثمارات</h1>
+      </div>
+      <div class="header-actions">
+        <button id="toggle-theme" class="header-icon" title="تغيير السمة">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button id="refresh-data" class="header-icon" title="تحديث البيانات">
+          <i class="fas fa-sync-alt"></i>
+        </button>
+        <div class="dropdown">
+          <button id="quick-actions" class="header-icon" title="إجراءات سريعة">
+            <i class="fas fa-ellipsis-v"></i>
+          </button>
+          <div id="actions-dropdown" class="dropdown-menu">
+            <a href="#" class="dropdown-item" id="new-investor-dropdown">
+              <i class="fas fa-user-plus"></i>
+              <span>إضافة مستثمر جديد</span>
+            </a>
+            <a href="#" class="dropdown-item" id="new-transaction-dropdown">
+              <i class="fas fa-exchange-alt"></i>
+              <span>تسجيل معاملة</span>
+            </a>
+            <a href="#" class="dropdown-item" id="calc-profits-dropdown">
+              <i class="fas fa-calculator"></i>
+              <span>حاسبة الأرباح</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item" id="export-data-dropdown">
+              <i class="fas fa-file-export"></i>
+              <span>تصدير البيانات</span>
+            </a>
+            <a href="#" class="dropdown-item" id="import-data-dropdown">
+              <i class="fas fa-file-import"></i>
+              <span>استيراد البيانات</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- المحتوى الرئيسي -->
+  <main id="main-content">
+    <!-- يتم تحميل المحتوى هنا ديناميكيًا -->
+  </main>
+
+  <!-- زر الإجراء السريع العائم -->
+  <button id="floating-action" class="floating-action-btn">
+    <i class="fas fa-plus"></i>
+  </button>
+
+  <!-- القائمة السفلية -->
+  <nav class="bottom-nav">
+    <div class="flex justify-around">
+      <button id="nav-home" class="nav-item active">
+        <i class="fas fa-home"></i>
+        <span class="text-xs mt-1">الرئيسية</span>
+      </button>
+      <button id="nav-investors" class="nav-item">
+        <i class="fas fa-users"></i>
+        <span class="text-xs mt-1">المستثمرين</span>
+      </button>
+      <button id="nav-transactions" class="nav-item">
+        <i class="fas fa-exchange-alt"></i>
+        <span class="text-xs mt-1">المعاملات</span>
+      </button>
+      <button id="nav-reports" class="nav-item">
+        <i class="fas fa-chart-pie"></i>
+        <span class="text-xs mt-1">التقارير</span>
+      </button>
+      <button id="nav-settings" class="nav-item">
+        <i class="fas fa-cog"></i>
+        <span class="text-xs mt-1">الإعدادات</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- النوافذ المنبثقة -->
+  <div id="add-investor-modal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="investor-modal-title">إضافة مستثمر جديد</h2>
+        <button class="modal-close" id="close-investor-modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">الاسم الكامل*</label>
+          <input 
+            type="text" 
+            id="new-investor-name"
+            class="w-full"
+            placeholder="أدخل اسم المستثمر"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">رقم الهاتف</label>
+          <input 
+            type="tel" 
+            id="new-investor-phone"
+            class="w-full"
+            placeholder="أدخل رقم الهاتف"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">العنوان</label>
+          <input 
+            type="text" 
+            id="new-investor-address"
+            class="w-full"
+            placeholder="أدخل عنوان المستثمر"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">مبلغ الاستثمار (د.ع)*</label>
+          <input 
+            type="number" 
+            id="new-investor-amount"
+            class="w-full"
+            placeholder="أدخل مبلغ الاستثمار"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">تاريخ بدء الاستثمار*</label>
+          <input 
+            type="date" 
+            id="new-investor-start-date"
+            class="w-full"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">رقم الهوية/البطاقة الشخصية</label>
+          <input 
+            type="text" 
+            id="new-investor-id-card"
+            class="w-full"
+            placeholder="أدخل رقم بطاقة الهوية"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">ملاحظات</label>
+          <textarea 
+            id="new-investor-notes"
+            class="w-full"
+            placeholder="أي ملاحظات إضافية"
+            rows="2"
+          ></textarea>
+        </div>
+      </div>
+      
+      <input type="hidden" id="edit-investor-id" value="" />
+      
+      <div class="modal-footer">
+        <button 
+          class="btn btn-gray"
+          id="cancel-add-investor"
+        >
+          إلغاء
+        </button>
+        <button 
+          class="btn btn-primary"
+          id="confirm-add-investor"
+        >
+          إضافة
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="add-transaction-modal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="transaction-modal-title">
+          إضافة معاملة جديدة
+        </h2>
+        <button class="modal-close" id="close-transaction-modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">المستثمر*</label>
+          <select 
+            id="transaction-investor-id"
+            class="w-full"
+          >
+            <option value="">اختر المستثمر</option>
+            <!-- يتم إضافة الخيارات ديناميكيًا -->
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">نوع المعاملة</label>
+          <select 
+            id="transaction-type"
+            class="w-full"
+          >
+            <option value="payout">دفع ربح</option>
+            <option value="investment">استثمار</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">المبلغ (د.ع)*</label>
+          <input 
+            type="number" 
+            id="transaction-amount"
+            class="w-full"
+            placeholder="أدخل المبلغ"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">التاريخ</label>
+          <input 
+            type="date" 
+            id="transaction-date"
+            class="w-full"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">ملاحظات</label>
+          <textarea 
+            id="transaction-notes"
+            class="w-full"
+            placeholder="أي ملاحظات إضافية"
+            rows="2"
+          ></textarea>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button 
+          class="btn btn-gray"
+          id="cancel-add-transaction"
+        >
+          إلغاء
+        </button>
+        <button 
+          class="btn btn-primary"
+          id="confirm-add-transaction"
+        >
+          تسجيل
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- نافذة حاسبة الأرباح -->
+  <div id="profit-calculator-modal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">حاسبة الأرباح</h2>
+        <button class="modal-close" id="close-calculator-modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">مبلغ الاستثمار (د.ع)</label>
+          <input 
+            type="number" 
+            id="calc-investment-amount"
+            class="w-full"
+            placeholder="أدخل مبلغ الاستثمار"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">نسبة الربح الشهرية (%)</label>
+          <input 
+            type="number"
+            id="calc-profit-rate"
+            class="w-full"
+            value="17.5"
+            step="0.1"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">مدة الاستثمار (بالأشهر)</label>
+          <input 
+            type="number"
+            id="calc-duration"
+            class="w-full"
+            value="12"
+            min="1"
+            max="60"
+          />
+        </div>
+        
+        <div class="alert alert-info mt-4">
+          <i class="fas fa-info-circle text-blue-600"></i>
+          <div>
+            <p class="font-bold">الربح الشهري:</p>
+            <p id="calc-monthly-profit">- - -</p>
+          </div>
+        </div>
+        
+        <div class="alert alert-success mt-2">
+          <i class="fas fa-check-circle text-green-600"></i>
+          <div>
+            <p class="font-bold">إجمالي الربح:</p>
+            <p id="calc-total-profit">- - -</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="calc-profits-btn">
+          <i class="fas fa-calculator ml-1"></i>
+          حساب الأرباح
+        </button>
+      </div>
+    </div>
+  </div> <!-- ...existing code... -->
+</body>
+</html>
