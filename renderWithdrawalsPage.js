@@ -1747,3 +1747,5 @@ function showWithdrawalModal(investor = null) {
     
     showNotification('تم تصدير تقرير السحوبات بنجاح', 'success');
   }
+
+  

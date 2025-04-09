@@ -215,6 +215,18 @@ function integrateWithdrawalSystem() {
     const originalRenderInvestorDetailsPage = renderInvestorDetailsPage;
     
     renderInvestorDetailsPage = function() {
+      if (!selectedInvestor) {
+        console.error("No selected investor found. Redirecting to the investors page.");
+        navigateTo('investors'); // Redirect to the investors page if no investor is selected
+        return;
+      }
+
+      const mainContent = document.getElementById('main-content');
+      if (!mainContent) {
+        console.error("Main content container not found.");
+        return;
+      }
+
       originalRenderInvestorDetailsPage();
       
       // التحقق من وجود أزرار الإجراءات
