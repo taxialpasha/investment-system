@@ -9282,6 +9282,709 @@ function renderSettingsPage() {
 
 
 
+// إضافة نافذة تأكيد رمز المسؤول
+function addAdminConfirmModal() {
+  // التحقق من عدم وجود النافذة مسبقاً
+  if (document.getElementById('admin-confirm-modal')) {
+    return;
+  }
+  
+  const modalHTML = `
+  <div id="admin-confirm-modal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">تأكيد صلاحية المسؤول</h2>
+        <button class="modal-close" id="close-admin-confirm-modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="alert alert-warning mb-3">
+          <i class="fas fa-shield-alt"></i>
+          <div>
+            <p class="font-bold">العملية تتطلب صلاحيات المسؤول</p>
+            <p class="text-sm">الرجاء إدخال رمز المسؤول للمتابعة</p>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">رمز المسؤول</label>
+          <input 
+            type="password" 
+            id="admin-confirm-password"
+            class="w-full"
+            placeholder="أدخل رمز المسؤول"
+          />
+        </div>
+        
+        <div id="admin-confirm-error" class="alert alert-danger mb-3 hidden">
+          <i class="fas fa-exclamation-circle"></i>
+          <div>
+            <p>رمز المسؤول غير صحيح</p>
+          </div>
+        </div>
+        
+        <input type="hidden" id="admin-confirm-action" value="" />
+        <input type="hidden" id="admin-confirm-data" value="" />
+      </div>
+      
+      <div class="modal-footer">
+        <button id="cancel-admin-confirm-btn" class="btn btn-gray">
+          إلغاء
+        </button>
+        <button id="confirm-admin-confirm-btn" class="btn btn-danger">
+          <i class="fas fa-check-circle ml-1"></i>
+          تأكيد العملية
+        </button>
+      </div>
+    </div>
+  </div>
+  `;
+  
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
+  
+  // إضافة مستمعات الأحداث
+  document.getElementById('close-admin-confirm-modal').addEventListener('click', () => {
+    hideModal('admin-confirm-modal');
+  });
+  
+  document.getElementById('cancel-admin-confirm-btn').addEventListener('click', () => {
+    hideModal('admin-confirm-modal');
+  });
+  
+  document.getElementById('confirm-admin-confirm-btn').addEventListener('click', () => {
+    validateAdminPassword();
+  });
+  
+  // مستمع للضغط على Enter في حقل كلمة المرور
+  document.getElementById('admin-confirm-password').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      validateAdminPassword();
+    }
+  });
+}
+
+// التحقق من رمز المسؤول وتنفيذ العملية المطلوبة
+function validateAdminPassword() {
+  const password = document.getElementById('admin-confirm-password').value;
+  const action = document.getElementById('admin-confirm-action').value;
+  const data = document.getElementById('admin-confirm-data').value;
+  
+  // البحث عن حساب المسؤول
+  const admin = users.find(user => user.isAdmin);
+  
+  if (!admin || admin.password !== password) {
+    document.getElementById('admin-confirm-error').classList.remove('hidden');
+    return;
+  }
+  
+  // إخفاء رسالة الخطأ
+  document.getElementById('admin-confirm-error').classList.add('hidden');
+  
+  // إغلاق النافذة
+  hideModal('admin-confirm-modal');
+  
+  // تنفيذ العملية المطلوبة بناءً على قيمة action
+  switch (action) {
+    case 'delete-transaction':
+      performDeleteTransaction(data);
+      break;
+    case 'edit-transaction':
+      performEditTransaction(data);
+      break;
+    default:
+      showNotification('خطأ: عملية غير معروفة', 'error');
+  }
+}
+
+// تنفيذ عملية حذف المعاملة بعد تأكيد رمز المسؤول
+function performDeleteTransaction(transactionId) {
+  // البحث عن المعاملة
+  const transactionIndex = transactions.findIndex(t => t.id === transactionId);
+  
+  if (transactionIndex === -1) {
+    showNotification('لم يتم العثور على المعاملة', 'error');
+    return;
+  }
+  
+  const transaction = transactions[transactionIndex];
+  const investor = investors.find(inv => inv.id === transaction.investorId);
+  
+  // تحديث بيانات المستثمر ومؤشرات النظام بناءً على نوع المعاملة
+  if (transaction.type === 'investment') {
+    // في حالة حذف استثمار
+    if (investor) {
+      // التأكد من أن الرصيد الحالي يسمح بالحذف
+      if (investor.amount >= transaction.amount) {
+        investor.amount -= transaction.amount;
+        dailySummary.totalInvestments -= transaction.amount;
+      } else {
+        showNotification('لا يمكن حذف المعاملة: رصيد المستثمر غير كافٍ', 'error');
+        return;
+      }
+    }
+  } else if (transaction.type === 'payout') {
+    // في حالة حذف دفع ربح
+    dailySummary.totalPayouts -= transaction.amount;
+  } else if (transaction.type === 'withdrawal') {
+    // في حالة حذف سحب
+    if (investor) {
+      investor.amount += transaction.amount;
+      dailySummary.totalInvestments += transaction.amount;
+    }
+  } else if (transaction.type === 'admin') {
+    // في حالة حذف مصروف إداري
+    dailySummary.adminExpenses -= transaction.amount;
+  }
+  
+  // حذف المعاملة من المصفوفة
+  transactions.splice(transactionIndex, 1);
+  
+  // تحديث المستثمر المحدد إذا كان هو نفسه
+  if (selectedInvestor && selectedInvestor.id === transaction.investorId) {
+    selectedInvestor = investor;
+  }
+  
+  // إعادة حساب الإشعارات
+  calculateUpcomingPayments();
+  
+  // حفظ البيانات
+  saveData();
+  
+  // عرض رسالة نجاح
+  showNotification('تم حذف المعاملة بنجاح', 'success');
+  
+  // تحديث العرض حسب الصفحة الحالية
+  if (currentPage === 'investorDetails') {
+    renderInvestorDetailsPage();
+  } else if (currentPage === 'transactions') {
+    renderTransactionsPage();
+  } else if (currentPage === 'home') {
+    renderHomePage();
+  }
+}
+
+// طلب تأكيد رمز المسؤول قبل حذف المعاملة
+function confirmDeleteTransaction(transactionId) {
+  // التأكد من إضافة نافذة التأكيد
+  addAdminConfirmModal();
+  
+  // إعادة تعيين النموذج
+  document.getElementById('admin-confirm-password').value = '';
+  document.getElementById('admin-confirm-error').classList.add('hidden');
+  
+  // تعيين نوع العملية والبيانات
+  document.getElementById('admin-confirm-action').value = 'delete-transaction';
+  document.getElementById('admin-confirm-data').value = transactionId;
+  
+  // تعديل عنوان النافذة وزر التأكيد
+  document.querySelector('#admin-confirm-modal .modal-title').textContent = 'تأكيد حذف المعاملة';
+  document.querySelector('#admin-confirm-modal #confirm-admin-confirm-btn').innerHTML = '<i class="fas fa-trash-alt ml-1"></i> تأكيد الحذف';
+  document.querySelector('#admin-confirm-modal #confirm-admin-confirm-btn').classList.add('btn-danger');
+  document.querySelector('#admin-confirm-modal #confirm-admin-confirm-btn').classList.remove('btn-primary');
+  
+  // إظهار النافذة
+  showModal('admin-confirm-modal');
+  
+  // تركيز على حقل كلمة المرور
+  setTimeout(() => {
+    document.getElementById('admin-confirm-password').focus();
+  }, 300);
+}
+
+// وظيفة لإنشاء زر حذف المعاملة في قائمة المعاملات
+function createTransactionDeleteButton(transactionId) {
+  const button = document.createElement('button');
+  button.className = 'btn btn-icon btn-outline btn-danger mr-2';
+  button.title = 'حذف المعاملة';
+  button.innerHTML = '<i class="fas fa-trash-alt"></i>';
+  
+  button.addEventListener('click', (e) => {
+    e.stopPropagation(); // منع انتشار الحدث للعناصر الأبوية
+    confirmDeleteTransaction(transactionId);
+  });
+  
+  return button;
+}
+
+// تعديل دالة renderInvestorDetailsPage لإضافة أزرار الحذف
+function enhanceInvestorDetailsPage() {
+  // إذا لم يكن هناك معاملات، لا نحتاج لإضافة الأزرار
+  const transactionItems = document.querySelectorAll('#investor-transactions .list-item');
+  if (!transactionItems.length) return;
+  
+  // إضافة أزرار الحذف لكل معاملة
+  transactionItems.forEach((item, index) => {
+    // استخراج معرف المعاملة
+    const transaction = transactions.filter(
+      t => t.investorId === selectedInvestor.id
+    ).sort((a, b) => new Date(b.date) - new Date(a.date))[index];
+    
+    if (transaction) {
+      // إنشاء أزرار الإجراءات
+      const actionDiv = document.createElement('div');
+      actionDiv.className = 'flex items-center gap-2 mt-2';
+      
+      // إضافة زر الحذف
+      const deleteButton = createTransactionDeleteButton(transaction.id);
+      actionDiv.appendChild(deleteButton);
+      
+      // إضافة عنصر الإجراءات للمعاملة
+      item.appendChild(actionDiv);
+    }
+  });
+}
+
+// تعديل دالة renderTransactionsPage لإضافة أزرار الحذف
+function enhanceTransactionsPage() {
+  // البحث عن عناصر المعاملات
+  const transactionItems = document.querySelectorAll('.transaction-item');
+  
+  if (!transactionItems.length) return;
+  
+  // إضافة أزرار الحذف لكل معاملة
+  transactionItems.forEach((item, index) => {
+    // استخراج معرف المعاملة
+    const transaction = [...transactions].sort((a, b) => 
+      new Date(b.date) - new Date(a.date)
+    )[index];
+    
+    if (transaction) {
+      // إنشاء حاوية للأزرار
+      const actionDiv = document.createElement('div');
+      actionDiv.className = 'flex justify-end mt-2';
+      
+      // إضافة زر الحذف
+      const deleteButton = createTransactionDeleteButton(transaction.id);
+      actionDiv.appendChild(deleteButton);
+      
+      // إضافة عنصر الإجراءات للمعاملة
+      item.appendChild(actionDiv);
+    }
+  });
+}
+
+// تعديل الدوال الأصلية لرندرة الصفحات لدعم أزرار الحذف
+const originalRenderInvestorDetailsPage = window.renderInvestorDetailsPage;
+window.renderInvestorDetailsPage = function() {
+  originalRenderInvestorDetailsPage.apply(this, arguments);
+  setTimeout(() => enhanceInvestorDetailsPage(), 100);
+};
+
+const originalRenderTransactionsPage = window.renderTransactionsPage;
+window.renderTransactionsPage = function() {
+  originalRenderTransactionsPage.apply(this, arguments);
+  setTimeout(() => enhanceTransactionsPage(), 100);
+};
+
+// إضافة النوافذ المنبثقة عند تهيئة التطبيق
+const originalInitApp = window.initApp;
+window.initApp = function() {
+  originalInitApp.apply(this, arguments);
+  
+  // إضافة نافذة تأكيد رمز المسؤول
+  addAdminConfirmModal();
+  
+  console.log('تم تهيئة نظام إدارة حذف المعاملات');
+};
+
+}
+  });
+}
+
+// تعديل دالة enhanceTransactionsPage لإضافة أزرار التعديل
+function enhanceTransactionsPage() {
+  // البحث عن عناصر المعاملات
+  const transactionItems = document.querySelectorAll('.transaction-item');
+  
+  if (!transactionItems.length) return;
+  
+  // إضافة أزرار الحذف والتعديل لكل معاملة
+  transactionItems.forEach((item, index) => {
+    // استخراج معرف المعاملة
+    const transaction = [...transactions].sort((a, b) => 
+      new Date(b.date) - new Date(a.date)
+    )[index];
+    
+    if (transaction) {
+      // إنشاء أو استخدام حاوية الإجراءات الموجودة
+      let actionDiv = item.querySelector('.flex.justify-end.mt-2');
+      
+      if (!actionDiv) {
+        actionDiv = document.createElement('div');
+        actionDiv.className = 'flex justify-end mt-2 gap-2';
+        item.appendChild(actionDiv);
+      }
+      
+      // التحقق من عدم وجود الأزرار مسبقاً
+      if (!actionDiv.querySelector('.btn-outline.btn-primary')) {
+        // إضافة زر التعديل
+        const editButton = createTransactionEditButton(transaction.id);
+        actionDiv.insertBefore(editButton, actionDiv.firstChild);
+      }
+      
+      if (!actionDiv.querySelector('.btn-outline.btn-danger')) {
+        // إضافة زر الحذف
+        const deleteButton = createTransactionDeleteButton(transaction.id);
+        actionDiv.appendChild(deleteButton);
+      }
+    }
+  });
+}
+
+// إضافة النوافذ المنبثقة للتعديل عند تهيئة التطبيق
+function enhanceTransactionManagement() {
+  // إضافة نافذة تعديل المعاملة
+  addTransactionEditModal();
+  
+  console.log('تم تهيئة نظام تعديل المعاملات');
+}
+
+// تحديث دالة تهيئة التطبيق
+const originalInitAppForEdit = window.initApp;
+window.initApp = function() {
+  originalInitAppForEdit.apply(this, arguments);
+  
+  // إضافة نافذة تعديل المعاملة
+  enhanceTransactionManagement();
+};// إضافة نافذة تعديل المعاملة
+function addTransactionEditModal() {
+  // التحقق من عدم وجود النافذة مسبقاً
+  if (document.getElementById('edit-transaction-modal')) {
+    return;
+  }
+  
+  const modalHTML = `
+  <div id="edit-transaction-modal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">تعديل المعاملة</h2>
+        <button class="modal-close" id="close-edit-transaction-modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="alert alert-info mb-4">
+          <i class="fas fa-info-circle"></i>
+          <div>
+            <p class="font-bold">المستثمر: <span id="edit-transaction-investor-name"></span></p>
+            <p class="text-sm">نوع المعاملة: <span id="edit-transaction-type-display"></span></p>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">المبلغ (د.ع)*</label>
+          <input 
+            type="number" 
+            id="edit-transaction-amount"
+            class="w-full"
+            placeholder="أدخل المبلغ"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">التاريخ</label>
+          <input 
+            type="date" 
+            id="edit-transaction-date"
+            class="w-full"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">ملاحظات</label>
+          <textarea 
+            id="edit-transaction-notes"
+            class="w-full"
+            placeholder="أي ملاحظات إضافية"
+            rows="2"
+          ></textarea>
+        </div>
+        
+        <div id="edit-transaction-warning" class="alert alert-warning mb-3 hidden">
+          <i class="fas fa-exclamation-triangle"></i>
+          <div>
+            <p id="edit-transaction-warning-message">تنبيه: قد يؤثر تعديل المبلغ على رصيد المستثمر</p>
+          </div>
+        </div>
+        
+        <input type="hidden" id="edit-transaction-id" value="" />
+        <input type="hidden" id="edit-transaction-original-amount" value="" />
+        <input type="hidden" id="edit-transaction-type" value="" />
+      </div>
+      
+      <div class="modal-footer">
+        <button id="cancel-edit-transaction-btn" class="btn btn-gray">
+          إلغاء
+        </button>
+        <button id="confirm-admin-edit-transaction-btn" class="btn btn-primary">
+          <i class="fas fa-save ml-1"></i>
+          تأكيد التعديل (مسؤول)
+        </button>
+      </div>
+    </div>
+  </div>
+  `;
+  
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
+  
+  // إضافة مستمعات الأحداث
+  document.getElementById('close-edit-transaction-modal').addEventListener('click', () => {
+    hideModal('edit-transaction-modal');
+  });
+  
+  document.getElementById('cancel-edit-transaction-btn').addEventListener('click', () => {
+    hideModal('edit-transaction-modal');
+  });
+  
+  document.getElementById('confirm-admin-edit-transaction-btn').addEventListener('click', () => {
+    // طلب تأكيد رمز المسؤول قبل التعديل
+    requestAdminConfirmation('edit-transaction', document.getElementById('edit-transaction-id').value);
+  });
+  
+  // إضافة مستمع لتغيير المبلغ لإظهار التحذير
+  document.getElementById('edit-transaction-amount').addEventListener('input', function() {
+    const originalAmount = parseFloat(document.getElementById('edit-transaction-original-amount').value);
+    const newAmount = parseFloat(this.value);
+    const transactionType = document.getElementById('edit-transaction-type').value;
+    
+    // إظهار التحذير إذا تغير المبلغ
+    if (!isNaN(newAmount) && !isNaN(originalAmount) && newAmount !== originalAmount) {
+      const warningElement = document.getElementById('edit-transaction-warning');
+      const warningMessage = document.getElementById('edit-transaction-warning-message');
+      
+      warningElement.classList.remove('hidden');
+      
+      if (transactionType === 'investment') {
+        if (newAmount > originalAmount) {
+          warningMessage.innerHTML = `تنبيه: سيتم زيادة رصيد المستثمر بمبلغ ${numberWithCommas(newAmount - originalAmount)} د.ع`;
+        } else {
+          warningMessage.innerHTML = `تنبيه: سيتم تخفيض رصيد المستثمر بمبلغ ${numberWithCommas(originalAmount - newAmount)} د.ع`;
+        }
+      } else if (transactionType === 'withdrawal') {
+        if (newAmount > originalAmount) {
+          warningMessage.innerHTML = `تنبيه: سيتم تخفيض رصيد المستثمر بمبلغ ${numberWithCommas(newAmount - originalAmount)} د.ع`;
+        } else {
+          warningMessage.innerHTML = `تنبيه: سيتم زيادة رصيد المستثمر بمبلغ ${numberWithCommas(originalAmount - newAmount)} د.ع`;
+        }
+      }
+    } else {
+      document.getElementById('edit-transaction-warning').classList.add('hidden');
+    }
+  });
+}
+
+// طلب تأكيد رمز المسؤول
+function requestAdminConfirmation(action, data) {
+  // التأكد من إضافة نافذة التأكيد
+  addAdminConfirmModal();
+  
+  // إعادة تعيين النموذج
+  document.getElementById('admin-confirm-password').value = '';
+  document.getElementById('admin-confirm-error').classList.add('hidden');
+  
+  // تعيين نوع العملية والبيانات
+  document.getElementById('admin-confirm-action').value = action;
+  document.getElementById('admin-confirm-data').value = data;
+  
+  // تعديل عنوان النافذة وزر التأكيد بناءً على نوع العملية
+  if (action === 'edit-transaction') {
+    document.querySelector('#admin-confirm-modal .modal-title').textContent = 'تأكيد تعديل المعاملة';
+    document.querySelector('#admin-confirm-modal #confirm-admin-confirm-btn').innerHTML = '<i class="fas fa-save ml-1"></i> تأكيد التعديل';
+    document.querySelector('#admin-confirm-modal #confirm-admin-confirm-btn').classList.remove('btn-danger');
+    document.querySelector('#admin-confirm-modal #confirm-admin-confirm-btn').classList.add('btn-primary');
+  }
+  
+  // إظهار النافذة
+  showModal('admin-confirm-modal');
+  
+  // تركيز على حقل كلمة المرور
+  setTimeout(() => {
+    document.getElementById('admin-confirm-password').focus();
+  }, 300);
+}
+
+// تنفيذ عملية تعديل المعاملة بعد تأكيد رمز المسؤول
+function performEditTransaction(transactionId) {
+  // الحصول على بيانات التعديل
+  const newAmount = parseFloat(document.getElementById('edit-transaction-amount').value);
+  const newDate = document.getElementById('edit-transaction-date').value;
+  const newNotes = document.getElementById('edit-transaction-notes').value;
+  const originalAmount = parseFloat(document.getElementById('edit-transaction-original-amount').value);
+  
+  // البحث عن المعاملة
+  const transactionIndex = transactions.findIndex(t => t.id === transactionId);
+  
+  if (transactionIndex === -1) {
+    showNotification('لم يتم العثور على المعاملة', 'error');
+    return;
+  }
+  
+  const transaction = transactions[transactionIndex];
+  const investor = investors.find(inv => inv.id === transaction.investorId);
+  
+  // التحقق من صحة البيانات
+  if (isNaN(newAmount) || newAmount <= 0 || !newDate) {
+    showNotification('الرجاء إدخال جميع البيانات المطلوبة بشكل صحيح', 'error');
+    return;
+  }
+  
+  // حساب الفرق في المبلغ
+  const amountDifference = newAmount - originalAmount;
+  
+  // تحديث بيانات المستثمر ومؤشرات النظام بناءً على نوع المعاملة
+  if (transaction.type === 'investment') {
+    // في حالة تعديل استثمار
+    if (investor) {
+      // التأكد من أن الرصيد الحالي يسمح بالتخفيض (إذا كان هناك تخفيض)
+      if (amountDifference < 0 && investor.amount < Math.abs(amountDifference)) {
+        showNotification('لا يمكن تخفيض المبلغ: رصيد المستثمر غير كافٍ', 'error');
+        return;
+      }
+      
+      investor.amount += amountDifference;
+      dailySummary.totalInvestments += amountDifference;
+    }
+  } else if (transaction.type === 'payout') {
+    // في حالة تعديل دفع ربح
+    dailySummary.totalPayouts += amountDifference;
+  } else if (transaction.type === 'withdrawal') {
+    // في حالة تعديل سحب
+    if (investor) {
+      // في حالة السحب، تأثير الفرق معكوس
+      // زيادة المبلغ = نقص في الرصيد، تخفيض المبلغ = زيادة في الرصيد
+      if (amountDifference > 0 && investor.amount < amountDifference) {
+        showNotification('لا يمكن زيادة مبلغ السحب: رصيد المستثمر غير كافٍ', 'error');
+        return;
+      }
+      
+      investor.amount -= amountDifference;
+      dailySummary.totalInvestments -= amountDifference;
+    }
+  } else if (transaction.type === 'admin') {
+    // في حالة تعديل مصروف إداري
+    dailySummary.adminExpenses += amountDifference;
+  }
+  
+  // تحديث بيانات المعاملة
+  transactions[transactionIndex].amount = newAmount;
+  transactions[transactionIndex].date = newDate;
+  transactions[transactionIndex].notes = newNotes;
+  
+  // تحديث المستثمر المحدد إذا كان هو نفسه
+  if (selectedInvestor && selectedInvestor.id === transaction.investorId) {
+    selectedInvestor = investor;
+  }
+  
+  // إعادة حساب الإشعارات
+  calculateUpcomingPayments();
+  
+  // حفظ البيانات
+  saveData();
+  
+  // إغلاق نافذة التعديل
+  hideModal('edit-transaction-modal');
+  
+  // عرض رسالة نجاح
+  showNotification('تم تعديل المعاملة بنجاح', 'success');
+  
+  // تحديث العرض حسب الصفحة الحالية
+  if (currentPage === 'investorDetails') {
+    renderInvestorDetailsPage();
+  } else if (currentPage === 'transactions') {
+    renderTransactionsPage();
+  } else if (currentPage === 'home') {
+    renderHomePage();
+  }
+}
+
+// عرض نافذة تعديل المعاملة
+function showEditTransactionModal(transactionId) {
+  // التأكد من إضافة نافذة التعديل
+  addTransactionEditModal();
+  
+  // البحث عن المعاملة
+  const transaction = transactions.find(t => t.id === transactionId);
+  if (!transaction) {
+    showNotification('لم يتم العثور على المعاملة', 'error');
+    return;
+  }
+  
+  // البحث عن المستثمر
+  const investor = investors.find(inv => inv.id === transaction.investorId);
+  const investorName = investor ? investor.name : 'غير محدد';
+  
+  // تعبئة بيانات المعاملة في النموذج
+  document.getElementById('edit-transaction-investor-name').textContent = investorName;
+  document.getElementById('edit-transaction-type-display').textContent = getTransactionTypeName(transaction.type);
+  document.getElementById('edit-transaction-amount').value = transaction.amount;
+  document.getElementById('edit-transaction-date').value = transaction.date;
+  document.getElementById('edit-transaction-notes').value = transaction.notes || '';
+  document.getElementById('edit-transaction-id').value = transaction.id;
+  document.getElementById('edit-transaction-original-amount').value = transaction.amount;
+  document.getElementById('edit-transaction-type').value = transaction.type;
+  
+  // إخفاء التحذير
+  document.getElementById('edit-transaction-warning').classList.add('hidden');
+  
+  // إظهار النافذة
+  showModal('edit-transaction-modal');
+}
+
+// وظيفة لإنشاء زر تعديل المعاملة
+function createTransactionEditButton(transactionId) {
+  const button = document.createElement('button');
+  button.className = 'btn btn-icon btn-outline btn-primary';
+  button.title = 'تعديل المعاملة';
+  button.innerHTML = '<i class="fas fa-edit"></i>';
+  
+  button.addEventListener('click', (e) => {
+    e.stopPropagation(); // منع انتشار الحدث للعناصر الأبوية
+    showEditTransactionModal(transactionId);
+  });
+  
+  return button;
+}
+
+// تعديل دالة enhanceInvestorDetailsPage لإضافة أزرار التعديل
+function enhanceInvestorDetailsPage() {
+  // إذا لم يكن هناك معاملات، لا نحتاج لإضافة الأزرار
+  const transactionItems = document.querySelectorAll('#investor-transactions .list-item');
+  if (!transactionItems.length) return;
+  
+  // إضافة أزرار الحذف والتعديل لكل معاملة
+  transactionItems.forEach((item, index) => {
+    // استخراج معرف المعاملة
+    const transaction = transactions.filter(
+      t => t.investorId === selectedInvestor.id
+    ).sort((a, b) => new Date(b.date) - new Date(a.date))[index];
+    
+    if (transaction) {
+      // إنشاء أو استخدام حاوية الإجراءات الموجودة
+      let actionDiv = item.querySelector('.flex.items-center.gap-2.mt-2');
+      
+      if (!actionDiv) {
+        actionDiv = document.createElement('div');
+        actionDiv.className = 'flex items-center gap-2 mt-2';
+        item.appendChild(actionDiv);
+      }
+      
+      // التحقق من عدم وجود الأزرار مسبقاً
+      if (!actionDiv.querySelector('.btn-outline.btn-primary')) {
+        // إضافة زر التعديل
+        const editButton = createTransactionEditButton(transaction.id);
+        actionDiv.insertBefore(editButton, actionDiv.firstChild);
+      }
+      
+      if (!actionDiv.querySelector('.btn-outline.btn-danger')) {
+        // إضافة زر الحذف
+        const deleteButton = createTransactionDeleteButton(transaction.id);
+        actionDiv.appendChild(deleteButton);
+      }
+
+
   </script>
 <script src="withdrawal-initialization.js"></script>
 <script src="renderWithdrawalsPage.js"></script>
