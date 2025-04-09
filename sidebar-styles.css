@@ -1,0 +1,204 @@
+/* أنماط القائمة الجانبية للمستثمرين */
+.dashboard-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    width: 100%;
+  }
+  
+  .dashboard-main {
+    flex: 1;
+  }
+  
+  .dashboard-sidebar {
+    width: 300px;
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    height: calc(100% - 2rem);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  /* ترويسة القائمة الجانبية */
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  
+  .sidebar-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  /* حاوية قائمة المستثمرين */
+  .investors-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+  
+  /* تنسيق بطاقة المستثمر */
+  .investor-card {
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .investor-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  .investor-card.top-investor {
+    border-right: 4px solid var(--primary-color);
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  /* ترتيب المستثمر */
+  .investor-rank {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  
+  /* معلومات المستثمر */
+  .investor-info {
+    flex: 1;
+  }
+  
+  .investor-name {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .investor-amount {
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 0.25rem;
+  }
+  
+  .investor-profit {
+    font-size: 0.875rem;
+    color: var(--secondary-color);
+  }
+  
+  .investor-profit span {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+  }
+  
+  /* إجراءات المستثمر */
+  .investor-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  /* تذييل القائمة الجانبية */
+  .sidebar-footer {
+    padding: 1rem;
+    border-top: 1px solid var(--gray-200);
+  }
+  
+  .btn-full {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    background-color: transparent;
+    color: var(--primary-color);
+    font-weight: 500;
+    border: 1px solid var(--primary-color);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    gap: 0.5rem;
+  }
+  
+  .btn-full:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+  }
+  
+  /* رسالة عندما لا يوجد مستثمرين */
+  .no-investors {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  
+  .no-investors i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+  
+  .no-investors p {
+    color: var(--gray-500);
+    margin-bottom: 1rem;
+  }
+  
+  /* تعديلات للسمة الداكنة */
+  .dark-theme .dashboard-sidebar {
+    background-color: var(--gray-100);
+    border-color: var(--gray-300);
+  }
+  
+  .dark-theme .sidebar-header {
+    border-color: var(--gray-300);
+  }
+  
+  .dark-theme .investor-card {
+    background-color: var(--gray-100);
+    border-color: var(--gray-300);
+  }
+  
+  .dark-theme .investor-card:hover {
+    background-color: rgba(59, 130, 246, 0.15);
+  }
+  
+  .dark-theme .investor-card.top-investor {
+    background-color: rgba(59, 130, 246, 0.2);
+  }
+  
+  .dark-theme .sidebar-footer {
+    border-color: var(--gray-300);
+  }
+  
+  /* تعديلات للشاشات الصغيرة */
+  @media (max-width: 992px) {
+    .dashboard-container {
+      flex-direction: column;
+    }
+    
+    .dashboard-sidebar {
+      width: 100%;
+    }
+  }

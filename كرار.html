@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Google Fonts - Cairo -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap">
+  <!-- الملفات الجديدة -->
+  <link rel="stylesheet" href="modern-theme.css">
+  <!-- Remove duplicate: <link rel="stylesheet" href="modern-theme.css"> -->
   <style>
 /* General styles */
 * {
@@ -1979,367 +1982,6 @@ input[type="number"]::-webkit-inner-spin-button {
   transform: translate(-50%, -50%) scale(2.5);
   opacity: 1;
 }
-
-
-/* أنماط لعرض المبلغ كتابة */
-.amount-in-words {
-  font-size: 0.9rem;
-  color: #3b82f6;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background-color: rgba(59, 130, 246, 0.1);
-  border-radius: 0.375rem;
-  text-align: center;
-  direction: rtl;
-}
-
-/* أنماط تفاصيل الحساب */
-.calculation-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 0.75rem;
-}
-
-.calc-step {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem;
-  background-color: rgba(59, 130, 246, 0.05);
-  border-radius: 0.375rem;
-}
-
-.step-label {
-  font-weight: 600;
-  margin-left: 0.5rem;
-  color: #4b5563;
-}
-
-.step-value {
-  font-family: monospace;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #3b82f6;
-}
-
-.calc-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 0.75rem;
-  border-radius: 0.375rem;
-  border: 1px solid rgba(209, 213, 219, 0.5);
-}
-
-.calc-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.detail-label {
-  color: #4b5563;
-}
-
-.detail-value {
-  font-weight: 600;
-}
-
-.calc-result {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.75rem;
-  background-color: rgba(16, 185, 129, 0.1);
-  border-radius: 0.375rem;
-  border-right: 4px solid #10b981;
-}
-
-.result-label {
-  font-weight: 600;
-  color: #4b5563;
-  margin-bottom: 0.25rem;
-}
-
-.result-value {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #10b981;
-  margin-bottom: 0.25rem;
-}
-
-.result-text {
-  font-size: 0.875rem;
-  color: #6b7280;
-}
-
-/* أنماط جدول الاستثمارات */
-.investments-section {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(209, 213, 219, 0.5);
-}
-
-.section-title {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.investments-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.375rem;
-  overflow: hidden;
-}
-
-.table-header {
-  background-color: #f3f4f6;
-  color: #4b5563;
-  font-weight: 600;
-}
-
-.table-row:nth-child(odd) {
-  background-color: rgba(249, 250, 251, 0.8);
-}
-
-.table-row:hover {
-  background-color: rgba(59, 130, 246, 0.05);
-}
-
-/* تعديلات للوضع الداكن */
-.dark-theme .amount-in-words {
-  background-color: rgba(59, 130, 246, 0.2);
-  color: #93c5fd;
-}
-
-.dark-theme .calc-step {
-  background-color: rgba(59, 130, 246, 0.15);
-}
-
-.dark-theme .calc-details {
-  background-color: rgba(31, 41, 55, 0.5);
-  border-color: rgba(75, 85, 99, 0.5);
-}
-
-.dark-theme .calc-result {
-  background-color: rgba(16, 185, 129, 0.15);
-}
-
-.dark-theme .result-value {
-  color: #34d399;
-}
-
-.dark-theme .table-header {
-  background-color: #374151;
-  color: #f3f4f6;
-}
-
-.dark-theme .table-row:nth-child(odd) {
-  background-color: rgba(31, 41, 55, 0.5);
-}
-
-.dark-theme .table-row:hover {
-  background-color: rgba(59, 130, 246, 0.15);
-}
-
-/* أنماط للسحوبات */
-
-/* بطاقة السحب المجدول */
-.scheduled-withdrawal-card {
-  border-right: 4px solid var(--danger-color);
-  background-color: rgba(239, 68, 68, 0.1);
-}
-
-/* بطاقة السحب في صفحة المستثمر */
-.withdrawal-transaction {
-  border-right: 4px solid var(--danger-color);
-}
-
-/* تنسيق مبلغ السحب */
-.withdrawal-amount {
-  color: var(--danger-color);
-  font-weight: bold;
-}
-
-/* تنسيق حالة السحب */
-.withdrawal-status {
-  display: inline-block;
-  padding: 0.25rem 0.5rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.withdrawal-status-scheduled {
-  background-color: var(--accent-color);
-  color: var(--white);
-}
-
-.withdrawal-status-processed {
-  background-color: var(--secondary-color);
-  color: var(--white);
-}
-
-.withdrawal-status-failed {
-  background-color: var(--danger-color);
-  color: var(--white);
-}
-
-/* تنسيق تاريخ السحب المجدول */
-.scheduled-date {
-  font-weight: bold;
-}
-.scheduled-date.urgent {
-  color: var(--danger-color);
-}
-
-/* أنماط لنافذة السحب */
-#scheduled-date-container.show {
-  display: block;
-  animation: fadeIn 0.3s ease;
-}
-
-/* ايقونة السحب */
-.withdrawal-icon {
-  color: var(--danger-color);
-}
-
-/* قائمة السحوبات */
-.withdrawals-list .list-item:hover {
-  background-color: rgba(239, 68, 68, 0.05);
-}
-
-/* تقرير السحوبات */
-.withdrawals-report-table th {
-  position: sticky;
-  top: 0;
-  background-color: var(--primary-color);
-  color: var(--white);
-  z-index: 10;
-}
-
-/* تنسيق إضافي لصفحة السحوبات */
-.stats-card-warning .icon-bg {
-  background-color: var(--accent-color);
-  color: var(--white);
-}
-
-/* تنسيق صف السحب المجدول المستحق اليوم */
-.withdrawal-due-today {
-  background-color: rgba(239, 68, 68, 0.2);
-  font-weight: bold;
-}
-
-/* تنسيق رسائل المساعدة */
-.withdrawal-help-text {
-  font-size: 0.875rem;
-  color: var(--gray-500);
-  margin-top: 0.25rem;
-}
-
-/* أزرار إدارة السحوبات */
-.withdrawals-actions {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.withdraw-action-btn {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: all 0.2s;
-}
-
-.withdraw-action-btn:hover {
-  transform: scale(1.1);
-}
-
-/* شريط تقدم السحب */
-.withdrawal-progress {
-  height: 8px;
-  border-radius: 4px;
-  background-color: var(--gray-200);
-  overflow: hidden;
-  margin-top: 0.5rem;
-}
-
-.withdrawal-progress-bar {
-  height: 100%;
-  background-color: var(--primary-color);
-}
-
-.withdrawal-progress-bar.warning {
-  background-color: var(--accent-color);
-}
-
-.withdrawal-progress-bar.danger {
-  background-color: var(--danger-color);
-}
-
-/* تنسيق جدول السحوبات */
-.withdrawal-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.withdrawal-table th,
-.withdrawal-table td {
-  padding: 0.75rem;
-  text-align: right;
-  border: 1px solid var(--gray-200);
-}
-
-.withdrawal-table th {
-  background-color: var(--gray-100);
-  font-weight: bold;
-}
-
-.withdrawal-table tr:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.02);
-}
-
-.withdrawal-table tr:hover {
-  background-color: rgba(59, 130, 246, 0.05);
-}
-
-/* أنماط إضافية للوضع الداكن */
-.dark-theme .withdrawal-table th {
-  background-color: var(--gray-300);
-}
-
-.dark-theme .withdrawal-table td {
-  border-color: var(--gray-300);
-}
-
-.dark-theme .scheduled-withdrawal-card {
-  background-color: rgba(239, 68, 68, 0.2);
-}
-
-.dark-theme .withdrawal-due-today {
-  background-color: rgba(239, 68, 68, 0.3);
-}
-
-.dark-theme .withdrawal-progress {
-  background-color: var(--gray-300);
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .withdrawal-table {
-    font-size: 0.875rem;
-  }
-  
-  .withdrawal-table th,
-  .withdrawal-table td {
-    padding: 0.5rem;
-  }
-}
   </style>
 </head>
 <body>
@@ -3090,182 +2732,7 @@ input[type="number"]::-webkit-inner-spin-button {
     </div>
   </div>
 
-  <!-- نافذة السحب من الاستثمار -->
-<div id="withdrawal-modal" class="modal-overlay">
-  <div class="modal">
-    <div class="modal-header">
-      <h2 class="modal-title" id="withdrawal-modal-title">
-        سحب من الاستثمار
-      </h2>
-      <button class="modal-close" id="close-withdrawal-modal">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-    
-    <div class="modal-body">
-      <div class="form-group">
-        <label class="form-label">المستثمر*</label>
-        <select 
-          id="withdrawal-investor-id"
-          class="w-full"
-        >
-          <option value="">اختر المستثمر</option>
-          <!-- يتم إضافة الخيارات ديناميكيًا -->
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <label class="form-label">المبلغ (د.ع)*</label>
-        <input 
-          type="number" 
-          id="withdrawal-amount"
-          class="w-full"
-          placeholder="أدخل المبلغ"
-        />
-      </div>
-      
-      <!-- معلومات الرصيد المتاح ستظهر هنا -->
-      
-      <div class="form-group">
-        <label class="form-label">تاريخ السحب</label>
-        <input 
-          type="date" 
-          id="withdrawal-date"
-          class="w-full"
-        />
-      </div>
-      
-      <div class="form-group">
-        <div class="flex items-center gap-2 mb-2">
-          <input 
-            type="checkbox" 
-            id="withdrawal-scheduled"
-          />
-          <label class="form-label m-0">جدولة السحب لتاريخ لاحق</label>
-        </div>
-        <div id="scheduled-date-container" class="hidden">
-          <label class="form-label">تاريخ التنفيذ المجدول*</label>
-          <input 
-            type="date" 
-            id="scheduled-withdrawal-date"
-            class="w-full"
-          />
-          <p class="text-xs text-gray-500 mt-1">سيتم تنفيذ السحب تلقائيًا عند حلول هذا التاريخ</p>
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <label class="form-label">ملاحظات</label>
-        <textarea 
-          id="withdrawal-notes"
-          class="w-full"
-          placeholder="أي ملاحظات إضافية"
-          rows="2"
-        ></textarea>
-      </div>
-    </div>
-    
-    <div class="modal-footer">
-      <button 
-        class="btn btn-gray"
-        id="cancel-add-withdrawal"
-      >
-        إلغاء
-      </button>
-      <button 
-        class="btn btn-danger"
-        id="confirm-add-withdrawal"
-      >
-        تسجيل السحب
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- نافذة تعديل السحب المجدول -->
-<div id="edit-withdrawal-modal" class="modal-overlay">
-  <div class="modal">
-    <div class="modal-header">
-      <h2 class="modal-title">
-        تعديل سحب مجدول
-      </h2>
-      <button class="modal-close" id="close-edit-withdrawal-modal">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-    
-    <div class="modal-body">
-      <div class="card-blue-light p-3 rounded-lg mb-4">
-        <div class="flex justify-between mb-1">
-          <div>
-            <p class="font-medium">المستثمر</p>
-            <p id="edit-withdrawal-investor-name" class="font-bold">اسم المستثمر</p>
-          </div>
-          <div>
-            <p class="font-medium">الرصيد الحالي</p>
-            <p id="edit-withdrawal-balance" class="font-bold">0 د.ع</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <label class="form-label">المبلغ (د.ع)*</label>
-        <input 
-          type="number" 
-          id="edit-withdrawal-amount"
-          class="w-full"
-          placeholder="أدخل المبلغ"
-        />
-      </div>
-      
-      <div class="form-group">
-        <label class="form-label">تاريخ السحب</label>
-        <input 
-          type="date" 
-          id="edit-withdrawal-date"
-          class="w-full"
-          disabled
-        />
-      </div>
-      
-      <div class="form-group">
-        <label class="form-label">تاريخ التنفيذ المجدول*</label>
-        <input 
-          type="date" 
-          id="edit-withdrawal-scheduled-date"
-          class="w-full"
-        />
-      </div>
-      
-      <div class="form-group">
-        <label class="form-label">ملاحظات</label>
-        <textarea 
-          id="edit-withdrawal-notes"
-          class="w-full"
-          placeholder="أي ملاحظات إضافية"
-          rows="2"
-        ></textarea>
-      </div>
-      
-      <input type="hidden" id="edit-withdrawal-id" value="" />
-    </div>
-    
-    <div class="modal-footer">
-      <button 
-        class="btn btn-gray"
-        id="cancel-edit-withdrawal"
-      >
-        إلغاء
-      </button>
-      <button 
-        class="btn btn-primary"
-        id="confirm-edit-withdrawal"
-      >
-        حفظ التغييرات
-      </button>
-    </div>
-  </div>
-</div>
+  
 
   <script>
     
@@ -4212,10 +3679,7 @@ const updateClock = () => {
 // تحديث الساعة كل ثانية
 setInterval(updateClock, 1000);
 
-// تنفيذ التحديث فوراً
-document.addEventListener('DOMContentLoaded', () => {
-  updateClock();
-});
+// Note: The updateClock() call on DOMContentLoaded is removed to avoid duplicate handlers.
       // التحقق من وجود مستثمرين للعرض
       const topInvestors = [...investors]
         .sort((a, b) => b.amount - a.amount)
@@ -4586,8 +4050,8 @@ const renderInvestorsPage = () => {
   // إضافة مستمعات الأحداث للشريط الجانبي
   setupSidebarListeners();
 };
-    // تعديل دالة renderInvestorDetailsPage لعرض الأرباح النسبية
-// 3. تعديل دالة عرض صفحة تفاصيل المستثمر لإضافة زر سحب الأموال
+
+// تعديل دالة عرض تفاصيل المستثمر لإظهار الاستثمارات بشكل منفصل
 function renderInvestorDetailsPage() {
   if (!selectedInvestor) {
     navigateTo('investors');
@@ -4601,15 +4065,13 @@ function renderInvestorDetailsPage() {
     trans => trans.investorId === selectedInvestor.id
   ).sort((a, b) => new Date(b.date) - new Date(a.date));
   
-  // فصل معاملات الاستثمار عن الدفعات والسحوبات
+  // فصل معاملات الاستثمار عن الدفعات
   const investmentTransactions = investorTransactions.filter(t => t.type === 'investment');
   const payoutTransactions = investorTransactions.filter(t => t.type === 'payout');
-  const withdrawalTransactions = investorTransactions.filter(t => t.type === 'withdrawal');
   
-  // حساب إجمالي الاستثمارات والأرباح المدفوعة والسحوبات
+  // حساب إجمالي الاستثمارات والأرباح المدفوعة
   const totalInvestments = investmentTransactions.reduce((sum, t) => sum + t.amount, 0);
   const totalPayouts = payoutTransactions.reduce((sum, t) => sum + t.amount, 0);
-  const totalWithdrawals = withdrawalTransactions.reduce((sum, t) => sum + t.amount, 0);
   
   // حساب المدة بالأشهر من تاريخ البدء
   const startDate = new Date(selectedInvestor.startDate);
@@ -4793,7 +4255,7 @@ function renderInvestorDetailsPage() {
         <!-- إضافة قسم استعراض الاستثمارات المنفصلة -->
         ${separateInvestmentsHTML}
         
-        <div class="grid grid-cols-3 gap-3 mb-4">
+        <div class="grid grid-cols-2 gap-3 mb-4">
           <div class="stats-card stats-card-primary">
             <div class="icon-bg">
               <i class="fas fa-money-bill-wave"></i>
@@ -4815,17 +4277,6 @@ function renderInvestorDetailsPage() {
               ${payoutTransactions.length} عملية
             </p>
           </div>
-          
-          <div class="stats-card stats-card-danger">
-            <div class="icon-bg">
-              <i class="fas fa-money-bill-alt"></i>
-            </div>
-            <p class="text-sm text-gray-500">إجمالي السحوبات</p>
-            <p class="text-xl font-bold">${numberWithCommas(totalWithdrawals)} د.ع</p>
-            <p class="text-xs text-red-600 mt-1">
-              ${withdrawalTransactions.length} عملية
-            </p>
-          </div>
         </div>
         
         <div class="flex gap-2">
@@ -4842,13 +4293,6 @@ function renderInvestorDetailsPage() {
           >
             <i class="fas fa-plus ml-1"></i>
             إضافة استثمار
-          </button>
-          <button 
-            class="flex-1 btn btn-danger"
-            id="add-withdrawal-btn"
-          >
-            <i class="fas fa-money-bill-alt ml-1"></i>
-            سحب أموال
           </button>
         </div>
       </div>
@@ -4892,7 +4336,7 @@ function renderInvestorDetailsPage() {
             </div>
             <div class="text-right">
               <p class="font-bold ${getTransactionColorClass(transaction.type)}">
-                ${transaction.type === 'payout' || transaction.type === 'withdrawal' ? '-' : '+'}${numberWithCommas(transaction.amount)} د.ع
+                ${transaction.type === 'payout' ? '-' : '+'}${numberWithCommas(transaction.amount)} د.ع
               </p>
               <p class="text-xs">${getTransactionTypeName(transaction.type)}</p>
             </div>
@@ -4938,33 +4382,11 @@ function renderInvestorDetailsPage() {
     showAddTransactionModal('investment', selectedInvestor);
   });
   
-  // إضافة مستمع حدث لزر سحب الأموال
-  document.getElementById('add-withdrawal-btn').addEventListener('click', () => {
-    showAddTransactionModal('withdrawal', selectedInvestor);
-  });
-  
   // إضافة مستمع لزر عرض تفاصيل الأرباح
   document.getElementById('show-profit-details').addEventListener('click', () => {
     showProfitDetailsModal(selectedInvestor.id);
   });
 }
-
-// 4. تعديل دالة getTransactionIcon لإضافة أيقونة للسحب
-function getTransactionIcon(type) {
-  switch (type) {
-    case 'investment':
-      return 'fa-coins';
-    case 'payout':
-      return 'fa-hand-holding-usd';
-    case 'withdrawal':
-      return 'fa-money-bill-alt';
-    case 'admin':
-      return 'fa-file-invoice-dollar';
-    default:
-      return 'fa-exchange-alt';
-  }
-}
-
 // إضافة النافذة المنبثقة لتفاصيل الأرباح في HTML
 function addProfitDetailsModal() {
   // التحقق من عدم وجود النافذة مسبقاً
@@ -5010,7 +4432,7 @@ function addProfitDetailsModal() {
   });
 }
 
-// دالة عرض نافذة تفاصيل الأرباح
+// تحديث نافذة تفاصيل حساب الأرباح لتظهر الاستثمارات منفصلة
 function showProfitDetailsModal(investorId) {
   // التأكد من إنشاء النافذة
   addProfitDetailsModal();
@@ -5185,6 +4607,170 @@ function showProfitDetailsModal(investorId) {
   // عرض النافذة
   showModal('profit-details-modal');
 }
+
+// تعديل دالة حساب الأرباح النسبية لدعم استثمارات متعددة
+function calculateProportionalProfit(investorId, startDate, endDate) {
+  // إذا لم يتم تحديد التواريخ، نستخدم الشهر الحالي
+  if (!startDate || !endDate) {
+    const today = new Date();
+    startDate = new Date(today.getFullYear(), today.getMonth(), 1);
+    endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+  } else {
+    startDate = new Date(startDate);
+    endDate = new Date(endDate);
+  }
+  
+  // التأكد من أن التواريخ سليمة
+  if (isNaN(startDate) || isNaN(endDate)) {
+    return { error: 'تواريخ غير صالحة' };
+  }
+  
+  // البحث عن المستثمر
+  const investor = investors.find(inv => inv.id === investorId);
+  if (!investor) {
+    return { error: 'لم يتم العثور على المستثمر' };
+  }
+  
+  // الحصول على جميع معاملات المستثمر
+  const investorTransactions = transactions
+    .filter(trans => trans.investorId === investorId)
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
+  
+  // الحصول على جميع معاملات الاستثمار
+  const investmentTransactions = investorTransactions.filter(
+    trans => trans.type === 'investment'
+  );
+  
+  // جميع معاملات السحب
+  const payoutTransactions = investorTransactions.filter(
+    trans => trans.type === 'payout'
+  );
+  
+  // حساب عدد الأيام في الفترة المحددة
+  const daysDifference = Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
+  
+  // تحويل النسبة السنوية إلى نسبة يومية
+  const dailyRate = profitRate / 30 / 100; // افتراض أن الشهر 30 يوم
+  
+  // إنشاء جدول للرصيد اليومي
+  const dailyBalances = {};
+  const dailyProfits = {};
+  
+  // تهيئة الأرصدة اليومية والأرباح لكل يوم في الفترة
+  for (let day = 0; day < daysDifference; day++) {
+    const currentDate = new Date(startDate);
+    currentDate.setDate(startDate.getDate() + day);
+    const dateKey = currentDate.toISOString().split('T')[0];
+    dailyBalances[dateKey] = 0; // إجمالي الرصيد اليومي
+    dailyProfits[dateKey] = 0;  // إجمالي الربح اليومي
+  }
+  
+  // لكل استثمار، نحسب الرصيد اليومي والربح بشكل منفصل
+  for (const investment of investmentTransactions) {
+    const investmentDate = new Date(investment.date);
+    
+    // نتخطى الاستثمارات بعد فترة الحساب
+    if (investmentDate > endDate) {
+      continue;
+    }
+    
+    // مبلغ الاستثمار المبدئي
+    let currentBalance = investment.amount;
+    
+    // تطبيق عمليات السحب على هذا الاستثمار بنسبة من المبلغ الإجمالي
+    // ملاحظة: هذا نهج مبسط ويمكن تحسينه
+    for (const payout of payoutTransactions) {
+      const payoutDate = new Date(payout.date);
+      
+      // السحب يجب أن يكون بعد الاستثمار وقبل نهاية الفترة
+      if (payoutDate > investmentDate && payoutDate <= endDate) {
+        const totalInvestmentAtPayout = investmentTransactions
+          .filter(inv => new Date(inv.date) <= payoutDate)
+          .reduce((sum, inv) => sum + inv.amount, 0);
+        
+        if (totalInvestmentAtPayout > 0) {
+          // نسبة هذا الاستثمار من إجمالي الاستثمارات عند تاريخ السحب
+          const ratio = investment.amount / totalInvestmentAtPayout;
+          // المبلغ المسحوب من هذا الاستثمار
+          const payoutAmount = payout.amount * ratio;
+          // تحديث الرصيد
+          currentBalance -= payoutAmount;
+          if (currentBalance < 0) currentBalance = 0;
+        }
+      }
+    }
+    
+    // الآن نحسب الربح اليومي لهذا الاستثمار خلال الفترة
+    for (let day = 0; day < daysDifference; day++) {
+      const currentDate = new Date(startDate);
+      currentDate.setDate(startDate.getDate() + day);
+      
+      // نتخطى الأيام قبل تاريخ الاستثمار
+      if (currentDate < investmentDate) {
+        continue;
+      }
+      
+      const dateKey = currentDate.toISOString().split('T')[0];
+      
+      // إضافة الرصيد اليومي لهذا الاستثمار
+      dailyBalances[dateKey] += currentBalance;
+      
+      // حساب الربح اليومي لهذا الاستثمار
+      const dailyProfit = (currentBalance / 1000000) * dailyRate * 1000;
+      dailyProfits[dateKey] += dailyProfit;
+    }
+  }
+  
+  // حساب إجمالي الربح للفترة
+  let totalProfit = 0;
+  for (const dateKey in dailyProfits) {
+    totalProfit += dailyProfits[dateKey];
+  }
+  
+  // حساب متوسط الاستثمار اليومي
+  const totalDailyBalances = Object.values(dailyBalances).reduce((sum, balance) => sum + balance, 0);
+  const averageDailyInvestment = totalDailyBalances / daysDifference;
+  
+  // حساب الربح التقديري لنهاية الشهر (إذا كانت الفترة هي الشهر الحالي)
+  const currentDate = new Date();
+  const isCurrentMonth = 
+    startDate.getMonth() === currentDate.getMonth() && 
+    startDate.getFullYear() === currentDate.getFullYear();
+  
+  let projectedMonthlyProfit = 0;
+  if (isCurrentMonth) {
+    // تقدير الربح حتى نهاية الشهر
+    const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+    const daysElapsed = Math.min(currentDate.getDate(), daysInMonth);
+    const daysRemaining = daysInMonth - daysElapsed;
+    
+    // متوسط الربح اليومي حتى الآن
+    const avgDailyProfit = totalProfit / daysElapsed;
+    
+    // تقدير الربح المتبقي
+    const remainingProfit = avgDailyProfit * daysRemaining;
+    
+    projectedMonthlyProfit = totalProfit + remainingProfit;
+  }
+  
+  return {
+    dailyBalances,
+    dailyProfits,
+    totalProfit: Math.round(totalProfit),
+    averageDailyInvestment,
+    projectedMonthlyProfit: Math.round(projectedMonthlyProfit),
+    profitDetails: {
+      startDate: startDate.toISOString().split('T')[0],
+      endDate: endDate.toISOString().split('T')[0],
+      daysDifference,
+      dailyRate: dailyRate * 100,
+      monthlyRate: profitRate
+    }
+  };
+}
+
+
+    
     // تحويل الأرقام إلى تنسيق مقروء مع فواصل
     function numberWithCommas(x) {
       return Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -5205,22 +4791,23 @@ function showProfitDetailsModal(investorId) {
       return transactions.filter(t => t.type === 'admin').length;
     }
     
-    // الحصول على أيقونة المعاملة حسب النوع
-    function getTransactionIcon(type) {
-      switch (type) {
-        case 'investment':
-          return 'fa-coins';
-        case 'payout':
-          return 'fa-hand-holding-usd';
-        case 'admin':
-          return 'fa-file-invoice-dollar';
-        default:
-          return 'fa-exchange-alt';
-      }
-    }
-    
-    // الحصول على فئة اللون للمعاملة
-    // 5. تعديل دالة getTransactionColorClass لإضافة لون للسحب
+   // تحديث الأيقونات لتشمل السحب
+function getTransactionIcon(type) {
+  switch (type) {
+    case 'investment':
+      return 'fa-coins';
+    case 'payout':
+      return 'fa-hand-holding-usd';
+    case 'withdrawal':
+      return 'fa-money-bill-wave-alt';
+    case 'admin':
+      return 'fa-file-invoice-dollar';
+    default:
+      return 'fa-exchange-alt';
+  }
+}
+
+
 function getTransactionColorClass(type) {
   switch (type) {
     case 'investment':
@@ -5228,29 +4815,167 @@ function getTransactionColorClass(type) {
     case 'payout':
       return 'text-red-600';
     case 'withdrawal':
-      return 'text-red-600';
+      return 'text-yellow-600';
     case 'admin':
       return 'text-red-600';
     default:
       return 'text-gray-500';
   }
 }
+
     
-    // الحصول على فئة الشارة للمعاملة
-    function getTransactionBadgeClass(type) {
+    // الحصول على فئة اللون للمعاملة
+    function getTransactionColorClass(type) {
       switch (type) {
         case 'investment':
-          return 'badge-primary';
+          return 'text-blue-600';
         case 'payout':
-          return 'badge-red';
+          return 'text-red-600';
         case 'admin':
-          return 'badge-red';
+          return 'text-red-600';
         default:
-          return 'badge-gray';
+          return 'text-gray-500';
       }
     }
     
-   // 6. تعديل دالة getTransactionTypeName لإضافة اسم للسحب
+    // الحصول على فئة الشارة للمعاملة
+    // تحديث فئات الشارات لتشمل السحب
+function getTransactionBadgeClass(type) {
+  switch (type) {
+    case 'investment':
+      return 'badge-primary';
+    case 'payout':
+      return 'badge-red';
+    case 'withdrawal':
+      return 'badge-yellow';
+    case 'admin':
+      return 'badge-red';
+    default:
+      return 'badge-gray';
+  }
+}
+
+
+function showWithdrawalModal(investor = null) {
+  // تعيين عنوان النموذج
+  document.getElementById('transaction-modal-title').textContent = 'سحب أموال من الاستثمار';
+  
+  // تعيين نوع المعاملة (إضافة خيار جديد في النموذج الحالي)
+  const transactionTypeSelect = document.getElementById('transaction-type');
+  
+  // إضافة خيار سحب إذا لم يكن موجوداً
+  if (!Array.from(transactionTypeSelect.options).some(option => option.value === 'withdrawal')) {
+    const withdrawalOption = document.createElement('option');
+    withdrawalOption.value = 'withdrawal';
+    withdrawalOption.textContent = 'سحب أموال';
+    transactionTypeSelect.appendChild(withdrawalOption);
+  }
+  
+  // تعيين نوع المعاملة إلى سحب
+  transactionTypeSelect.value = 'withdrawal';
+  
+  // تعبئة قائمة المستثمرين
+  const investorSelect = document.getElementById('transaction-investor-id');
+  
+  // مسح القائمة الحالية
+  while (investorSelect.firstChild) {
+    investorSelect.removeChild(investorSelect.firstChild);
+  }
+  
+  // إضافة خيار افتراضي
+  const defaultOption = document.createElement('option');
+  defaultOption.value = '';
+  defaultOption.textContent = 'اختر المستثمر';
+  investorSelect.appendChild(defaultOption);
+  
+  // إضافة المستثمرين
+  for (const inv of investors) {
+    const option = document.createElement('option');
+    option.value = inv.id;
+    option.textContent = inv.name;
+    investorSelect.appendChild(option);
+  }
+  
+  // إذا كان هناك مستثمر محدد
+  if (investor) {
+    investorSelect.value = investor.id;
+    investorSelect.disabled = true;
+    document.getElementById('transaction-amount').value = '';
+  } else {
+    investorSelect.disabled = false;
+    document.getElementById('transaction-amount').value = '';
+  }
+  
+  // تعيين التاريخ الافتراضي لليوم
+  document.getElementById('transaction-date').value = getCurrentDate();
+  document.getElementById('transaction-notes').value = '';
+  
+  // إضافة توضيح للمستخدم
+  // تأكد من وجود العنصر أولاً، وإذا لم يكن موجوداً فأنشئه
+  if (!document.getElementById('withdrawal-info')) {
+    const infoElement = document.createElement('div');
+    infoElement.id = 'withdrawal-info';
+    infoElement.className = 'alert alert-warning mt-3';
+    
+    const amountField = document.getElementById('transaction-amount').parentNode;
+    amountField.parentNode.insertBefore(infoElement, amountField.nextSibling);
+  }
+  
+  // تحديث محتوى المعلومات
+  document.getElementById('withdrawal-info').innerHTML = `
+    <i class="fas fa-info-circle"></i>
+    <div>
+      <p class="font-bold">معلومات عن عملية السحب:</p>
+      <p>يتم سحب المبلغ من رصيد الاستثمار الأساسي.</p>
+      <p class="text-sm text-yellow-600">ملاحظة: سيؤثر هذا على حساب الأرباح المستقبلية.</p>
+    </div>
+  `;
+  
+  // إذا كان هناك مستثمر محدد، نعرض الرصيد المتاح
+  if (investor) {
+    const currentBalanceInfo = document.createElement('div');
+    currentBalanceInfo.className = 'mt-2';
+    currentBalanceInfo.innerHTML = `
+      <p class="text-sm">الرصيد الحالي المتاح للسحب: <span class="font-bold">${numberWithCommas(investor.amount)} د.ع</span></p>
+    `;
+    document.getElementById('withdrawal-info').appendChild(currentBalanceInfo);
+  }
+  
+  // تحديث وظيفة مستمع حدث تغيير المستثمر
+  investorSelect.onchange = function() {
+    if (this.value) {
+      const selectedInvestor = investors.find(inv => inv.id === this.value);
+      if (selectedInvestor) {
+        // تحديث معلومات الرصيد المتاح
+        const infoElement = document.getElementById('withdrawal-info');
+        const balanceInfoElement = infoElement.querySelector('.mt-2');
+        
+        if (balanceInfoElement) {
+          balanceInfoElement.innerHTML = `
+            <p class="text-sm">الرصيد الحالي المتاح للسحب: <span class="font-bold">${numberWithCommas(selectedInvestor.amount)} د.ع</span></p>
+          `;
+        } else {
+          const newBalanceInfo = document.createElement('div');
+          newBalanceInfo.className = 'mt-2';
+          newBalanceInfo.innerHTML = `
+            <p class="text-sm">الرصيد الحالي المتاح للسحب: <span class="font-bold">${numberWithCommas(selectedInvestor.amount)} د.ع</span></p>
+          `;
+          infoElement.appendChild(newBalanceInfo);
+        }
+      }
+    }
+  };
+  
+  // إظهار النموذج
+  showModal('add-transaction-modal');
+  
+  // إعادة تعيين مستمعي الأحداث للأزرار
+  document.getElementById('cancel-add-transaction').onclick = () => hideModal('add-transaction-modal');
+  document.getElementById('close-transaction-modal').onclick = () => hideModal('add-transaction-modal');
+  document.getElementById('confirm-add-transaction').onclick = addTransaction;
+}
+    
+// 1. إضافة نوع معاملة جديد لعمليات السحب
 function getTransactionTypeName(type) {
   switch (type) {
     case 'investment':
@@ -5258,7 +4983,7 @@ function getTransactionTypeName(type) {
     case 'payout':
       return 'ربح';
     case 'withdrawal':
-      return 'سحب من الاستثمار';
+      return 'سحب أموال';
     case 'admin':
       return 'مصروف إداري';
     default:
@@ -5275,63 +5000,6 @@ function getTransactionTypeName(type) {
         day: 'numeric'
       });
     }
-    
-    // 7. تعديل نموذج المعاملات لإضافة خيار السحب في قائمة نوع المعاملة
-function updateTransactionForm() {
-  const transactionTypeSelect = document.getElementById('transaction-type');
-  
-  // إذا كان العنصر موجوداً
-  if (transactionTypeSelect) {
-    // التحقق من وجود خيار السحب
-    let hasWithdrawalOption = false;
-    for (let i = 0; i < transactionTypeSelect.options.length; i++) {
-      if (transactionTypeSelect.options[i].value === 'withdrawal') {
-        hasWithdrawalOption = true;
-        break;
-      }
-    }
-    
-    // إضافة خيار السحب إذا لم يكن موجوداً
-    if (!hasWithdrawalOption) {
-      const withdrawalOption = document.createElement('option');
-      withdrawalOption.value = 'withdrawal';
-      withdrawalOption.textContent = 'سحب من الاستثمار';
-      
-      // إضافة الخيار بعد خيار الدفع والاستثمار
-      const investmentOption = Array.from(transactionTypeSelect.options).find(opt => opt.value === 'investment');
-      if (investmentOption) {
-        transactionTypeSelect.insertBefore(withdrawalOption, investmentOption.nextSibling);
-      } else {
-        transactionTypeSelect.appendChild(withdrawalOption);
-      }
-    }
-  }
-}
-
-// 8. تعديل دالة تهيئة التطبيق لإضافة خيار السحب عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', function() {
-  // البحث عن نموذج المعاملات وإضافة خيار السحب
-  setTimeout(function() {
-    // تحديث نموذج المعاملات عند تحميل الصفحة
-    updateTransactionForm();
-    
-    // الانتظار للتأكد من تحميل نموذج المعاملات
-    const observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-          // البحث عن نموذج المعاملات في العناصر المضافة
-          const transactionForm = document.getElementById('transaction-type');
-          if (transactionForm) {
-            updateTransactionForm();
-          }
-        }
-      });
-    });
-    
-    // بدء مراقبة التغييرات في DOM
-    observer.observe(document.body, { childList: true, subtree: true });
-  }, 1000);
-});
     
     // الحصول على اسم الشهر الحالي
     function getCurrentMonthName() {
@@ -5586,8 +5254,13 @@ document.addEventListener('DOMContentLoaded', function() {
       showNotification(`تم تحديث بيانات المستثمر ${name} بنجاح`, 'success');
     }
     
- // تعديل دالة إضافة معاملة جديدة لدعم استثمارات متعددة لنفس المستثمر
-// 2. تعديل دالة إضافة معاملة جديدة للتعامل مع عمليات السحب
+    // وظيفة لإضافة معاملة جديدة
+    // تعديل وظيفة addTransaction لتحديث مبلغ المستثمر عند إضافة استثمار جديد
+    // تعديل دالة إضافة معاملة لتراعي الأرباح النسبية
+// تعديل دالة إضافة معاملة جديدة لدعم استثمارات متعددة لنفس المستثمر
+
+// 3. تعديل دالة إضافة معاملة لتشمل عمليات السحب
+// تعديل دالة إضافة معاملة جديدة
 function addTransaction() {
   const investorIdInput = document.getElementById('transaction-investor-id');
   const typeInput = document.getElementById('transaction-type');
@@ -5685,9 +5358,6 @@ function addTransaction() {
         selectedInvestor = investor;
       }
       
-      // تحديث ملخص الاستثمارات
-      dailySummary.totalInvestments -= amount;
-      
       showNotification(`تم تسجيل سحب أموال بمبلغ ${numberWithCommas(amount)} د.ع بنجاح`, 'success');
     } else {
       showNotification('مبلغ السحب أكبر من الرصيد المتاح!', 'error');
@@ -5713,6 +5383,858 @@ function addTransaction() {
     renderHomePage();
   }
 }
+
+function initEventListeners() {
+  console.log('جاري ربط مستمعات الأحداث...');
+  
+  // ربط مستمعات صفحة المعاملات
+  if (currentPage === 'transactions') {
+    const addPayoutBtn = document.getElementById('add-payout-all-btn');
+    if (addPayoutBtn) {
+      addPayoutBtn.addEventListener('click', function() {
+        console.log('تم النقر على زر تسجيل دفع');
+        showAddTransactionModal('payout');
+      });
+    }
+    
+    const addInvestmentBtn = document.getElementById('add-investment-all-btn');
+    if (addInvestmentBtn) {
+      addInvestmentBtn.addEventListener('click', function() {
+        console.log('تم النقر على زر تسجيل استثمار');
+        showAddTransactionModal('investment');
+      });
+    }
+    
+    const addWithdrawalBtn = document.getElementById('add-withdrawal-all-btn');
+    if (addWithdrawalBtn) {
+      addWithdrawalBtn.addEventListener('click', function() {
+        console.log('تم النقر على زر سحب أموال');
+        showWithdrawalModal();
+      });
+    }
+  }
+  
+  // ربط مستمعات صفحة الإعدادات
+  if (currentPage === 'settings') {
+    const saveProfitRateBtn = document.getElementById('save-profit-rate');
+    if (saveProfitRateBtn) {
+      saveProfitRateBtn.addEventListener('click', function() {
+        const newRate = parseFloat(document.getElementById('profit-rate-input').value);
+        if (!isNaN(newRate) && newRate > 0) {
+          profitRate = newRate;
+          saveData();
+          showNotification('تم تحديث نسبة الربح بنجاح', 'success');
+        } else {
+          showNotification('الرجاء إدخال نسبة صحيحة', 'error');
+        }
+      });
+    }
+    
+    const changePasswordBtn = document.getElementById('change-password-btn');
+    if (changePasswordBtn) {
+      changePasswordBtn.addEventListener('click', function() {
+        showChangePasswordModal();
+      });
+    }
+    
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', function() {
+        logoutUser();
+      });
+    }
+    
+    const exportDataBtn = document.getElementById('export-data-btn');
+    if (exportDataBtn) {
+      exportDataBtn.addEventListener('click', function() {
+        exportData();
+      });
+    }
+    
+    const importDataBtn = document.getElementById('import-data-btn');
+    if (importDataBtn) {
+      importDataBtn.addEventListener('click', function() {
+        document.getElementById('import-data-file').click();
+      });
+    }
+    
+    const importDataFile = document.getElementById('import-data-file');
+    if (importDataFile) {
+      importDataFile.addEventListener('change', function(e) {
+        importData(e.target.files[0]);
+      });
+    }
+    
+    const clearDataBtn = document.getElementById('clear-data-btn');
+    if (clearDataBtn) {
+      clearDataBtn.addEventListener('click', function() {
+        if (confirm('هل أنت متأكد من إعادة تعيين جميع البيانات؟ سيتم حذف جميع المستثمرين والمعاملات.')) {
+          resetData();
+        }
+      });
+    }
+    
+    const manageUsersBtn = document.getElementById('manage-users-btn');
+    if (manageUsersBtn) {
+      manageUsersBtn.addEventListener('click', function() {
+        showUserManagement();
+      });
+    }
+  }
+  
+  // ربط مستمعات النوافذ المنبثقة
+  const confirmAddTransactionBtn = document.getElementById('confirm-add-transaction');
+  if (confirmAddTransactionBtn) {
+    confirmAddTransactionBtn.addEventListener('click', function() {
+      console.log('تم النقر على زر تأكيد إضافة معاملة');
+      addTransaction();
+    });
+  }
+  
+  const closeTransactionModalBtn = document.getElementById('close-transaction-modal');
+  if (closeTransactionModalBtn) {
+    closeTransactionModalBtn.addEventListener('click', function() {
+      hideModal('add-transaction-modal');
+    });
+  }
+  
+  const cancelAddTransactionBtn = document.getElementById('cancel-add-transaction');
+  if (cancelAddTransactionBtn) {
+    cancelAddTransactionBtn.addEventListener('click', function() {
+      hideModal('add-transaction-modal');
+    });
+  }
+  
+  console.log('تم ربط مستمعات الأحداث بنجاح');
+}
+
+// 4. تعديل نافذة تفاصيل المستثمر لإضافة زر سحب الأموال
+function updateInvestorDetailsUI() {
+  // يجب إدخال هذا الكود في دالة renderInvestorDetailsPage
+  // في الجزء الخاص بأزرار الإجراءات
+  
+  // تعديل زر الإجراءات ليشمل ثلاثة أزرار:
+  // 1. زر دفع ربح
+  // 2. زر سحب أموال (جديد)
+  // 3. زر إضافة استثمار
+  
+  // HTML للأزرار:
+  const actionsButtons = `
+    <div class="flex gap-2">
+    
+      
+    
+      
+      <button 
+        class="flex-1 btn btn-primary"
+        id="add-investment-btn"
+      >
+        <i class="fas fa-plus ml-1"></i>
+        إضافة استثمار
+      </button>
+    </div>
+  `;
+  
+  // يجب استبدال هذا بـ div.flex.gap-2 الذي يحتوي على الأزرار السابقة
+  
+  // ثم إضافة مستمع الحدث للزر الجديد:
+  document.getElementById('add-withdrawal-btn').addEventListener('click', () => {
+    showWithdrawalModal(selectedInvestor);
+  });
+}
+
+
+// 5. تحديث واجهة صفحة المعاملات لإضافة زر سحب الأموال
+function updateTransactionsPageUI() {
+  // يجب إدخال هذا الكود في دالة renderTransactionsPage
+  // في الجزء الخاص بأزرار الإجراءات
+  
+  // تعديل أزرار الإجراءات ليشمل ثلاثة أزرار:
+  const actionsButtons = `
+    <div class="flex justify-between gap-2 mb-4">
+      
+      
+      <button 
+        class="flex-1 btn btn-warning"
+        id="add-withdrawal-all-btn"
+      >
+        <i class="fas fa-money-bill-wave-alt ml-1"></i>
+        سحب أموال
+      </button>
+      
+      
+    </div>
+  `;
+  
+  // يجب استبدال هذا بـ div.flex.justify-between.gap-2.mb-4 الذي يحتوي على الأزرار السابقة
+  
+  // ثم إضافة مستمع الحدث للزر الجديد:
+  document.getElementById('add-withdrawal-all-btn').addEventListener('click', () => {
+    showWithdrawalModal();
+  });
+}
+
+
+function updateTransactionModalForWithdrawal() {
+  // إضافة خيار سحب في قائمة نوع المعاملة
+  const transactionTypeSelect = document.getElementById('transaction-type');
+  
+  // التحقق من عدم وجود الخيار مسبقاً
+  if (!Array.from(transactionTypeSelect.options).some(option => option.value === 'withdrawal')) {
+    const withdrawalOption = document.createElement('option');
+    withdrawalOption.value = 'withdrawal';
+    withdrawalOption.textContent = 'سحب أموال';
+    transactionTypeSelect.appendChild(withdrawalOption);
+  }
+  
+  // إضافة مستمع حدث لتغيير نوع المعاملة
+  transactionTypeSelect.addEventListener('change', function() {
+    const selectedType = this.value;
+    const infoElement = document.getElementById('withdrawal-info');
+    
+    // إذا كان العنصر موجوداً، نقوم بإزالته أولاً
+    if (infoElement) {
+      infoElement.remove();
+    }
+    
+    // إذا كان النوع هو سحب، نعرض معلومات السحب
+    if (selectedType === 'withdrawal') {
+      const newInfoElement = document.createElement('div');
+      newInfoElement.id = 'withdrawal-info';
+      newInfoElement.className = 'alert alert-warning mt-3';
+      
+      newInfoElement.innerHTML = `
+        <i class="fas fa-info-circle"></i>
+        <div>
+          <p class="font-bold">معلومات عن عملية السحب:</p>
+          <p>يتم سحب المبلغ من رصيد الاستثمار الأساسي.</p>
+          <p class="text-sm text-yellow-600">ملاحظة: سيؤثر هذا على حساب الأرباح المستقبلية.</p>
+        </div>
+      `;
+      
+      const amountField = document.getElementById('transaction-amount').parentNode;
+      amountField.parentNode.insertBefore(newInfoElement, amountField.nextSibling);
+      
+      // إذا كان هناك مستثمر محدد، نعرض الرصيد المتاح
+      const investorId = document.getElementById('transaction-investor-id').value;
+      if (investorId) {
+        const selectedInvestor = investors.find(inv => inv.id === investorId);
+        if (selectedInvestor) {
+          const balanceInfo = document.createElement('div');
+          balanceInfo.className = 'mt-2';
+          balanceInfo.innerHTML = `
+            <p class="text-sm">الرصيد الحالي المتاح للسحب: <span class="font-bold">${numberWithCommas(selectedInvestor.amount)} د.ع</span></p>
+          `;
+          newInfoElement.appendChild(balanceInfo);
+        }
+      }
+    }
+  });
+}
+
+// تعديل عرض صفحة تفاصيل المستثمر لإضافة زر سحب الأموال
+function renderInvestorDetailsPageWithWithdrawal() {
+  if (!selectedInvestor) {
+    navigateTo('investors');
+    return;
+  }
+  
+  const mainContent = document.getElementById('main-content');
+  
+  // الحصول على معاملات المستثمر
+  const investorTransactions = transactions.filter(
+    trans => trans.investorId === selectedInvestor.id
+  ).sort((a, b) => new Date(b.date) - new Date(a.date));
+  
+  // فصل معاملات الاستثمار عن الدفعات وعمليات السحب
+  const investmentTransactions = investorTransactions.filter(t => t.type === 'investment');
+  const payoutTransactions = investorTransactions.filter(t => t.type === 'payout');
+  const withdrawalTransactions = investorTransactions.filter(t => t.type === 'withdrawal');
+  
+  // حساب إجمالي الاستثمارات والأرباح المدفوعة والمبالغ المسحوبة
+  const totalInvestments = investmentTransactions.reduce((sum, t) => sum + t.amount, 0);
+  const totalPayouts = payoutTransactions.reduce((sum, t) => sum + t.amount, 0);
+  const totalWithdrawals = withdrawalTransactions.reduce((sum, t) => sum + t.amount, 0);
+  
+  // حساب المدة بالأشهر من تاريخ البدء
+  const startDate = new Date(selectedInvestor.startDate);
+  const currentDate = new Date();
+  const months = (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
+    (currentDate.getMonth() - startDate.getMonth());
+  
+  // حساب الأرباح النسبية للشهر الحالي
+  const today = new Date();
+  const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+  const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+  
+  const profitData = calculateProportionalProfit(
+    selectedInvestor.id, 
+    firstDayOfMonth.toISOString().split('T')[0], 
+    Math.min(today.getDate(), lastDayOfMonth.getDate()) === today.getDate() 
+      ? today.toISOString().split('T')[0]
+      : lastDayOfMonth.toISOString().split('T')[0]
+  );
+  
+  // بناء HTML لصفحة تفاصيل المستثمر
+  // معظم المحتوى يبقى كما هو، لكن نقوم بتحديث أزرار الإجراءات والإحصائيات
+  
+  // الجزء المهم: تحديث أزرار الإجراءات لتشمل زر سحب الأموال
+  const actionsButtonsHTML = `
+    <div class="flex gap-2">
+      
+      
+      <button 
+        class="flex-1 btn btn-warning"
+        id="add-withdrawal-btn"
+      >
+        <i class="fas fa-money-bill-wave-alt ml-1"></i>
+        سحب أموال
+      </button>
+      
+      
+    </div>
+  `;
+  
+  // يتم استبدال هذا بـ div.flex.gap-2 في دالة renderInvestorDetailsPage الحالية
+  
+  // إضافة قسم إحصائيات السحب
+  const withdrawalsStatsHTML = `
+    <div class="stats-card stats-card-accent">
+      <div class="icon-bg">
+        <i class="fas fa-money-bill-wave-alt"></i>
+      </div>
+      <p class="text-sm text-gray-500">إجمالي المبالغ المسحوبة</p>
+      <p class="text-xl font-bold">${numberWithCommas(totalWithdrawals)} د.ع</p>
+      <p class="text-xs text-yellow-600 mt-1">
+        ${withdrawalTransactions.length} عملية سحب
+      </p>
+    </div>
+  `;
+  
+  // إضافة مستمع الحدث للزر الجديد:
+  setTimeout(() => {
+    document.getElementById('add-withdrawal-btn')?.addEventListener('click', () => {
+      showWithdrawalModal(selectedInvestor);
+    });
+  }, 100);
+  
+  return { actionsButtonsHTML, withdrawalsStatsHTML };
+}
+
+// تعديل عرض صفحة المعاملات لإضافة زر سحب الأموال
+function renderTransactionsPageWithWithdrawal() {
+  // الأزرار الجديدة لصفحة المعاملات
+  const actionsButtonsHTML = `
+    <div class="flex justify-between gap-2 mb-4">
+      <button 
+        class="flex-1 btn btn-secondary"
+        id="add-payout-all-btn"
+      >
+        <i class="fas fa-dollar-sign ml-1"></i>
+        تسجيل دفع
+      </button>
+      
+      <button 
+        class="flex-1 btn btn-warning"
+        id="add-withdrawal-all-btn"
+      >
+        <i class="fas fa-money-bill-wave-alt ml-1"></i>
+        سحب أموال
+      </button>
+      
+      <button 
+        class="flex-1 btn btn-primary"
+        id="add-investment-all-btn"
+      >
+        <i class="fas fa-plus ml-1"></i>
+        تسجيل استثمار
+      </button>
+    </div>
+  `;
+  
+  // يتم استبدال هذا بـ div.flex.justify-between.gap-2.mb-4 في دالة renderTransactionsPage الحالية
+  
+  // إضافة مستمع الحدث للزر الجديد:
+  setTimeout(() => {
+    document.getElementById('add-withdrawal-all-btn')?.addEventListener('click', () => {
+      showWithdrawalModal();
+    });
+  }, 100);
+  
+  return actionsButtonsHTML;
+}
+
+
+
+// وظيفة رئيسية لتطبيق جميع التعديلات
+function applyAllWithdrawalFeatures() {
+  console.log("تطبيق جميع ميزات سحب الأموال...");
+  
+  // 1. تعديل الدوال الأصلية للتطبيق
+
+  // تعديل دالة renderInvestorDetailsPage
+  const originalRenderInvestorDetailsPage = window.renderInvestorDetailsPage;
+  window.renderInvestorDetailsPage = function() {
+    // استدعاء الدالة الأصلية
+    originalRenderInvestorDetailsPage.apply(this, arguments);
+    
+    // استبدال أزرار الإجراءات بالأزرار الجديدة
+    const { actionsButtonsHTML, withdrawalsStatsHTML } = renderInvestorDetailsPageWithWithdrawal();
+    
+    // استبدال أزرار الإجراءات
+    const actionsContainer = document.querySelector('.card .flex.gap-2');
+    if (actionsContainer) {
+      actionsContainer.outerHTML = actionsButtonsHTML;
+    }
+    
+    // إضافة إحصائيات السحب
+    const statsContainer = document.querySelector('.grid.grid-cols-2.gap-3.mb-4:nth-of-type(2)');
+    if (statsContainer && !document.querySelector('.icon-bg .fa-money-bill-wave-alt')) {
+      // تغيير تقسيم الشبكة إلى 3 أعمدة
+      statsContainer.className = statsContainer.className.replace('grid-cols-2', 'grid-cols-3');
+      
+      // إضافة إحصائيات السحب
+      statsContainer.insertAdjacentHTML('beforeend', withdrawalsStatsHTML);
+    }
+    
+    // إضافة مستمع الحدث للزر الجديد
+    document.getElementById('add-withdrawal-btn')?.addEventListener('click', () => {
+      showWithdrawalModal(selectedInvestor);
+    });
+  };
+  
+  // تعديل دالة renderTransactionsPage
+  const originalRenderTransactionsPage = window.renderTransactionsPage;
+  window.renderTransactionsPage = function() {
+    // استدعاء الدالة الأصلية
+    originalRenderTransactionsPage.apply(this, arguments);
+    
+    // استبدال أزرار الإجراءات بالأزرار الجديدة
+    const actionsButtonsHTML = renderTransactionsPageWithWithdrawal();
+    
+    // استبدال أزرار الإجراءات
+    const actionsContainer = document.querySelector('.flex.justify-between.gap-2.mb-4');
+    if (actionsContainer) {
+      actionsContainer.outerHTML = actionsButtonsHTML;
+    }
+    
+    // إضافة مستمع الحدث للزر الجديد
+    document.getElementById('add-withdrawal-all-btn')?.addEventListener('click', () => {
+      showWithdrawalModal();
+    });
+  };
+  
+  // 2. تعديل النوافذ المنبثقة
+  updateTransactionModalForWithdrawal();
+  
+  // 3. تحديث الحاسبة
+  updateCalculatorWithWithdrawalInfo();
+  
+  // 4. إضافة خيار سحب في القائمة المنسدلة
+  // تنفيذ هذا عند تحميل الصفحة
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+      const actionsDropdown = document.getElementById('actions-dropdown');
+      if (actionsDropdown) {
+        const menuItems = actionsDropdown.querySelectorAll('.dropdown-item');
+        // البحث عن عنصر تسجيل معاملة
+        let transactionMenuItem;
+        for (const item of menuItems) {
+          if (item.id === 'new-transaction-dropdown') {
+            transactionMenuItem = item;
+            break;
+          }
+        }
+        
+        // التحقق من عدم وجود عنصر السحب مسبقاً
+        if (transactionMenuItem && !document.getElementById('withdrawal-dropdown')) {
+          // إنشاء عنصر جديد
+          const withdrawalMenuItem = document.createElement('a');
+          withdrawalMenuItem.href = '#';
+          withdrawalMenuItem.className = 'dropdown-item';
+          withdrawalMenuItem.id = 'withdrawal-dropdown';
+          withdrawalMenuItem.innerHTML = `
+            <i class="fas fa-money-bill-wave-alt"></i>
+            <span>سحب أموال</span>
+          `;
+          
+          // إدراج العنصر بعد عنصر تسجيل معاملة
+          transactionMenuItem.parentNode.insertBefore(withdrawalMenuItem, transactionMenuItem.nextSibling);
+          
+          // إضافة مستمع الحدث
+          withdrawalMenuItem.addEventListener('click', (e) => {
+            e.preventDefault();
+            actionsDropdown.classList.remove('show');
+            if (checkAuthenticationAndRedirect()) {
+              showWithdrawalModal();
+            }
+          });
+        }
+      }
+    }, 1000);
+  });
+  
+  // 5. تعديل أنماط CSS لدعم الزر الجديد
+  const withdrawalStyles = document.createElement('style');
+  withdrawalStyles.textContent = `
+    .btn-warning {
+      background-color: var(--accent-color);
+      color: var(--white);
+    }
+    
+    .btn-warning:hover {
+      background-color: #e69008;
+      transform: translateY(-2px);
+    }
+    
+    .btn-warning:active {
+      transform: scale(0.98);
+    }
+    
+    /* تعديل حجم الأزرار في قسم تفاصيل المستثمر */
+    .card .flex.gap-2 .btn {
+      font-size: 0.85rem;
+      padding: 0.6rem 0.5rem;
+    }
+    
+    /* أنماط لشاشات الجوال */
+    @media (max-width: 767px) {
+      .card .flex.gap-2 {
+        flex-direction: column;
+      }
+      
+      .card .flex.gap-2 .btn {
+        margin-bottom: 0.5rem;
+      }
+    }
+  `;
+  
+  document.head.appendChild(withdrawalStyles);
+  
+  console.log("تم تطبيق جميع ميزات سحب الأموال بنجاح");
+}
+
+// تنفيذ التعديلات عند تحميل الصفحة
+// تعديل صفحة التقارير لإضافة إحصائيات السحب
+function updateReportsPageWithWithdrawals() {
+  // تعديل دالة renderReportsPage
+  const originalRenderReportsPage = window.renderReportsPage;
+  window.renderReportsPage = function() {
+    // استدعاء الدالة الأصلية
+    originalRenderReportsPage.apply(this, arguments);
+    
+    // إضافة قسم إحصائيات السحب في صفحة التقارير
+    
+    // 1. حساب إجمالي المبالغ المسحوبة
+    const totalWithdrawals = transactions
+      .filter(trans => trans.type === 'withdrawal')
+      .reduce((sum, trans) => sum + trans.amount, 0);
+    
+    // 2. حساب عمليات السحب في الشهر الحالي
+    const currentMonth = new Date().getMonth();
+    const currentYear = new Date().getFullYear();
+    
+    const currentMonthWithdrawals = transactions
+      .filter(trans => {
+        const transDate = new Date(trans.date);
+        return transDate.getMonth() === currentMonth && 
+               transDate.getFullYear() === currentYear &&
+               trans.type === 'withdrawal';
+      })
+      .reduce((sum, trans) => sum + trans.amount, 0);
+    
+    // 3. إضافة قسم إحصائيات السحب
+    const reportsContainer = document.querySelector('.container.animate-fadeIn');
+    if (reportsContainer) {
+      // البحث عن أول بطاقة لإحصائيات الاستثمارات
+      const investmentStatsCard = reportsContainer.querySelector('.card.p-4:first-child');
+      
+      if (investmentStatsCard) {
+        // تحديث العنوان
+        const cardTitle = investmentStatsCard.querySelector('h2');
+        if (cardTitle) {
+          cardTitle.innerHTML = `
+            <i class="fas fa-chart-pie text-blue-600"></i>
+            ملخص الاستثمارات والسحوبات
+          `;
+        }
+        
+        // إضافة صف جديد للسحوبات
+        const statsGrid = investmentStatsCard.querySelector('.grid.grid-cols-2');
+        if (statsGrid) {
+          const withdrawalsStatHTML = `
+            <div>
+              <p class="text-sm text-gray-500">إجمالي السحوبات</p>
+              <p class="font-bold text-lg">${numberWithCommas(totalWithdrawals)} د.ع</p>
+            </div>
+          `;
+          
+          // إضافة الإحصائية الجديدة
+          statsGrid.insertAdjacentHTML('beforeend', withdrawalsStatHTML);
+        }
+      }
+      
+      // تعديل بطاقة إحصائيات الشهر الحالي
+      const currentMonthCard = reportsContainer.querySelectorAll('.card.p-4')[1];
+      if (currentMonthCard) {
+        const monthStatsGrid = currentMonthCard.querySelector('.grid.grid-cols-2');
+        if (monthStatsGrid) {
+          const currentMonthWithdrawalsHTML = `
+            <div>
+              <p class="text-sm text-gray-500">سحوبات الشهر</p>
+              <p class="font-bold text-lg">${numberWithCommas(currentMonthWithdrawals)} د.ع</p>
+            </div>
+          `;
+          
+          // إضافة الإحصائية الجديدة
+          monthStatsGrid.insertAdjacentHTML('beforeend', currentMonthWithdrawalsHTML);
+        }
+      }
+    }
+  };
+}
+
+// إضافة دعم لتصدير معاملات السحب
+function enhanceExportImportWithWithdrawals() {
+  // ليس هناك الكثير للقيام به هنا لأن دوال التصدير والاستيراد
+  // تتعامل مع جميع المعاملات بغض النظر عن نوعها
+  // ولكن يمكننا إضافة بعض التحسينات
+  
+  // 1. تحسين تنسيق البيانات المصدرة
+  const originalExportData = window.exportData;
+  window.exportData = function() {
+    // إضافة ملخص للسحوبات قبل التصدير
+    const withdrawalTransactions = transactions.filter(t => t.type === 'withdrawal');
+    const totalWithdrawals = withdrawalTransactions.reduce((sum, t) => sum + t.amount, 0);
+    
+    // إضافة معلومات إضافية
+    const data = {
+      investors,
+      transactions,
+      profitRate,
+      exportDate: new Date().toISOString(),
+      summary: {
+        totalInvestments: dailySummary.totalInvestments,
+        totalPayouts: dailySummary.totalPayouts,
+        totalWithdrawals: totalWithdrawals,
+        adminExpenses: dailySummary.adminExpenses,
+        investorsCount: investors.length,
+        transactionsCount: transactions.length,
+        withdrawalsCount: withdrawalTransactions.length
+      }
+    };
+    
+    const dataStr = JSON.stringify(data);
+    const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+    
+    const exportFileDefaultName = `investment_backup_${getCurrentDate()}.json`;
+    
+    const linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.click();
+    
+    showNotification('تم تصدير البيانات بنجاح', 'success');
+  };
+}
+// تعديل حاسبة الأرباح للتعامل مع عمليات السحب (شكل مفصل)
+function enhanceProfitCalculator() {
+  // إضافة شرح تفصيلي لتأثير السحب على الأرباح
+  const originalShowProfitCalculator = window.showProfitCalculator;
+  
+  // إذا لم تكن دالة showProfitCalculator موجودة، نقوم بإنشائها
+  if (!window.showProfitCalculator) {
+    window.showProfitCalculator = function() {
+      // إظهار نافذة حاسبة الأرباح
+      showModal('profit-calculator-modal');
+      
+      // إضافة قسم إضافي لمعلومات تأثير السحب
+      const calculatorContainer = document.querySelector('#profit-calculator-modal .modal-body');
+      
+      // التحقق من عدم وجود قسم المعلومات
+      if (calculatorContainer && !document.getElementById('withdrawal-impact-info')) {
+        const impactInfoHTML = `
+          <div id="withdrawal-impact-info" class="alert alert-warning mt-3">
+            <i class="fas fa-info-circle"></i>
+            <div>
+              <p class="font-bold">تأثير السحب على الأرباح:</p>
+              <p class="text-sm">عند سحب جزء من المبلغ المستثمر، سينخفض الربح الشهري بنسبة تتناسب مع المبلغ المسحوب.</p>
+              <p class="text-sm">يمكنك تجربة إضافة مبلغ في حقل "مبلغ السحب" لمعرفة التأثير على الأرباح.</p>
+            </div>
+          </div>
+        `;
+        
+        calculatorContainer.insertAdjacentHTML('beforeend', impactInfoHTML);
+      }
+    };
+  } else {
+    // إذا كانت موجودة، نقوم بتعديلها
+    window.showProfitCalculator = function() {
+      // استدعاء الدالة الأصلية
+      originalShowProfitCalculator.apply(this, arguments);
+      
+      // إضافة قسم إضافي لمعلومات تأثير السحب
+      setTimeout(() => {
+        const calculatorContainer = document.querySelector('#profit-calculator-modal .modal-body');
+        
+        // التحقق من عدم وجود قسم المعلومات
+        if (calculatorContainer && !document.getElementById('withdrawal-impact-info')) {
+          const impactInfoHTML = `
+            <div id="withdrawal-impact-info" class="alert alert-warning mt-3">
+              <i class="fas fa-info-circle"></i>
+              <div>
+                <p class="font-bold">تأثير السحب على الأرباح:</p>
+                <p class="text-sm">عند سحب جزء من المبلغ المستثمر، سينخفض الربح الشهري بنسبة تتناسب مع المبلغ المسحوب.</p>
+                <p class="text-sm">يمكنك تجربة إضافة مبلغ في حقل "مبلغ السحب" لمعرفة التأثير على الأرباح.</p>
+              </div>
+            </div>
+          `;
+          
+          calculatorContainer.insertAdjacentHTML('beforeend', impactInfoHTML);
+        }
+      }, 300);
+    };
+  }
+}
+
+
+// تنفيذ جميع التعديلات المطلوبة
+function implementWithdrawalFeature() {
+  console.log("تنفيذ ميزة سحب الأموال بشكل كامل...");
+  
+  // تطبيق جميع التعديلات الأساسية
+  applyAllWithdrawalFeatures();
+  
+  // تحديث صفحة التقارير
+  updateReportsPageWithWithdrawals();
+  
+  // تحسين التصدير والاستيراد
+  enhanceExportImportWithWithdrawals();
+  
+  // تحسين حاسبة الأرباح
+  enhanceProfitCalculator();
+  
+  // تحديث أي واجهة مفتوحة حالياً
+  if (currentPage === 'investorDetails') {
+    renderInvestorDetailsPage();
+  } else if (currentPage === 'transactions') {
+    renderTransactionsPage();
+  } else if (currentPage === 'reports') {
+    renderReportsPage();
+  }
+  
+  console.log("تم تنفيذ ميزة سحب الأموال بنجاح");
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // تطبيق التعديلات بعد فترة قصيرة للتأكد من تحميل جميع عناصر الصفحة
+  setTimeout(implementWithdrawalFeature, 1500);
+  
+  // إعادة تطبيق التعديلات عند التنقل بين الصفحات
+  const originalNavigateTo = window.navigateTo;
+  window.navigateTo = function(page) {
+    // استدعاء الدالة الأصلية
+    originalNavigateTo.apply(this, arguments);
+    
+    // إعادة تطبيق التعديلات بعد التنقل للصفحة الجديدة
+    setTimeout(implementWithdrawalFeature, 500);
+  };
+});
+
+
+// 7. إضافة تحديث لنافذة الحاسبة لمعرفة تأثير السحب على الربح
+function updateCalculatorWithWithdrawalInfo() {
+  // التحقق من وجود عنصر الحاسبة
+  const calcInvestmentAmount = document.getElementById('calc-investment-amount');
+  if (!calcInvestmentAmount) return;
+  
+  // إضافة حقل جديد للسحب
+  const calcProfitRate = document.getElementById('calc-profit-rate').parentNode;
+  
+  // التحقق من عدم وجود حقل السحب مسبقاً
+  if (!document.getElementById('calc-withdrawal-amount')) {
+    const withdrawalField = document.createElement('div');
+    withdrawalField.className = 'form-group';
+    withdrawalField.innerHTML = `
+      <label class="form-label">مبلغ السحب (د.ع)</label>
+      <input 
+        type="number" 
+        id="calc-withdrawal-amount"
+        class="w-full"
+        placeholder="أدخل مبلغ السحب (اختياري)"
+        value="0"
+      />
+    `;
+    
+    calcProfitRate.parentNode.insertBefore(withdrawalField, calcProfitRate.nextSibling);
+  }
+  
+  // تعديل دالة حساب الأرباح لتأخذ في الاعتبار مبلغ السحب
+  const originalCalculateProfits = window.calculateProfits;
+  window.calculateProfits = function() {
+    const amount = parseFloat(document.getElementById('calc-investment-amount').value);
+    const withdrawalAmount = parseFloat(document.getElementById('calc-withdrawal-amount').value) || 0;
+    const rate = parseFloat(document.getElementById('calc-profit-rate').value);
+    const duration = parseInt(document.getElementById('calc-duration').value);
+    
+    if (isNaN(amount) || isNaN(rate) || isNaN(duration)) {
+      showNotification('الرجاء إدخال قيم صحيحة', 'error');
+      return;
+    }
+    
+    // التأكد من أن مبلغ السحب لا يتجاوز مبلغ الاستثمار
+    if (withdrawalAmount > amount) {
+      showNotification('مبلغ السحب لا يمكن أن يتجاوز مبلغ الاستثمار', 'error');
+      return;
+    }
+    
+    // حساب الربح الشهري قبل السحب
+    const originalMonthlyProfit = (amount / 1000000) * rate * 1000;
+    
+    // حساب الربح الشهري بعد السحب
+    const newAmount = amount - withdrawalAmount;
+    const newMonthlyProfit = (newAmount / 1000000) * rate * 1000;
+    
+    // حساب إجمالي الربح مع الأخذ في الاعتبار السحب
+    // نفترض أن السحب يتم بعد الشهر الأول للتبسيط
+    let totalProfit = 0;
+    
+    if (withdrawalAmount > 0 && duration > 1) {
+      // الشهر الأول بالمبلغ الكامل
+      totalProfit += originalMonthlyProfit;
+      
+      // باقي الأشهر بالمبلغ المتبقي بعد السحب
+      totalProfit += newMonthlyProfit * (duration - 1);
+    } else {
+      // إذا لم يكن هناك سحب أو كانت المدة شهر واحد
+      totalProfit = originalMonthlyProfit * duration;
+    }
+    
+    // تحديث النتائج مع إضافة معلومات الفرق في الربح
+    document.getElementById('calc-monthly-profit').innerHTML = `
+      ${numberWithCommas(originalMonthlyProfit)} د.ع
+      ${withdrawalAmount > 0 ? `<br><span class="text-xs text-red-600">بعد السحب: ${numberWithCommas(newMonthlyProfit)} د.ع (نقص: ${numberWithCommas(originalMonthlyProfit - newMonthlyProfit)} د.ع)</span>` : ''}
+    `;
+    
+    document.getElementById('calc-total-profit').innerHTML = `
+      ${numberWithCommas(totalProfit)} د.ع
+      ${withdrawalAmount > 0 ? `<br><span class="text-xs text-gray-500">تم حساب تأثير السحب على الأرباح</span>` : ''}
+    `;
+  };
+  
+  // إضافة مستمع حدث لحقل السحب
+  document.getElementById('calc-withdrawal-amount').addEventListener('input', function() {
+    const amount = parseFloat(document.getElementById('calc-investment-amount').value);
+    const withdrawalAmount = parseFloat(this.value) || 0;
+    
+    // التحقق من أن مبلغ السحب لا يتجاوز مبلغ الاستثمار
+    if (withdrawalAmount > amount) {
+      this.value = amount;
+      showNotification('مبلغ السحب لا يمكن أن يتجاوز مبلغ الاستثمار', 'warning');
+    }
+  });
+}
+
 
 // تعديل دالة renderReportsPage لإضافة قسم تقرير الأرباح الشهرية
 // محتوى صفحة التقارير - نسخة معدلة تستخدم التقويم الميلادي
@@ -6211,8 +6733,12 @@ function showProportionalProfitReport() {
     
     
     // محتوى صفحة المعاملات - نسخة معدلة تستخدم التقويم الميلادي
+// دالة عرض صفحة المعاملات - معدلة لإصلاح المشكلات ومنع التكرارات
 function renderTransactionsPage() {
   const mainContent = document.getElementById('main-content');
+  
+  // إنشاء مجموعة لتخزين معرفات المعاملات التي تم عرضها بالفعل
+  const displayedTransactionIds = new Set();
   
   // تصنيف المعاملات حسب التاريخ (الأحدث أولاً)
   const sortedTransactions = [...transactions].sort((a, b) => 
@@ -6257,6 +6783,15 @@ function renderTransactionsPage() {
           <i class="fas fa-dollar-sign ml-1"></i>
           تسجيل دفع
         </button>
+        
+        <button 
+          class="flex-1 btn btn-warning"
+          id="add-withdrawal-all-btn"
+        >
+          <i class="fas fa-money-bill-wave-alt ml-1"></i>
+          سحب أموال
+        </button>
+        
         <button 
           class="flex-1 btn btn-primary"
           id="add-investment-all-btn"
@@ -6287,6 +6822,14 @@ function renderTransactionsPage() {
   
   if (sortedTransactions.length > 0) {
     for (const transaction of sortedTransactions) {
+      // التحقق من عدم عرض نفس المعاملة مرتين
+      if (displayedTransactionIds.has(transaction.id)) {
+        continue;
+      }
+      
+      // إضافة معرف المعاملة إلى المجموعة
+      displayedTransactionIds.add(transaction.id);
+      
       const investor = investors.find(inv => inv.id === transaction.investorId);
       const transDate = new Date(transaction.date);
       
@@ -6312,7 +6855,7 @@ function renderTransactionsPage() {
             </div>
             <div class="text-left">
               <p class="font-bold ${getTransactionColorClass(transaction.type)}">
-                ${transaction.type === 'payout' || transaction.type === 'admin' ? '-' : '+'}
+                ${transaction.type === 'payout' || transaction.type === 'admin' || transaction.type === 'withdrawal' ? '-' : '+'}
                 ${numberWithCommas(transaction.amount)} د.ع
               </p>
             </div>
@@ -6337,35 +6880,47 @@ function renderTransactionsPage() {
   
   mainContent.innerHTML = html;
   
-  // إضافة المستمعين للأحداث
-  document.getElementById('add-payout-all-btn').addEventListener('click', () => {
-    showAddTransactionModal('payout');
-  });
+  // إضافة مستمعي الأحداث بشكل صحيح
+  const addPayoutBtn = document.getElementById('add-payout-all-btn');
+  if (addPayoutBtn) {
+    addPayoutBtn.addEventListener('click', function() {
+      showAddTransactionModal('payout');
+    });
+  }
   
-  document.getElementById('add-investment-all-btn').addEventListener('click', () => {
-    showAddTransactionModal('investment');
-  });
+  const addInvestmentBtn = document.getElementById('add-investment-all-btn');
+  if (addInvestmentBtn) {
+    addInvestmentBtn.addEventListener('click', function() {
+      showAddTransactionModal('investment');
+    });
+  }
+  
+  const addWithdrawalBtn = document.getElementById('add-withdrawal-all-btn');
+  if (addWithdrawalBtn) {
+    addWithdrawalBtn.addEventListener('click', function() {
+      showWithdrawalModal();
+    });
+  }
   
   // إضافة البحث في المعاملات
-  document.getElementById('transaction-search')?.addEventListener('input', (e) => {
-    const searchTerm = e.target.value.toLowerCase();
-    const transactionItems = document.getElementsByClassName('transaction-item');
-    
-    Array.from(transactionItems).forEach(item => {
-      const text = item.textContent.toLowerCase();
+  const searchInput = document.getElementById('transaction-search');
+  if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const transactionItems = document.getElementsByClassName('transaction-item');
       
-      if (text.includes(searchTerm)) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
-
-      
+      Array.from(transactionItems).forEach(item => {
+        const text = item.textContent.toLowerCase();
+        
+        if (text.includes(searchTerm)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
     });
-  });
+  }
 }
-    
-    
     // وظيفة لحذف مستثمر
     function deleteInvestor(investorId) {
       if (confirm('هل أنت متأكد من حذف هذا المستثمر وجميع معاملاته؟')) {
@@ -6499,251 +7054,646 @@ function renderTransactionsPage() {
       }
     }
     
-
-
-// تعديل دالة showAddTransactionModal لتحديث حقل المبلغ بعملية الحساب
+    // وظيفة لإظهار نموذج إضافة معاملة جديدة
+  // تعديل دالة عرض نافذة إضافة معاملة جديدة
 function showAddTransactionModal(type, investor = null) {
   // تعيين عنوان النموذج
-  document.getElementById('transaction-modal-title').textContent = 
-    type === 'investment' ? 'إضافة استثمار جديد' : 
-    type === 'payout' ? 'تسجيل دفع ربح' :
-    type === 'withdrawal' ? 'سحب من الاستثمار' : 'تسجيل معاملة';
+  const modalTitle = document.getElementById('transaction-modal-title');
+  if (modalTitle) {
+    modalTitle.textContent = 
+      type === 'investment' ? 'إضافة استثمار جديد' : 
+      type === 'withdrawal' ? 'سحب أموال من الاستثمار' : 'تسجيل دفع ربح';
+  }
   
   // تعيين نوع المعاملة
-  document.getElementById('transaction-type').value = type;
+  const transactionTypeSelect = document.getElementById('transaction-type');
+  if (transactionTypeSelect) {
+    // إضافة خيار سحب إذا لم يكن موجوداً
+    if (!Array.from(transactionTypeSelect.options).some(option => option.value === 'withdrawal')) {
+      const withdrawalOption = document.createElement('option');
+      withdrawalOption.value = 'withdrawal';
+      withdrawalOption.textContent = 'سحب أموال';
+      transactionTypeSelect.appendChild(withdrawalOption);
+    }
+    
+    transactionTypeSelect.value = type;
+  }
   
   // تعبئة قائمة المستثمرين
   const investorSelect = document.getElementById('transaction-investor-id');
-  
-  // مسح القائمة الحالية
-  while (investorSelect.firstChild) {
-    investorSelect.removeChild(investorSelect.firstChild);
-  }
-  
-  // إضافة خيار افتراضي
-  const defaultOption = document.createElement('option');
-  defaultOption.value = '';
-  defaultOption.textContent = 'اختر المستثمر';
-  investorSelect.appendChild(defaultOption);
-  
-  // إضافة المستثمرين
-  for (const inv of investors) {
-    const option = document.createElement('option');
-    option.value = inv.id;
-    option.textContent = inv.name;
-    investorSelect.appendChild(option);
-  }
-  
-  // إذا كان هناك مستثمر محدد
-  if (investor) {
-    investorSelect.value = investor.id;
-    investorSelect.disabled = true;
-    
-    // إضافة مستمع حدث لتغيير نوع المعاملة
-    document.getElementById('transaction-type').onchange = function() {
-      const newType = this.value;
-      if (newType === 'payout') {
-        calculateProportionalPayout(investor);
-      } else if (newType === 'withdrawal') {
-        // عرض الرصيد المتاح للسحب
-        document.getElementById('transaction-amount').value = '';
-        
-        // إضافة أو تحديث عنصر عرض الرصيد المتاح
-        if (!document.getElementById('available-balance-info')) {
-          const infoElement = document.createElement('div');
-          infoElement.id = 'available-balance-info';
-          infoElement.className = 'alert alert-info mt-3';
-          
-          const amountField = document.getElementById('transaction-amount').parentNode;
-          amountField.parentNode.insertBefore(infoElement, amountField.nextSibling);
-        }
-        
-        // تحديث عنصر عرض الرصيد المتاح
-        document.getElementById('available-balance-info').innerHTML = `
-          <i class="fas fa-info-circle"></i>
-          <div>
-            <p class="font-bold">الرصيد المتاح للسحب:</p>
-            <p>${numberWithCommas(investor.amount)} د.ع</p>
-          </div>
-        `;
-        
-        // إزالة عنصر تفاصيل حساب الربح إذا كان موجوداً
-        if (document.getElementById('profit-calculation-details')) {
-          document.getElementById('profit-calculation-details').remove();
-        }
-      } else {
-        // في حالة الاستثمار، إزالة عناصر العرض الإضافية
-        document.getElementById('transaction-amount').value = '';
-        
-        if (document.getElementById('available-balance-info')) {
-          document.getElementById('available-balance-info').remove();
-        }
-        
-        if (document.getElementById('profit-calculation-details')) {
-          document.getElementById('profit-calculation-details').remove();
-        }
-      }
-    };
-    
-    // تنفيذ الإجراء المناسب حسب نوع المعاملة
-    if (type === 'payout') {
-      calculateProportionalPayout(investor);
-    } else if (type === 'withdrawal') {
-      // عرض الرصيد المتاح للسحب
-      if (!document.getElementById('available-balance-info')) {
-        const infoElement = document.createElement('div');
-        infoElement.id = 'available-balance-info';
-        infoElement.className = 'alert alert-info mt-3';
-        
-        const amountField = document.getElementById('transaction-amount').parentNode;
-        amountField.parentNode.insertBefore(infoElement, amountField.nextSibling);
-      }
-      
-      document.getElementById('available-balance-info').innerHTML = `
-        <i class="fas fa-info-circle"></i>
-        <div>
-          <p class="font-bold">الرصيد المتاح للسحب:</p>
-          <p>${numberWithCommas(investor.amount)} د.ع</p>
-        </div>
-      `;
+  if (investorSelect) {
+    // مسح القائمة الحالية
+    while (investorSelect.firstChild) {
+      investorSelect.removeChild(investorSelect.firstChild);
     }
-  } else {
-    investorSelect.disabled = false;
     
-    // إضافة مستمع حدث لتغيير المستثمر
-    investorSelect.onchange = function() {
-      if (!this.value) return;
-      
-      const selectedInvestor = investors.find(inv => inv.id === this.value);
-      if (!selectedInvestor) return;
-      
-      const transactionType = document.getElementById('transaction-type').value;
-      
-      if (transactionType === 'payout') {
-        calculateProportionalPayout(selectedInvestor);
-      } else if (transactionType === 'withdrawal') {
-        // عرض الرصيد المتاح للسحب
-        if (!document.getElementById('available-balance-info')) {
-          const infoElement = document.createElement('div');
-          infoElement.id = 'available-balance-info';
-          infoElement.className = 'alert alert-info mt-3';
-          
-          const amountField = document.getElementById('transaction-amount').parentNode;
-          amountField.parentNode.insertBefore(infoElement, amountField.nextSibling);
-        }
-        
-        document.getElementById('available-balance-info').innerHTML = `
-          <i class="fas fa-info-circle"></i>
-          <div>
-            <p class="font-bold">الرصيد المتاح للسحب:</p>
-            <p>${numberWithCommas(selectedInvestor.amount)} د.ع</p>
-          </div>
-        `;
-      }
-    };
+    // إضافة خيار افتراضي
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.textContent = 'اختر المستثمر';
+    investorSelect.appendChild(defaultOption);
     
-    // إضافة مستمع حدث لتغيير نوع المعاملة
-    document.getElementById('transaction-type').onchange = function() {
-      const investorId = investorSelect.value;
-      if (!investorId) return;
+    // إضافة المستثمرين
+    for (const inv of investors) {
+      const option = document.createElement('option');
+      option.value = inv.id;
+      option.textContent = inv.name;
+      investorSelect.appendChild(option);
+    }
+    
+    // إذا كان هناك مستثمر محدد
+    if (investor) {
+      investorSelect.value = investor.id;
+      investorSelect.disabled = true;
       
-      const selectedInvestor = investors.find(inv => inv.id === investorId);
-      if (!selectedInvestor) return;
-      
-      const newType = this.value;
-      
-      if (newType === 'payout') {
-        calculateProportionalPayout(selectedInvestor);
-      } else if (newType === 'withdrawal') {
-        // عرض الرصيد المتاح للسحب
-        if (!document.getElementById('available-balance-info')) {
-          const infoElement = document.createElement('div');
-          infoElement.id = 'available-balance-info';
-          infoElement.className = 'alert alert-info mt-3';
-          
-          const amountField = document.getElementById('transaction-amount').parentNode;
-          amountField.parentNode.insertBefore(infoElement, amountField.nextSibling);
-        }
-        
-        document.getElementById('available-balance-info').innerHTML = `
-          <i class="fas fa-info-circle"></i>
-          <div>
-            <p class="font-bold">الرصيد المتاح للسحب:</p>
-            <p>${numberWithCommas(selectedInvestor.amount)} د.ع</p>
-          </div>
-        `;
-        
-        // إزالة عنصر تفاصيل حساب الربح إذا كان موجوداً
-        if (document.getElementById('profit-calculation-details')) {
-          document.getElementById('profit-calculation-details').remove();
-        }
+      // إذا كان تسجيل ربح، حساب المبلغ المستحق بناءً على عدد الأيام
+      if (type === 'payout') {
+        calculateProportionalPayout(investor);
       } else {
-        // في حالة الاستثمار، إزالة عناصر العرض الإضافية
-        if (document.getElementById('available-balance-info')) {
-          document.getElementById('available-balance-info').remove();
-        }
-        
-        if (document.getElementById('profit-calculation-details')) {
-          document.getElementById('profit-calculation-details').remove();
-        }
+        document.getElementById('transaction-amount').value = '';
       }
-    };
+    } else {
+      investorSelect.disabled = false;
+      document.getElementById('transaction-amount').value = '';
+      
+      // إضافة مستمع حدث لتغيير المستثمر لحساب الربح النسبي
+      investorSelect.onchange = function() {
+        if (type === 'payout' && this.value) {
+          const selectedInvestor = investors.find(inv => inv.id === this.value);
+          if (selectedInvestor) {
+            calculateProportionalPayout(selectedInvestor);
+          }
+        } else if (type === 'withdrawal' && this.value) {
+          // عرض معلومات الرصيد المتاح للسحب
+          const selectedInvestor = investors.find(inv => inv.id === this.value);
+          updateWithdrawalInfo(selectedInvestor);
+        }
+      };
+    }
   }
   
   // تعيين التاريخ الافتراضي لليوم
-  document.getElementById('transaction-date').value = getCurrentDate();
-  document.getElementById('transaction-notes').value = '';
-  
-  // إضافة مستمع لتغيير التاريخ لإعادة حساب الربح النسبي
-  if (type === 'payout') {
-    document.getElementById('transaction-date').onchange = function() {
-      if (investor || investorSelect.value) {
-        const selectedInvestor = investor || investors.find(inv => inv.id === investorSelect.value);
-        if (selectedInvestor) {
-          calculateProportionalPayout(selectedInvestor);
+  const transactionDateInput = document.getElementById('transaction-date');
+  if (transactionDateInput) {
+    transactionDateInput.value = getCurrentDate();
+    
+    // إضافة مستمع لتغيير التاريخ لإعادة حساب الربح النسبي
+    if (type === 'payout') {
+      transactionDateInput.onchange = function() {
+        if (investor || (investorSelect && investorSelect.value)) {
+          const selectedInvestor = investor || investors.find(inv => inv.id === investorSelect.value);
+          if (selectedInvestor) {
+            calculateProportionalPayout(selectedInvestor);
+          }
         }
-      }
-    };
+      };
+    }
+  }
+  
+  const transactionNotesInput = document.getElementById('transaction-notes');
+  if (transactionNotesInput) {
+    transactionNotesInput.value = '';
+  }
+  
+  // إضافة معلومات إضافية للسحب
+  if (type === 'withdrawal') {
+    updateWithdrawalInfo(investor);
+  } else {
+    // إزالة معلومات السحب إذا كانت موجودة
+    const withdrawalInfo = document.getElementById('withdrawal-info');
+    if (withdrawalInfo) {
+      withdrawalInfo.remove();
+    }
   }
   
   // إظهار النموذج
   showModal('add-transaction-modal');
   
   // إعادة تعيين مستمعي الأحداث للأزرار
-  document.getElementById('cancel-add-transaction').onclick = () => hideModal('add-transaction-modal');
-  document.getElementById('close-transaction-modal').onclick = () => hideModal('add-transaction-modal');
-  document.getElementById('confirm-add-transaction').onclick = addTransaction;
+  const cancelBtn = document.getElementById('cancel-add-transaction');
+  if (cancelBtn) {
+    cancelBtn.onclick = function() {
+      hideModal('add-transaction-modal');
+    };
+  }
+  
+  const closeBtn = document.getElementById('close-transaction-modal');
+  if (closeBtn) {
+    closeBtn.onclick = function() {
+      hideModal('add-transaction-modal');
+    };
+  }
+  
+  const confirmBtn = document.getElementById('confirm-add-transaction');
+  if (confirmBtn) {
+    confirmBtn.onclick = function() {
+      addTransaction();
+    };
+  }
+}
+
+// دالة مساعدة لتحديث معلومات السحب
+function updateWithdrawalInfo(investor) {
+  // إزالة معلومات السحب إذا كانت موجودة
+  const existingInfo = document.getElementById('withdrawal-info');
+  if (existingInfo) {
+    existingInfo.remove();
+  }
+  
+  const amountField = document.getElementById('transaction-amount');
+  if (!amountField) return;
+  
+  // إنشاء عنصر المعلومات
+  const infoElement = document.createElement('div');
+  infoElement.id = 'withdrawal-info';
+  infoElement.className = 'alert alert-warning mt-3';
+  
+  infoElement.innerHTML = `
+    <i class="fas fa-info-circle"></i>
+    <div>
+      <p class="font-bold">معلومات عن عملية السحب:</p>
+      <p>يتم سحب المبلغ من رصيد الاستثمار الأساسي.</p>
+      <p class="text-sm text-yellow-600">ملاحظة: سيؤثر هذا على حساب الأرباح المستقبلية.</p>
+    </div>
+  `;
+  
+  // إذا كان هناك مستثمر محدد، عرض معلومات الرصيد المتاح
+  if (investor) {
+    const balanceInfo = document.createElement('div');
+    balanceInfo.className = 'mt-2';
+    balanceInfo.innerHTML = `
+      <p class="text-sm">الرصيد الحالي المتاح للسحب: <span class="font-bold">${numberWithCommas(investor.amount)} د.ع</span></p>
+    `;
+    infoElement.appendChild(balanceInfo);
+  }
+  
+  // إضافة العنصر بعد حقل المبلغ
+  amountField.parentNode.parentNode.insertBefore(infoElement, amountField.parentNode.nextSibling);
+}
+// دالة حساب الربح النسبي بناءً على عدد الأيام
+function calculateProportionalPayout(investor) {
+  // التحقق من وجود المستثمر
+  if (!investor) return;
+  
+  // الحصول على تاريخ الدفع المحدد
+  const payoutDateStr = document.getElementById('transaction-date').value;
+  const payoutDate = new Date(payoutDateStr);
+  
+  // التحقق من صحة التاريخ
+  if (isNaN(payoutDate.getTime())) {
+    document.getElementById('transaction-date').value = getCurrentDate();
+    payoutDate = new Date(getCurrentDate());
+  }
+  
+  // الحصول على تاريخ آخر دفع أو تاريخ بدء الاستثمار
+  const lastPayoutTransaction = transactions
+    .filter(t => t.investorId === investor.id && t.type === 'payout')
+    .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+  
+  let startDate;
+  if (lastPayoutTransaction) {
+    startDate = new Date(lastPayoutTransaction.date);
+  } else {
+    startDate = new Date(investor.startDate);
+  }
+  
+  // حساب عدد الأيام
+  const oneDay = 24 * 60 * 60 * 1000; // ميلي ثانية في اليوم
+  const diffDays = Math.round(Math.abs((payoutDate - startDate) / oneDay));
+  
+  // الربح الشهري الكامل
+  const monthlyProfit = calculateMonthlyProfit(investor.amount);
+  
+  // حساب الربح النسبي (اعتبار الشهر 30 يوم)
+  const daysInMonth = 30;
+  const proportionalProfit = (monthlyProfit * diffDays) / daysInMonth;
+  
+  // تقريب المبلغ وعرضه
+  const roundedProfit = Math.round(proportionalProfit);
+  document.getElementById('transaction-amount').value = roundedProfit;
+  
+  // إضافة معلومات عن الحساب في الملاحظات
+  let note = `ربح ${diffDays} يوم - من ${formatDate(startDate)} إلى ${formatDate(payoutDate)} (${Math.round(proportionalProfit)} د.ع)`;
+  document.getElementById('transaction-notes').value = note;
+  
+  // إضافة عرض لتفاصيل الحساب
+  if (!document.getElementById('profit-calculation-details')) {
+    const detailsElement = document.createElement('div');
+    detailsElement.id = 'profit-calculation-details';
+    detailsElement.className = 'alert alert-info mt-3';
+    
+    const amountField = document.getElementById('transaction-amount').parentNode;
+    amountField.parentNode.insertBefore(detailsElement, amountField.nextSibling);
+  }
+  
+  // تحديث تفاصيل الحساب
+  document.getElementById('profit-calculation-details').innerHTML = `
+    <i class="fas fa-info-circle"></i>
+    <div>
+      <p class="font-bold">تفاصيل حساب الربح النسبي:</p>
+      <p>المبلغ المستثمر: ${numberWithCommas(investor.amount)} د.ع</p>
+      <p>الربح الشهري: ${numberWithCommas(monthlyProfit)} د.ع</p>
+      <p>الفترة: ${diffDays} يوم من أصل ${daysInMonth} يوم</p>
+      <p>الربح النسبي: ${numberWithCommas(roundedProfit)} د.ع (${(diffDays / daysInMonth * 100).toFixed(1)}% من الربح الشهري)</p>
+    </div>
+  `;
+}
+
+function calculateProportionalPayout(investor) {
+  // التحقق من وجود المستثمر
+  if (!investor) return;
+  
+  // الحصول على تاريخ الدفع المحدد
+  let payoutDateStr = document.getElementById('transaction-date').value;
+  let payoutDate = new Date(payoutDateStr);
+  
+  // التحقق من صحة التاريخ
+  if (isNaN(payoutDate.getTime())) {
+    payoutDateStr = getCurrentDate();
+    document.getElementById('transaction-date').value = payoutDateStr;
+    payoutDate = new Date(payoutDateStr);
+  }
+  
+  // الحصول على تاريخ آخر دفع أو تاريخ بدء الاستثمار
+  const lastPayoutTransaction = transactions
+    .filter(t => t.investorId === investor.id && t.type === 'payout')
+    .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+  
+  let startDateStr;
+  if (lastPayoutTransaction) {
+    startDateStr = lastPayoutTransaction.date;
+  } else {
+    startDateStr = investor.startDate;
+  }
+  
+  // حساب الأرباح النسبية من تاريخ آخر دفع حتى التاريخ المحدد
+  const profitData = calculateProportionalProfit(
+    investor.id,
+    startDateStr,
+    payoutDateStr
+  );
+  
+  if (profitData.error) {
+    showNotification(profitData.error, 'error');
+    return;
+  }
+  
+  // تقريب المبلغ وعرضه
+  const roundedProfit = Math.round(profitData.totalProfit);
+  document.getElementById('transaction-amount').value = roundedProfit;
+  
+  // حساب عدد الأيام
+  const startDate = new Date(startDateStr);
+  const oneDay = 24 * 60 * 60 * 1000; // ميلي ثانية في اليوم
+  const diffDays = Math.round(Math.abs((payoutDate - startDate) / oneDay));
+  
+  // إضافة معلومات عن الحساب في الملاحظات
+  let note = `ربح ${diffDays} يوم - من ${formatDate(startDate)} إلى ${formatDate(payoutDate)} (${roundedProfit} د.ع)`;
+  document.getElementById('transaction-notes').value = note;
+  
+  // إضافة عرض لتفاصيل الحساب
+  if (!document.getElementById('profit-calculation-details')) {
+    const detailsElement = document.createElement('div');
+    detailsElement.id = 'profit-calculation-details';
+    detailsElement.className = 'alert alert-info mt-3';
+    
+    const amountField = document.getElementById('transaction-amount').parentNode;
+    amountField.parentNode.insertBefore(detailsElement, amountField.nextSibling);
+  }
+  
+  // تحديث تفاصيل الحساب
+  document.getElementById('profit-calculation-details').innerHTML = `
+    <i class="fas fa-info-circle"></i>
+    <div>
+      <p class="font-bold">تفاصيل حساب الربح النسبي:</p>
+      <p>المبلغ المستثمر الإجمالي: ${numberWithCommas(investor.amount)} د.ع</p>
+      <p>الفترة: ${diffDays} يوم</p>
+      <p>متوسط الاستثمار اليومي: ${numberWithCommas(Math.round(profitData.averageDailyInvestment))} د.ع</p>
+      <p>الربح النسبي المحسوب: ${numberWithCommas(roundedProfit)} د.ع</p>
+    </div>
+  `;
 }
 
     
-    // وظيفة للتنقل بين الصفحات
-    function navigateTo(page) {
-      currentPage = page;
-      updateNavigation();
+    // عرض حاسبة الأرباح
+    function showProfitCalculator() {
+      document.getElementById('calc-investment-amount').value = '';
+      document.getElementById('calc-profit-rate').value = profitRate;
+      document.getElementById('calc-duration').value = 12;
+      document.getElementById('calc-monthly-profit').textContent = '- - -';
+      document.getElementById('calc-total-profit').textContent = '- - -';
       
-      switch (page) {
-        case 'home':
-          renderHomePage();
-          break;
-        case 'investors':
-          renderInvestorsPage();
-          break;
-        case 'investorDetails':
-          renderInvestorDetailsPage();
-          break;
-        case 'transactions':
-          renderTransactionsPage();
-          break;
-        case 'reports':
-          renderReportsPage();
-          break;
-        case 'settings':
-          renderSettingsPage();
-          break;
-        default:
-          renderHomePage();
+      showModal('profit-calculator-modal');
+      
+      document.getElementById('close-calculator-modal').onclick = () => hideModal('profit-calculator-modal');
+      
+      document.getElementById('calc-profits-btn').onclick = () => {
+        calculateProfits();
+      };
+    }
+    
+    // حساب الأرباح في الحاسبة
+    function calculateProfits() {
+      const amount = parseFloat(document.getElementById('calc-investment-amount').value);
+      const rate = parseFloat(document.getElementById('calc-profit-rate').value);
+      const duration = parseInt(document.getElementById('calc-duration').value);
+      
+      if (isNaN(amount) || isNaN(rate) || isNaN(duration)) {
+        showNotification('الرجاء إدخال قيم صحيحة', 'error');
+        return;
+      }
+      
+      const monthlyProfit = (amount / 1000000) * rate * 1000;
+      const totalProfit = monthlyProfit * duration;
+      
+      document.getElementById('calc-monthly-profit').textContent = `${numberWithCommas(monthlyProfit)} د.ع`;
+      document.getElementById('calc-total-profit').textContent = `${numberWithCommas(totalProfit)} د.ع`;
+    }
+    
+    // تعديل دالة التنقل بين الصفحات
+function navigateTo(page) {
+  // التحقق من حالة المصادقة أولاً
+  if (!checkAuthenticationAndRedirect()) {
+    return;
+  }
+  
+  currentPage = page;
+  updateNavigation();
+  
+  switch (page) {
+    case 'home':
+      renderHomePage();
+      break;
+    case 'investors':
+      renderInvestorsPage();
+      break;
+    case 'investorDetails':
+      renderInvestorDetailsPage();
+      break;
+    case 'transactions':
+      renderTransactionsPage();
+      break;
+    case 'reports':
+      renderReportsPage();
+      break;
+    case 'settings':
+      renderSettingsPage();
+      break;
+    default:
+      renderHomePage();
+  }
+  
+  // ربط مستمعات الأحداث بعد تحميل الصفحة
+  setTimeout(initEventListeners, 100);
+}
+
+
+// دالة لإظهار نافذة تأكيد مخصصة للأفعال الهامة
+function showConfirmDialog(message, confirmCallback, cancelCallback = null) {
+  // إنشاء النافذة إذا لم تكن موجودة
+  if (!document.getElementById('confirm-dialog-modal')) {
+    const modalHTML = `
+      <div id="confirm-dialog-modal" class="modal-overlay">
+        <div class="modal" style="max-width: 400px;">
+          <div class="modal-header">
+            <h2 class="modal-title">تأكيد</h2>
+            <button class="modal-close" id="close-confirm-dialog">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          
+          <div class="modal-body">
+            <div class="alert alert-warning">
+              <i class="fas fa-exclamation-triangle"></i>
+              <div>
+                <p id="confirm-dialog-message">هل أنت متأكد من تنفيذ هذا الإجراء؟</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="modal-footer">
+            <button id="cancel-confirm-dialog" class="btn btn-gray">
+              إلغاء
+            </button>
+            <button id="confirm-confirm-dialog" class="btn btn-primary">
+              <i class="fas fa-check ml-1"></i>
+              تأكيد
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+  }
+  
+  // تحديث رسالة التأكيد
+  document.getElementById('confirm-dialog-message').textContent = message;
+  
+  // إعادة تعيين مستمعات الأحداث
+  const closeBtn = document.getElementById('close-confirm-dialog');
+  const cancelBtn = document.getElementById('cancel-confirm-dialog');
+  const confirmBtn = document.getElementById('confirm-confirm-dialog');
+  
+  // إزالة المستمعين القديمين
+  const newCloseBtn = closeBtn.cloneNode(true);
+  const newCancelBtn = cancelBtn.cloneNode(true);
+  const newConfirmBtn = confirmBtn.cloneNode(true);
+  
+  closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
+  cancelBtn.parentNode.replaceChild(newCancelBtn, cancelBtn);
+  confirmBtn.parentNode.replaceChild(newConfirmBtn, confirmBtn);
+  
+  // إضافة المستمعين الجدد
+  newCloseBtn.addEventListener('click', function() {
+    hideModal('confirm-dialog-modal');
+    if (cancelCallback) cancelCallback();
+  });
+  
+  newCancelBtn.addEventListener('click', function() {
+    hideModal('confirm-dialog-modal');
+    if (cancelCallback) cancelCallback();
+  });
+  
+  newConfirmBtn.addEventListener('click', function() {
+    hideModal('confirm-dialog-modal');
+    if (confirmCallback) confirmCallback();
+  });
+  
+  // عرض النافذة
+  showModal('confirm-dialog-modal');
+}
+
+
+
+// إضافة أنماط CSS إضافية للأزرار
+function addAdditionalStyles() {
+  const styleElement = document.createElement('style');
+  styleElement.textContent = `
+    /* تحسين أنماط الأزرار */
+    .btn {
+      cursor: pointer;
+      border: none;
+      border-radius: var(--radius-md);
+      font-weight: 500;
+      outline: none;
+      transition: all 0.2s ease;
+      padding: 0.75rem 1.25rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-align: center;
+    }
+    
+    .btn:active {
+      transform: scale(0.98);
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary-color);
+      color: var(--white);
+    }
+    
+    .btn-secondary:hover {
+      background-color: #0ea271;
+      transform: translateY(-2px);
+    }
+    
+    .btn-warning {
+      background-color: var(--accent-color);
+      color: var(--white);
+    }
+    
+    .btn-warning:hover {
+      background-color: #e69008;
+      transform: translateY(-2px);
+    }
+    
+    .btn-danger {
+      background-color: var(--danger-color);
+      color: var(--white);
+    }
+    
+    .btn-danger:hover {
+      background-color: #dc2626;
+      transform: translateY(-2px);
+    }
+    
+    /* تحسين الأزرار في صفحة المعاملات */
+    .flex.justify-between.gap-2.mb-4 .btn {
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .flex.justify-between.gap-2.mb-4 .btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 10px;
+      height: 10px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      transform: scale(0);
+      transform-origin: center;
+      opacity: 0;
+      z-index: -1;
+      transition: transform 0.5s ease-out, opacity 0.3s ease;
+    }
+    
+    .flex.justify-between.gap-2.mb-4 .btn:active::after {
+      transform: scale(30);
+      opacity: 1;
+    }
+    
+    /* أنماط زر سحب الأموال */
+    .flex.justify-between.gap-2.mb-4 .btn-warning {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* تحسين لصفحة المعاملات على الأجهزة الصغيرة */
+    @media (max-width: 576px) {
+      .flex.justify-between.gap-2.mb-4 {
+        flex-direction: column;
+      }
+      
+      .flex.justify-between.gap-2.mb-4 .btn {
+        margin-bottom: 0.5rem;
+        width: 100%;
       }
     }
+  `;
+  
+  document.head.appendChild(styleElement);
+}
+
+// استدعاء الدالة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+  addAdditionalStyles();
+});
+
+
+// دالة للتأكد من تحميل جميع الوظائف بشكل صحيح
+function ensureAllFunctionsLoaded() {
+  console.log('التحقق من تحميل جميع الوظائف...');
+  
+  // قائمة بالدوال الرئيسية التي يجب أن تكون موجودة
+  const requiredFunctions = [
+    'renderSettingsPage',
+    'renderTransactionsPage',
+    'showAddTransactionModal',
+    'addTransaction',
+    'showWithdrawalModal',
+    'calculateProportionalPayout',
+    'updateWithdrawalInfo'
+  ];
+  
+  // التحقق من وجود الدوال
+  for (const funcName of requiredFunctions) {
+    if (typeof window[funcName] !== 'function') {
+      console.error(`الدالة "${funcName}" غير موجودة!`);
+      
+      // محاولة إعادة تحميل الدالة من الكود المعرف مسبقاً
+      if (funcName === 'renderSettingsPage') {
+        window.renderSettingsPage = renderSettingsPage;
+      } else if (funcName === 'renderTransactionsPage') {
+        window.renderTransactionsPage = renderTransactionsPage;
+      } else if (funcName === 'showAddTransactionModal') {
+        window.showAddTransactionModal = showAddTransactionModal;
+      } else if (funcName === 'addTransaction') {
+        window.addTransaction = addTransaction;
+      }
+      
+      console.log(`تم إعادة تحميل الدالة "${funcName}"`);
+    } else {
+      console.log(`الدالة "${funcName}" موجودة`);
+    }
+  }
+  
+  console.log('اكتمل التحقق من الدوال');
+  
+  // إعادة تحميل الصفحة الحالية للتأكد من تطبيق التغييرات
+  if (currentPage) {
+    navigateTo(currentPage);
+  }
+}
+
+// استدعاء الدالة بعد فترة قصيرة من تحميل الصفحة
+setTimeout(ensureAllFunctionsLoaded, 2000);
     
     // تحديث عناصر التنقل
     function updateNavigation() {
@@ -7370,9 +8320,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }, 300);
 
-
-
-// تعديل دالة calculateProportionalProfit لتحسين حساب الأرباح النسبية
+// دالة حساب الأرباح النسبية بناءً على المعاملات اليومية
 function calculateProportionalProfit(investorId, startDate, endDate) {
   // إذا لم يتم تحديد التواريخ، نستخدم الشهر الحالي
   if (!startDate || !endDate) {
@@ -7395,105 +8343,83 @@ function calculateProportionalProfit(investorId, startDate, endDate) {
     return { error: 'لم يتم العثور على المستثمر' };
   }
   
-  // الحصول على جميع معاملات المستثمر
+  // الحصول على معاملات المستثمر قبل تاريخ النهاية وترتيبها تصاعدياً
   const investorTransactions = transactions
-    .filter(trans => trans.investorId === investorId)
+    .filter(trans => trans.investorId === investorId && new Date(trans.date) <= endDate)
     .sort((a, b) => new Date(a.date) - new Date(b.date));
-  
-  // الحصول على جميع معاملات الاستثمار والسحب التي تمت قبل أو خلال الفترة المحددة
-  const relevantTransactions = investorTransactions.filter(trans => {
-    const transDate = new Date(trans.date);
-    return (trans.type === 'investment' || trans.type === 'withdrawal') && transDate <= endDate;
-  });
   
   // حساب عدد الأيام في الفترة المحددة
   const daysDifference = Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
   
-  // تحويل النسبة الشهرية إلى نسبة يومية
+  // تحويل النسبة السنوية إلى نسبة يومية
   const dailyRate = profitRate / 30 / 100; // افتراض أن الشهر 30 يوم
   
   // إنشاء جدول للرصيد اليومي
   const dailyBalances = {};
-  const dailyProfits = {};
   
-  // تهيئة الأرصدة اليومية والأرباح لكل يوم في الفترة
+  // تهيئة الأرصدة اليومية
   for (let day = 0; day < daysDifference; day++) {
     const currentDate = new Date(startDate);
     currentDate.setDate(startDate.getDate() + day);
     const dateKey = currentDate.toISOString().split('T')[0];
-    dailyBalances[dateKey] = 0; // إجمالي الرصيد اليومي
-    dailyProfits[dateKey] = 0;  // إجمالي الربح اليومي
+    dailyBalances[dateKey] = 0;
   }
   
-  // حساب الرصيد اليومي بناءً على المعاملات
+  // تحديد الرصيد الأولي (قبل فترة الحساب)
   let currentBalance = 0;
   
-  for (const transaction of relevantTransactions) {
-    const transDate = new Date(transaction.date);
-    
-    // تحديث الرصيد الإجمالي بناءً على نوع المعاملة
-    if (transaction.type === 'investment') {
-      currentBalance += transaction.amount;
-    } else if (transaction.type === 'withdrawal') {
-      currentBalance -= transaction.amount;
-    }
-    
-    // تحديث الرصيد اليومي من تاريخ المعاملة
-    const transDateKey = transDate.toISOString().split('T')[0];
-    
-    // تحديث الرصيد لكل يوم بعد هذه المعاملة
-    for (const dateKey in dailyBalances) {
-      const currentDate = new Date(dateKey);
-      
-      // إذا كان اليوم قبل تاريخ المعاملة، تجاهله
-      if (currentDate < transDate) continue;
-      
-      // إذا كان اليوم بعد تاريخ المعاملة أو في نفس اليوم، تحديث الرصيد
-      if (currentDate >= transDate) {
-        dailyBalances[dateKey] = currentBalance;
+  // حساب الرصيد الأولي بناءً على المعاملات قبل تاريخ البدء
+  for (const trans of investorTransactions) {
+    const transDate = new Date(trans.date);
+    if (transDate < startDate) {
+      if (trans.type === 'investment') {
+        currentBalance += trans.amount;
+      } else if (trans.type === 'payout' && currentBalance >= trans.amount) {
+        currentBalance -= trans.amount;
       }
     }
   }
   
-  // حساب الأرباح اليومية بناءً على الرصيد
-  for (const dateKey in dailyBalances) {
-    const balance = dailyBalances[dateKey];
-    const currentDate = new Date(dateKey);
+  // تحديث الأرصدة اليومية بناءً على المعاملات خلال الفترة
+  for (let day = 0; day < daysDifference; day++) {
+    const currentDate = new Date(startDate);
+    currentDate.setDate(startDate.getDate() + day);
+    const dateKey = currentDate.toISOString().split('T')[0];
     
-    // تجاهل الأيام قبل تاريخ البدء المحدد
-    if (currentDate < startDate) continue;
+    // تحديث الرصيد بناءً على معاملات اليوم
+    for (const trans of investorTransactions) {
+      const transDate = new Date(trans.date);
+      const transDateKey = transDate.toISOString().split('T')[0];
+      
+      if (transDateKey === dateKey) {
+        if (trans.type === 'investment') {
+          currentBalance += trans.amount;
+        } else if (trans.type === 'payout' && currentBalance >= trans.amount) {
+          currentBalance -= trans.amount;
+        }
+      }
+    }
     
-    // حساب الربح اليومي بناءً على الرصيد
-    const dailyProfit = (balance / 1000000) * dailyRate * 1000;
-    dailyProfits[dateKey] = dailyProfit;
+    // تخزين الرصيد لهذا اليوم
+    dailyBalances[dateKey] = currentBalance;
   }
   
-  // حساب إجمالي الربح للفترة المحددة
+  // حساب الربح اليومي وتجميعه
   let totalProfit = 0;
-  for (const dateKey in dailyProfits) {
-    const currentDate = new Date(dateKey);
-    
-    // تضمين الربح فقط للأيام بين تاريخ البدء وتاريخ الانتهاء
-    if (currentDate >= startDate && currentDate <= endDate) {
-      totalProfit += dailyProfits[dateKey];
-    }
+  const dailyProfits = {};
+  
+  // حساب الربح لكل يوم
+  for (const dateKey in dailyBalances) {
+    const balance = dailyBalances[dateKey];
+    // حساب الربح اليومي بالدينار
+    const dailyProfit = (balance / 1000000) * dailyRate * 1000;
+    dailyProfits[dateKey] = dailyProfit;
+    totalProfit += dailyProfit;
   }
   
   // حساب متوسط الاستثمار اليومي
-  let totalDailyBalances = 0;
-  let countDays = 0;
-  
-  for (const dateKey in dailyBalances) {
-    const currentDate = new Date(dateKey);
-    
-    // تضمين الرصيد فقط للأيام بين تاريخ البدء وتاريخ الانتهاء
-    if (currentDate >= startDate && currentDate <= endDate) {
-      totalDailyBalances += dailyBalances[dateKey];
-      countDays++;
-    }
-  }
-  
-  const averageDailyInvestment = countDays > 0 ? totalDailyBalances / countDays : 0;
+  const totalDailyBalances = Object.values(dailyBalances).reduce((sum, balance) => sum + balance, 0);
+  const averageDailyInvestment = totalDailyBalances / daysDifference;
   
   // حساب الربح التقديري لنهاية الشهر (إذا كانت الفترة هي الشهر الحالي)
   const currentDate = new Date();
@@ -7503,18 +8429,11 @@ function calculateProportionalProfit(investorId, startDate, endDate) {
   
   let projectedMonthlyProfit = 0;
   if (isCurrentMonth) {
-    // تقدير الربح حتى نهاية الشهر
-    const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
-    const daysElapsed = Math.min(currentDate.getDate(), daysInMonth);
-    const daysRemaining = daysInMonth - daysElapsed;
-    
-    // متوسط الربح اليومي حتى الآن
-    const avgDailyProfit = daysElapsed > 0 ? totalProfit / daysElapsed : 0;
-    
-    // تقدير الربح المتبقي
-    const remainingProfit = avgDailyProfit * daysRemaining;
-    
-    projectedMonthlyProfit = totalProfit + remainingProfit;
+    // افتراض أن الرصيد الحالي سيستمر حتى نهاية الشهر
+    const daysRemaining = endDate.getDate() - currentDate.getDate();
+    const lastKnownBalance = dailyBalances[Object.keys(dailyBalances).pop()];
+    const remainingProfit = (lastKnownBalance / 1000000) * (profitRate / 100) * 1000 * (daysRemaining / 30);
+    projectedMonthlyProfit = totalProfit + (daysRemaining > 0 ? remainingProfit : 0);
   }
   
   return {
@@ -7531,600 +8450,6 @@ function calculateProportionalProfit(investorId, startDate, endDate) {
       monthlyRate: profitRate
     }
   };
-}
-
-
-
-// تعديل دالة حساب الربح النسبي للدفع لعرض العملية الحسابية في خانة المبلغ
-function calculateProportionalPayout(investor) {
-  // التحقق من وجود المستثمر
-  if (!investor) return;
-  
-  // الحصول على تاريخ الدفع المحدد
-  let payoutDateStr = document.getElementById('transaction-date').value;
-  let payoutDate = new Date(payoutDateStr);
-  
-  // التحقق من صحة التاريخ
-  if (isNaN(payoutDate.getTime())) {
-    payoutDateStr = getCurrentDate();
-    document.getElementById('transaction-date').value = payoutDateStr;
-    payoutDate = new Date(payoutDateStr);
-  }
-  
-  // الحصول على تاريخ آخر دفع أو تاريخ بدء الاستثمار
-  const lastPayoutTransaction = transactions
-    .filter(t => t.investorId === investor.id && t.type === 'payout')
-    .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
-  
-  let startDateStr;
-  if (lastPayoutTransaction) {
-    startDateStr = lastPayoutTransaction.date;
-  } else {
-    startDateStr = investor.startDate;
-  }
-  
-  const startDate = new Date(startDateStr);
-  
-  // حساب عدد الأيام بين تاريخ البدء وتاريخ الدفع
-  const oneDay = 24 * 60 * 60 * 1000; // ميلي ثانية في اليوم
-  const diffDays = Math.round(Math.abs((payoutDate - startDate) / oneDay));
-  
-  // حساب الربح بالطريقة المطلوبة
-  // الربح الشهري = المبلغ × (نسبة الربح / 100)
-  const monthlyProfit = (investor.amount / 1000000) * profitRate * 1000;
-  
-  // الربح اليومي = الربح الشهري ÷ 30
-  const dailyProfit = monthlyProfit / 30;
-  
-  // الربح للفترة = الربح اليومي × عدد الأيام
-  const periodProfit = dailyProfit * diffDays;
-  
-  // القيمة الدقيقة قبل التقريب (للعرض)
-  const exactPeriodProfit = periodProfit.toFixed(2);
-  
-  // تقريب المبلغ
-  const roundedProfit = Math.round(periodProfit);
-  
-  // تحويل الرقم إلى كلمات عربية
-  const amountInWords = convertNumberToArabicWords(roundedProfit);
-  
-  // صياغة العملية الحسابية كنص لعرضها مع الفواصل
-  const calculationText = `${numberWithCommas(Math.round(monthlyProfit))} ÷ 30 × ${diffDays} = ${exactPeriodProfit}`;
-  
-  // عرض العملية الحسابية والناتج في حقل المبلغ
-  const amountInput = document.getElementById('transaction-amount');
-  amountInput.value = roundedProfit;
-  
-  // إضافة معلومات عن الحساب في الملاحظات
-  let note = `ربح ${diffDays} يوم من ${formatDate(startDate)} إلى ${formatDate(payoutDate)}`;
-  document.getElementById('transaction-notes').value = note;
-  
-  // إضافة عنصر لعرض المبلغ كتابةً فوق حقل الإدخال
-  if (!document.getElementById('amount-in-words')) {
-    const amountField = document.getElementById('transaction-amount').parentNode;
-    const amountInWordsElement = document.createElement('div');
-    amountInWordsElement.id = 'amount-in-words';
-    amountInWordsElement.className = 'amount-in-words';
-    amountField.insertBefore(amountInWordsElement, amountField.firstChild);
-  }
-  
-  // تحديث عنصر المبلغ كتابةً
-  document.getElementById('amount-in-words').textContent = amountInWords + ' دينار عراقي فقط لا غير';
-  
-  // إضافة عنصر لعرض تفاصيل الحساب المفصلة
-  if (!document.getElementById('profit-calculation-details')) {
-    const detailsElement = document.createElement('div');
-    detailsElement.id = 'profit-calculation-details';
-    detailsElement.className = 'alert alert-info mt-3';
-    
-    const amountField = document.getElementById('transaction-amount').parentNode;
-    amountField.parentNode.insertBefore(detailsElement, amountField.nextSibling);
-  }
-  
-  // تحديث عنصر تفاصيل الحساب بعرض العملية الحسابية
-  document.getElementById('profit-calculation-details').innerHTML = `
-    <i class="fas fa-info-circle"></i>
-    <div>
-      <p class="font-bold">تفاصيل حساب الربح:</p>
-      <div class="calculation-steps">
-        <div class="calc-step">
-          <span class="step-label">المعادلة:</span>
-          <span class="step-value">${calculationText}</span>
-        </div>
-        <div class="calc-details">
-          <div class="calc-row">
-            <span class="detail-label">مبلغ الاستثمار:</span>
-            <span class="detail-value">${numberWithCommas(investor.amount)} د.ع</span>
-          </div>
-          <div class="calc-row">
-            <span class="detail-label">الربح الشهري (${profitRate}%):</span>
-            <span class="detail-value">${numberWithCommas(Math.round(monthlyProfit))} د.ع</span>
-          </div>
-          <div class="calc-row">
-            <span class="detail-label">الربح اليومي:</span>
-            <span class="detail-value">${numberWithCommas(Math.round(dailyProfit))} د.ع</span>
-          </div>
-          <div class="calc-row">
-            <span class="detail-label">الفترة:</span>
-            <span class="detail-value">${diffDays} يوم (من ${formatDate(startDate)} إلى ${formatDate(payoutDate)})</span>
-          </div>
-        </div>
-        <div class="calc-result">
-          <span class="result-label">الربح المستحق:</span>
-          <span class="result-value">${numberWithCommas(roundedProfit)} د.ع</span>
-          <div class="result-text">${amountInWords} دينار عراقي فقط</div>
-        </div>
-      </div>
-    </div>
-  `;
-  
-  // إذا كان هناك استثمارات متعددة للمستثمر، نعرض تفاصيلها
-  const investmentTransactions = transactions.filter(
-    t => t.investorId === investor.id && t.type === 'investment'
-  );
-  
-  if (investmentTransactions.length > 1) {
-    let investmentsHTML = `
-      <div class="investments-section mt-3">
-        <p class="section-title">تفاصيل الاستثمارات:</p>
-        <table class="investments-table w-full text-sm mt-2">
-          <thead>
-            <tr class="table-header">
-              <th class="p-1 border">المبلغ</th>
-              <th class="p-1 border">تاريخ الاستثمار</th>
-              <th class="p-1 border">الربح الشهري</th>
-            </tr>
-          </thead>
-          <tbody>
-    `;
-    
-    for (const investment of investmentTransactions) {
-      const invAmount = investment.amount;
-      const invMonthlyProfit = (invAmount / 1000000) * profitRate * 1000;
-      
-      investmentsHTML += `
-        <tr class="table-row">
-          <td class="p-1 border">${numberWithCommas(invAmount)} د.ع</td>
-          <td class="p-1 border">${formatDate(investment.date)}</td>
-          <td class="p-1 border">${numberWithCommas(Math.round(invMonthlyProfit))} د.ع</td>
-        </tr>
-      `;
-    }
-    
-    investmentsHTML += `
-          </tbody>
-        </table>
-      </div>
-    `;
-    
-    // إضافة تفاصيل الاستثمارات إلى عنصر تفاصيل الحساب
-    document.getElementById('profit-calculation-details').innerHTML += investmentsHTML;
-  }
-}
-
-// دالة تحويل الرقم إلى كلمات باللغة العربية
-function convertNumberToArabicWords(number) {
-  const units = ['', 'واحد', 'اثنان', 'ثلاثة', 'أربعة', 'خمسة', 'ستة', 'سبعة', 'ثمانية', 'تسعة', 'عشرة', 'أحد عشر', 'اثنا عشر', 'ثلاثة عشر', 'أربعة عشر', 'خمسة عشر', 'ستة عشر', 'سبعة عشر', 'ثمانية عشر', 'تسعة عشر'];
-  const tens = ['', '', 'عشرون', 'ثلاثون', 'أربعون', 'خمسون', 'ستون', 'سبعون', 'ثمانون', 'تسعون'];
-  const hundreds = ['', 'مائة', 'مائتان', 'ثلاثمائة', 'أربعمائة', 'خمسمائة', 'ستمائة', 'سبعمائة', 'ثمانمائة', 'تسعمائة'];
-  const thousands = ['', 'ألف', 'ألفان', 'آلاف', 'آلاف', 'آلاف', 'آلاف', 'آلاف', 'آلاف', 'آلاف', 'آلاف'];
-  const millions = ['', 'مليون', 'مليونان', 'ملايين', 'ملايين', 'ملايين', 'ملايين', 'ملايين', 'ملايين', 'ملايين', 'ملايين'];
-  
-  if (number === 0) return 'صفر';
-  
-  // تقسيم الرقم إلى مجموعات
-  const numStr = number.toString();
-  let result = '';
-  
-  // معالجة الملايين
-  if (numStr.length > 6) {
-    const millionsDigit = parseInt(numStr.slice(0, numStr.length - 6));
-    if (millionsDigit === 1) {
-      result += millions[1] + ' ';
-    } else if (millionsDigit === 2) {
-      result += millions[2] + ' ';
-    } else if (millionsDigit >= 3 && millionsDigit <= 10) {
-      result += convertLessThanThousand(millionsDigit) + ' ' + millions[3] + ' ';
-    } else {
-      result += convertLessThanThousand(millionsDigit) + ' ' + millions[1] + ' ';
-    }
-  }
-  
-  // معالجة الآلاف
-  if (numStr.length > 3) {
-    const thousandsDigit = parseInt(numStr.slice(Math.max(0, numStr.length - 6), numStr.length - 3));
-    if (thousandsDigit > 0) {
-      if (thousandsDigit === 1) {
-        result += thousands[1] + ' ';
-      } else if (thousandsDigit === 2) {
-        result += thousands[2] + ' ';
-      } else if (thousandsDigit >= 3 && thousandsDigit <= 10) {
-        result += convertLessThanThousand(thousandsDigit) + ' ' + thousands[3] + ' ';
-      } else {
-        result += convertLessThanThousand(thousandsDigit) + ' ' + thousands[1] + ' ';
-      }
-    }
-  }
-  
-  // معالجة المئات والعشرات والآحاد
-  const lastThreeDigits = parseInt(numStr.slice(-3));
-  if (lastThreeDigits > 0) {
-    result += convertLessThanThousand(lastThreeDigits);
-  }
-  
-  return result.trim();
-}
-
-// دالة مساعدة لتحويل رقم أقل من 1000 إلى كلمات
-function convertLessThanThousand(number) {
-  const units = ['', 'واحد', 'اثنان', 'ثلاثة', 'أربعة', 'خمسة', 'ستة', 'سبعة', 'ثمانية', 'تسعة', 'عشرة', 'أحد عشر', 'اثنا عشر', 'ثلاثة عشر', 'أربعة عشر', 'خمسة عشر', 'ستة عشر', 'سبعة عشر', 'ثمانية عشر', 'تسعة عشر'];
-  const tens = ['', '', 'عشرون', 'ثلاثون', 'أربعون', 'خمسون', 'ستون', 'سبعون', 'ثمانون', 'تسعون'];
-  const hundreds = ['', 'مائة', 'مائتان', 'ثلاثمائة', 'أربعمائة', 'خمسمائة', 'ستمائة', 'سبعمائة', 'ثمانمائة', 'تسعمائة'];
-  
-  if (number === 0) return '';
-  
-  let result = '';
-  
-  // معالجة المئات
-  const hundredsDigit = Math.floor(number / 100);
-  if (hundredsDigit > 0) {
-    result += hundreds[hundredsDigit] + ' ';
-  }
-  
-  // معالجة العشرات والآحاد
-  const remainder = number % 100;
-  if (remainder > 0) {
-    if (remainder < 20) {
-      result += units[remainder];
-    } else {
-      const unit = remainder % 10;
-      const ten = Math.floor(remainder / 10);
-      if (unit > 0) {
-        result += units[unit] + ' و';
-      }
-      result += tens[ten];
-    }
-  }
-  
-  return result.trim();
-}
-
-
-// تعديل دالة عرض تفاصيل المستثمر لإظهار الاستثمارات بشكل منفصل
-function renderInvestorDetailsPage() {
-  if (!selectedInvestor) {
-    navigateTo('investors');
-    return;
-  }
-  
-  const mainContent = document.getElementById('main-content');
-  
-  // الحصول على معاملات المستثمر
-  const investorTransactions = transactions.filter(
-    trans => trans.investorId === selectedInvestor.id
-  ).sort((a, b) => new Date(b.date) - new Date(a.date));
-  
-  // فصل معاملات الاستثمار عن الدفعات
-  const investmentTransactions = investorTransactions.filter(t => t.type === 'investment');
-  const payoutTransactions = investorTransactions.filter(t => t.type === 'payout');
-  
-  // حساب إجمالي الاستثمارات والأرباح المدفوعة
-  const totalInvestments = investmentTransactions.reduce((sum, t) => sum + t.amount, 0);
-  const totalPayouts = payoutTransactions.reduce((sum, t) => sum + t.amount, 0);
-  
-  // حساب المدة بالأشهر من تاريخ البدء
-  const startDate = new Date(selectedInvestor.startDate);
-  const currentDate = new Date();
-  const months = (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
-    (currentDate.getMonth() - startDate.getMonth());
-  
-  // حساب الأرباح النسبية للشهر الحالي
-  const today = new Date();
-  const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-  const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-  
-  const profitData = calculateProportionalProfit(
-    selectedInvestor.id, 
-    firstDayOfMonth.toISOString().split('T')[0], 
-    Math.min(today.getDate(), lastDayOfMonth.getDate()) === today.getDate() 
-      ? today.toISOString().split('T')[0]
-      : lastDayOfMonth.toISOString().split('T')[0]
-  );
-  
-  // إنشاء قسم لعرض الاستثمارات المنفصلة
-  let separateInvestmentsHTML = '';
-  
-  // ترتيب الاستثمارات حسب التاريخ (الأحدث أولاً)
-  const sortedInvestments = [...investmentTransactions].sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
-  
-  if (sortedInvestments.length > 0) {
-    separateInvestmentsHTML = `
-      <div class="card p-4 mb-4">
-        <h3 class="font-bold mb-2">الاستثمارات المنفصلة</h3>
-        <div class="grid grid-cols-1 gap-3">
-    `;
-    
-    for (const investment of sortedInvestments) {
-      const investmentDate = new Date(investment.date);
-      
-      // حساب أرباح هذا الاستثمار المحدد منذ تاريخ إنشائه
-      const singleInvestmentProfit = (investment.amount / 1000000) * profitRate * 1000;
-      
-      // حساب عدد الأيام منذ الاستثمار
-      const daysSinceInvestment = Math.floor((currentDate - investmentDate) / (1000 * 60 * 60 * 24));
-      
-      // حساب الربح النسبي لهذا الاستثمار فقط
-      const dailyRate = profitRate / 30 / 100;
-      const accumulatedProfit = (investment.amount / 1000000) * dailyRate * 1000 * daysSinceInvestment;
-      
-      separateInvestmentsHTML += `
-        <div class="card card-${daysSinceInvestment < 30 ? 'yellow' : 'green'}-light p-3 rounded-lg">
-          <div class="flex justify-between mb-1">
-            <div>
-              <p class="font-medium">مبلغ: ${numberWithCommas(investment.amount)} د.ع</p>
-              <p class="text-xs text-gray-500">تاريخ: ${formatDate(investment.date)}</p>
-            </div>
-            <div class="text-right">
-              <p class="font-bold ${daysSinceInvestment < 30 ? 'text-yellow-600' : 'text-green-600'}">
-                ${numberWithCommas(Math.round(singleInvestmentProfit))} د.ع
-              </p>
-              <p class="text-xs text-gray-500">ربح شهري</p>
-            </div>
-          </div>
-          <div class="mt-2">
-            <p class="text-sm">الربح المتراكم: <span class="font-bold text-blue-600">${numberWithCommas(Math.round(accumulatedProfit))} د.ع</span></p>
-            <p class="text-xs text-gray-500">منذ ${daysSinceInvestment} يوم (${(daysSinceInvestment / 30).toFixed(1)} شهر)</p>
-          </div>
-          ${investment.notes ? `<p class="text-xs text-gray-500 mt-1">ملاحظات: ${investment.notes}</p>` : ''}
-        </div>
-      `;
-    }
-    
-    separateInvestmentsHTML += `
-        </div>
-      </div>
-    `;
-  }
-  
-  let html = `
-    <div class="container animate-fadeIn">
-      <div class="flex items-center mb-4">
-        <button 
-          class="btn btn-icon btn-gray ml-2"
-          id="back-to-investors"
-        >
-          <i class="fas fa-arrow-right"></i>
-        </button>
-        <h1 class="text-xl font-bold">تفاصيل المستثمر</h1>
-      </div>
-      
-      <div class="card mb-4">
-        <div class="flex justify-between mb-3">
-          <div class="flex items-center gap-3">
-            <div class="badge badge-primary" style="width: 40px; height: 40px; font-size: 1.25rem;">
-              ${selectedInvestor.name.charAt(0)}
-            </div>
-            <h2 class="text-lg font-bold">${selectedInvestor.name}</h2>
-          </div>
-          <div class="flex">
-            <button class="btn btn-icon btn-outline-primary ml-2" id="edit-investor" title="تعديل بيانات المستثمر">
-              <i class="fas fa-edit"></i>
-            </button>
-            <button class="btn btn-icon btn-outline btn-danger" id="delete-investor" title="حذف المستثمر">
-              <i class="fas fa-trash"></i>
-            </button>
-          </div>
-        </div>
-        
-        <div class="grid grid-cols-2 gap-3 mb-4">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-phone-alt text-gray-500"></i>
-            <div>
-              <p class="text-xs text-gray-500">رقم الهاتف</p>
-              <p>${selectedInvestor.phone || "غير متوفر"}</p>
-            </div>
-          </div>
-          <div class="flex items-center gap-2">
-            <i class="fas fa-map-marker-alt text-gray-500"></i>
-            <div>
-              <p class="text-xs text-gray-500">العنوان</p>
-              <p>${selectedInvestor.address || "غير متوفر"}</p>
-            </div>
-          </div>
-          <div class="flex items-center gap-2">
-            <i class="fas fa-id-card text-gray-500"></i>
-            <div>
-              <p class="text-xs text-gray-500">رقم الهوية</p>
-              <p>${selectedInvestor.idCard || "غير متوفر"}</p>
-            </div>
-          </div>
-          <div class="flex items-center gap-2">
-            <i class="fas fa-calendar-alt text-gray-500"></i>
-            <div>
-              <p class="text-xs text-gray-500">تاريخ البدء</p>
-              <p>${formatDate(selectedInvestor.startDate)}</p>
-              <p class="text-xs text-blue-600">منذ ${months} شهر</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="grid grid-cols-2 gap-3 mb-4">
-          <div class="card-blue-light p-3 rounded-lg">
-            <div class="flex justify-between mb-1">
-              <p class="font-medium">مبلغ الاستثمار الإجمالي</p>
-              <p class="font-bold">${numberWithCommas(selectedInvestor.amount)} د.ع</p>
-            </div>
-            <div class="text-xs text-gray-500">إجمالي المبالغ المستثمرة (${investmentTransactions.length} استثمار)</div>
-          </div>
-          
-          <div class="card-green-light p-3 rounded-lg">
-            <div class="flex justify-between mb-1">
-              <p class="font-medium">الربح الشهري الإجمالي (${profitRate}%)</p>
-              <p class="font-bold text-green-600">
-                ${numberWithCommas(calculateMonthlyProfit(selectedInvestor.amount))} د.ع
-              </p>
-            </div>
-            <div class="text-xs text-gray-500">على أساس المبلغ الإجمالي الحالي</div>
-          </div>
-        </div>
-        
-        <!-- قسم الأرباح النسبية -->
-        <div class="card card-yellow-light p-3 rounded-lg mb-4">
-          <h3 class="font-bold mb-2">الأرباح النسبية للشهر الحالي:</h3>
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <p class="text-sm">الربح المحسوب حتى الآن:</p>
-              <p class="font-bold text-blue-600">${numberWithCommas(profitData.totalProfit)} د.ع</p>
-              <p class="text-xs text-gray-500">(${Math.floor((today.getDate() / lastDayOfMonth.getDate()) * 100)}% من الشهر)</p>
-            </div>
-            <div>
-              <p class="text-sm">الربح المتوقع نهاية الشهر:</p>
-              <p class="font-bold text-green-600">${numberWithCommas(profitData.projectedMonthlyProfit)} د.ع</p>
-            </div>
-          </div>
-          <div class="mt-2">
-            <button id="show-profit-details" class="text-sm text-blue-600 flex items-center gap-1">
-              <i class="fas fa-chart-line"></i> عرض تفاصيل حساب الأرباح
-            </button>
-          </div>
-        </div>
-        
-        <!-- إضافة قسم استعراض الاستثمارات المنفصلة -->
-        ${separateInvestmentsHTML}
-        
-        <div class="grid grid-cols-2 gap-3 mb-4">
-          <div class="stats-card stats-card-primary">
-            <div class="icon-bg">
-              <i class="fas fa-money-bill-wave"></i>
-            </div>
-            <p class="text-sm text-gray-500">إجمالي الاستثمارات</p>
-            <p class="text-xl font-bold">${numberWithCommas(totalInvestments)} د.ع</p>
-            <p class="text-xs text-blue-600 mt-1">
-              ${investmentTransactions.length} عملية
-            </p>
-          </div>
-          
-          <div class="stats-card stats-card-secondary">
-            <div class="icon-bg">
-              <i class="fas fa-hand-holding-usd"></i>
-            </div>
-            <p class="text-sm text-gray-500">إجمالي الأرباح المدفوعة</p>
-            <p class="text-xl font-bold">${numberWithCommas(totalPayouts)} د.ع</p>
-            <p class="text-xs text-green-600 mt-1">
-              ${payoutTransactions.length} عملية
-            </p>
-          </div>
-        </div>
-        
-        <div class="flex gap-2">
-          <button 
-            class="flex-1 btn btn-secondary"
-            id="add-payout-btn"
-          >
-            <i class="fas fa-dollar-sign ml-1"></i>
-            تسجيل دفع ربح
-          </button>
-          <button 
-            class="flex-1 btn btn-primary"
-            id="add-investment-btn"
-          >
-            <i class="fas fa-plus ml-1"></i>
-            إضافة استثمار
-          </button>
-        </div>
-      </div>
-      <div class="flex justify-between items-center mb-2">
-        <h3 class="font-bold">سجل المعاملات</h3>
-        <div class="text-sm text-gray-500">
-          (${investorTransactions.length}) معاملة
-        </div>
-      </div>
-      
-      <div class="card" id="investor-transactions">
-  `;
-  
-  if (investorTransactions.length > 0) {
-    for (const transaction of investorTransactions) {
-      // إضافة عرض أكثر تفصيلاً لمعاملات الاستثمار
-      let transactionDetails = '';
-      
-      if (transaction.type === 'investment') {
-        // حساب الربح الشهري لهذا الاستثمار
-        const singleInvestmentProfit = (transaction.amount / 1000000) * profitRate * 1000;
-        
-        transactionDetails = `
-          <div class="flex items-center gap-3 mt-2">
-            <span class="badge badge-primary">ربح شهري</span>
-            <span class="text-green-600 font-bold">${numberWithCommas(Math.round(singleInvestmentProfit))} د.ع</span>
-          </div>
-        `;
-      }
-      
-      html += `
-        <div class="list-item">
-          <div class="flex justify-between items-center">
-            <div>
-              <div class="flex items-center gap-2">
-                <i class="fas ${getTransactionIcon(transaction.type)} ${getTransactionColorClass(transaction.type)}"></i>
-                <p class="text-sm">${formatDate(transaction.date)}</p>
-              </div>
-              <p class="text-xs text-gray-500">${transaction.notes || 'بدون ملاحظات'}</p>
-              ${transactionDetails}
-            </div>
-            <div class="text-right">
-              <p class="font-bold ${getTransactionColorClass(transaction.type)}">
-                ${transaction.type === 'payout' ? '-' : '+'}${numberWithCommas(transaction.amount)} د.ع
-              </p>
-              <p class="text-xs">${getTransactionTypeName(transaction.type)}</p>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-  } else {
-    html += `
-      <div class="flex flex-col items-center justify-center py-6">
-        <i class="fas fa-exchange-alt text-gray-400 text-3xl mb-2"></i>
-        <p class="text-gray-500">لا توجد معاملات مسجلة</p>
-      </div>
-    `;
-  }
-  
-  html += `
-      </div>
-    </div>
-  `;
-  
-  mainContent.innerHTML = html;
-  
-  // إضافة المستمعين للأحداث
-  document.getElementById('back-to-investors').addEventListener('click', () => {
-    selectedInvestor = null;
-    navigateTo('investors');
-  });
-  
-  document.getElementById('edit-investor').addEventListener('click', () => {
-    editInvestor(selectedInvestor);
-  });
-  
-  document.getElementById('delete-investor').addEventListener('click', () => {
-    deleteInvestor(selectedInvestor.id);
-  });
-  
-  document.getElementById('add-payout-btn').addEventListener('click', () => {
-    showAddTransactionModal('payout', selectedInvestor);
-  });
-  
-  document.getElementById('add-investment-btn').addEventListener('click', () => {
-    showAddTransactionModal('investment', selectedInvestor);
-  });
-  
-  // إضافة مستمع لزر عرض تفاصيل الأرباح
-  document.getElementById('show-profit-details').addEventListener('click', () => {
-    showProfitDetailsModal(selectedInvestor.id);
-  });
 }
 
 // وظائف القفل السريع
@@ -8558,6 +8883,17 @@ function initForms() {
     });
   }
   
+  function initForms() {
+  // إضافة الأزرار الجديدة في نموذج المعاملات
+  updateTransactionModalForWithdrawal();
+  
+  // تحديث نافذة الحاسبة
+  updateCalculatorWithWithdrawalInfo();
+  
+  // ربط الأحداث الأخرى كما هو موجود في الدالة الأصلية
+  // ...
+}
+  
   // ربط الحدث بزر تأكيد إضافة معاملة
   const confirmAddTransactionBtn = document.getElementById('confirm-add-transaction');
   if (confirmAddTransactionBtn) {
@@ -8953,136 +9289,9 @@ function setupSidebarListeners() {
   });
 }
 
+// تحسينات نهائية لميزة سحب الأموال
 
-// 2. تعديل دالة إضافة معاملة جديدة للتعامل مع عمليات السحب
-function addTransaction() {
-  const investorIdInput = document.getElementById('transaction-investor-id');
-  const typeInput = document.getElementById('transaction-type');
-  const amountInput = document.getElementById('transaction-amount');
-  const dateInput = document.getElementById('transaction-date');
-  const notesInput = document.getElementById('transaction-notes');
-  
-  if (!investorIdInput || !typeInput || !amountInput || !dateInput || !notesInput) {
-    showNotification('خطأ في النموذج، يرجى المحاولة مرة أخرى', 'error');
-    return;
-  }
-  
-  const investorId = investorIdInput.value;
-  const type = typeInput.value;
-  const amount = parseFloat(amountInput.value);
-  const date = dateInput.value || getCurrentDate();
-  const notes = notesInput.value;
-  
-  // التحقق من صحة البيانات
-  if (!investorId || isNaN(amount) || amount <= 0) {
-    showNotification('الرجاء تحديد المستثمر والمبلغ', 'error');
-    return;
-  }
-  
-  // الحصول على بيانات المستثمر
-  const investor = investors.find(inv => inv.id === investorId);
-  if (!investor) {
-    showNotification('لم يتم العثور على المستثمر', 'error');
-    return;
-  }
-  
-  // إنشاء معرف فريد للمعاملة
-  const transactionId = Date.now().toString();
-  
-  // معالجة أنواع المعاملات المختلفة
-  if (type === 'investment') {
-    // استثمار جديد
-    const transaction = {
-      id: transactionId,
-      investorId,
-      type,
-      amount,
-      date,
-      notes: notes || 'استثمار جديد',
-      isIndependentInvestment: true,
-      startDate: date
-    };
-    
-    transactions.push(transaction);
-    investor.amount += amount;
-    dailySummary.totalInvestments += amount;
-    showNotification(`تم تسجيل استثمار جديد بمبلغ ${numberWithCommas(amount)} د.ع بنجاح`, 'success');
-  } 
-  else if (type === 'payout') {
-    // دفع ربح
-    if (investor.amount >= amount) {
-      const transaction = {
-        id: transactionId,
-        investorId,
-        type,
-        amount,
-        date,
-        notes: notes || 'دفع ربح'
-      };
-      
-      transactions.push(transaction);
-      dailySummary.totalPayouts += amount;
-      showNotification(`تم تسجيل دفع ربح بمبلغ ${numberWithCommas(amount)} د.ع بنجاح`, 'success');
-    } else {
-      showNotification('مبلغ السحب أكبر من المبلغ المستثمر!', 'error');
-      return;
-    }
-  }
-  else if (type === 'withdrawal') {
-    // التحقق من أن المبلغ المطلوب سحبه لا يتجاوز رصيد المستثمر
-    if (investor.amount >= amount) {
-      // إنشاء سجل معاملة السحب
-      const transaction = {
-        id: transactionId,
-        investorId,
-        type,
-        amount,
-        date,
-        notes: notes || 'سحب من الاستثمار'
-      };
-      
-      // إضافة المعاملة
-      transactions.push(transaction);
-      
-      // تحديث المبلغ الإجمالي للمستثمر
-      investor.amount -= amount;
-      
-      // تحديث المستثمر المحدد إذا كان هو نفسه
-      if (selectedInvestor && selectedInvestor.id === investorId) {
-        selectedInvestor = investor;
-      }
-      
-      // تحديث ملخص الاستثمارات
-      dailySummary.totalInvestments -= amount;
-      
-      showNotification(`تم تسجيل سحب أموال بمبلغ ${numberWithCommas(amount)} د.ع بنجاح`, 'success');
-    } else {
-      showNotification('مبلغ السحب أكبر من الرصيد المتاح!', 'error');
-      return;
-    }
-  }
-  
-  // إعادة حساب الإشعارات
-  calculateUpcomingPayments();
-  
-  // حفظ البيانات في التخزين المحلي
-  saveData();
-  
-  // إغلاق النموذج
-  hideModal('add-transaction-modal');
-  
-  // تحديث الواجهة
-  if (selectedInvestor && selectedInvestor.id === investorId) {
-    renderInvestorDetailsPage();
-  } else if (currentPage === 'transactions') {
-    renderTransactionsPage();
-  } else if (currentPage === 'home') {
-    renderHomePage();
-  }
-}
-
-
-
+// 1. تحديث صفحة الإعدادات لإضافة خيارات متعلقة بالسحب
 // دالة عرض صفحة الإعدادات
 function renderSettingsPage() {
   const mainContent = document.getElementById('main-content');
@@ -9281,10 +9490,79 @@ function renderSettingsPage() {
 }
 
 
+// دالة لتفعيل الأزرار بشكل مباشر
+function activateButtonsDirectly() {
+  // تفعيل أزرار صفحة المعاملات
+  document.querySelectorAll('#add-payout-all-btn, #add-investment-all-btn, #add-withdrawal-all-btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.stopPropagation();
+      console.log('تم النقر على زر:', this.id);
+      
+      if (this.id === 'add-payout-all-btn') {
+        showAddTransactionModal('payout');
+      } else if (this.id === 'add-investment-all-btn') {
+        showAddTransactionModal('investment');
+      } else if (this.id === 'add-withdrawal-all-btn') {
+        showWithdrawalModal();
+      }
+    });
+  });
+  
+  // تفعيل أزرار صفحة الإعدادات
+  document.querySelectorAll('#save-profit-rate, #change-password-btn, #logout-btn, #export-data-btn, #import-data-btn, #clear-data-btn, #manage-users-btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.stopPropagation();
+      console.log('تم النقر على زر:', this.id);
+      
+      if (this.id === 'save-profit-rate') {
+        const newRate = parseFloat(document.getElementById('profit-rate-input').value);
+        if (!isNaN(newRate) && newRate > 0) {
+          profitRate = newRate;
+          saveData();
+          showNotification('تم تحديث نسبة الربح بنجاح', 'success');
+        } else {
+          showNotification('الرجاء إدخال نسبة صحيحة', 'error');
+        }
+      } else if (this.id === 'change-password-btn') {
+        showChangePasswordModal();
+      } else if (this.id === 'logout-btn') {
+        logoutUser();
+      } else if (this.id === 'export-data-btn') {
+        exportData();
+      } else if (this.id === 'import-data-btn') {
+        document.getElementById('import-data-file').click();
+      } else if (this.id === 'clear-data-btn') {
+        if (confirm('هل أنت متأكد من إعادة تعيين جميع البيانات؟ سيتم حذف جميع المستثمرين والمعاملات.')) {
+          resetData();
+        }
+      } else if (this.id === 'manage-users-btn') {
+        showUserManagement();
+      }
+    });
+  });
+}
+
+// استدعاء الدالة بعد كل تنقل بين الصفحات
+document.addEventListener('DOMContentLoaded', function() {
+  // استدعاء مباشر عند تحميل الصفحة
+  setTimeout(activateButtonsDirectly, 500);
+  
+  // استدعاء بعد تغيير الصفحة
+  const originalNavigateTo = window.navigateTo;
+  if (originalNavigateTo) {
+    window.navigateTo = function(page) {
+      originalNavigateTo.apply(this, arguments);
+      setTimeout(activateButtonsDirectly, 500);
+    };
+  }
+});
+
+
+
 
   </script>
-<script src="withdrawal-initialization.js"></script>
-<script src="renderWithdrawalsPage.js"></script>
+
+
   <!-- الملفات الجديدة -->
   <link rel="stylesheet" href="modern-theme.css">
   <!-- الملفات الجديدة -->
@@ -9304,106 +9582,9 @@ function renderSettingsPage() {
   <script src="window-control-script.js"></script>
   <script src="auth-functions.js"></script>
   <script src="#header-user-info.css"></script>
-  <script src="withdrawal-functions.js"></script>
-  <script src="integration.js"></script>
 
-/* إضافة قواعد CSS لتنسيق السحوبات المجدولة */
-<style>
-  .notification-amount.amount-out {
-    color: var(--danger-color);
-  }
-  .scheduled-withdrawal {
-    background-color: rgba(239, 68, 68, 0.1);
-    border-right: 4px solid var(--danger-color);
-  }
-  .scheduled-withdrawal .notification-timeframe {
-    color: var(--danger-color);
-  }
-</style>
+  <script type="text/javascript"></script>
 
-<script>
-// إضافة دالة للتحقق من السحوبات المجدولة وتنفيذها عند حلول موعدها
-function checkScheduledWithdrawals() {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const dueWithdrawals = transactions.filter(t => 
-    t.type === 'withdrawal' &&
-    t.scheduledWithdrawalDate &&
-    new Date(t.scheduledWithdrawalDate) <= today &&
-    !t.processed
-  );
-  for (const withdrawal of dueWithdrawals) {
-    const investor = investors.find(inv => inv.id === withdrawal.investorId);
-    if (investor) {
-      if (investor.amount >= withdrawal.amount) {
-        investor.amount -= withdrawal.amount;
-        dailySummary.totalInvestments -= withdrawal.amount;
-        withdrawal.processed = true;
-        withdrawal.processingDate = today.toISOString().split('T')[0];
-        showNotification(`تم تنفيذ سحب مجدول بمبلغ ${numberWithCommas(withdrawal.amount)} د.ع للمستثمر ${investor.name}`, 'success');
-      } else {
-        showNotification(`تعذر تنفيذ سحب مجدول للمستثمر ${investor.name} بسبب نقص الرصيد!`, 'error');
-      }
-    }
-  }
-  if (dueWithdrawals.length > 0) {
-    saveData();
-    if (selectedInvestor && dueWithdrawals.some(w => w.investorId === selectedInvestor.id)) {
-      selectedInvestor = investors.find(inv => inv.id === selectedInvestor.id);
-      if (currentPage === 'investorDetails') {
-        renderInvestorDetailsPage();
-      }
-    }
-  }
-  calculateUpcomingWithdrawals();
-}
-
-// إضافة دالة لحساب السحوبات المجدولة القادمة وإدراجها بالإشعارات
-function calculateUpcomingWithdrawals() {
-  const today = new Date();
-  const upcomingWithdrawals = [];
-  const pendingWithdrawals = transactions.filter(t => 
-    t.type === 'withdrawal' &&
-    t.scheduledWithdrawalDate &&
-    new Date(t.scheduledWithdrawalDate) > today &&
-    !t.processed
-  );
-  for (const withdrawal of pendingWithdrawals) {
-    const withdrawalDate = new Date(withdrawal.scheduledWithdrawalDate);
-    const investor = investors.find(inv => inv.id === withdrawal.investorId);
-    if (investor) {
-      const daysUntilWithdrawal = Math.floor((withdrawalDate - today) / (1000 * 60 * 60 * 24));
-      if (daysUntilWithdrawal <= 7) {
-        upcomingWithdrawals.push({
-          id: withdrawal.id,
-          name: investor.name,
-          date: withdrawal.scheduledWithdrawalDate,
-          amount: withdrawal.amount,
-          daysLeft: daysUntilWithdrawal,
-          type: 'withdrawal'
-        });
-      }
-    }
-  }
-  notifications = [...notifications, ...upcomingWithdrawals];
-  notifications.sort((a, b) => a.daysLeft - b.daysLeft);
-}
-
-// تعديل دالة initApp لإضافة التحقق الدوري من السحوبات المجدولة
-(function() {
-  const originalInitApp = initApp;
-  initApp = function() {
-    originalInitApp();
-    setInterval(checkScheduledWithdrawals, 60000); // تحقق كل دقيقة
-    checkScheduledWithdrawals();
-    const originalCalculateUpcomingPayments = window.calculateUpcomingPayments;
-    window.calculateUpcomingPayments = function() {
-      originalCalculateUpcomingPayments();
-      calculateUpcomingWithdrawals();
-    };
-  };
-})();
-</script>
 </body>
 
 </html>

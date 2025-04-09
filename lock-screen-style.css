@@ -1,0 +1,120 @@
+/* أنماط شاشة القفل */
+.lockscreen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(15, 23, 42, 0.95) !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999 !important; /* جعل الطبقة فوق جميع العناصر */
+    backdrop-filter: blur(10px);
+  }
+  
+  .lockscreen-container {
+    background-color: var(--white, #ffffff);
+    border-radius: var(--radius-lg, 0.75rem);
+    box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+    padding: 2rem;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .lock-avatar {
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary-color, #3b82f6);
+    color: white;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0.1);
+  }
+  
+  .dark-theme .lockscreen-container {
+    background-color: var(--gray-100, #1f2937);
+    border: 1px solid var(--gray-300, #4b5563);
+  }
+  
+  /* إضافة تأثير الاهتزاز لحقل الإدخال */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+  }
+  .shake-animation {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  }
+  
+  /* التأكد من أن شاشة القفل تظهر دائمًا فوق جميع العناصر */
+  #lock-screen-overlay {
+    display: flex !important;
+    z-index: 9999 !important;
+  }
+  
+  /* إخفاء محتوى الصفحة عندما تكون شاشة القفل ظاهرة */
+  body:has(#lock-screen-overlay:not([style*="display: none"])) > *:not(#lock-screen-overlay) {
+    filter: blur(5px);
+    pointer-events: none;
+  }
+
+  /* Asegurarse que hay solo UN elemento lock-screen-overlay */
+#lock-screen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(15, 23, 42, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+  }
+  
+  .lockscreen-container {
+    background-color: var(--white, #ffffff);
+    border-radius: var(--radius-lg, 0.75rem);
+    box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+    padding: 2rem;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .lock-avatar {
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary-color, #3b82f6);
+    color: white;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0.1);
+  }
+  
+  .dark-theme .lockscreen-container {
+    background-color: var(--gray-100, #1f2937);
+    border: 1px solid var(--gray-300, #4b5563);
+  }
+  
+  /* Efecto de sacudida para entrada errónea */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+  }
+  .shake-animation {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  }
+  
