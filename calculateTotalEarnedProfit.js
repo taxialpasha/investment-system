@@ -4,6 +4,7 @@ function renderInvestorDetailsPage() {
     navigateTo('investors');
     return;
   }
+  mainContent.classList.add('main-content');
   
   const mainContent = document.getElementById('main-content');
   
@@ -114,6 +115,9 @@ function renderInvestorDetailsPage() {
           class="btn btn-icon btn-gray ml-2"
           id="back-to-investors"
         >
+        
+        
+         <div class="container animate-fadeIn main-content">
           <i class="fas fa-arrow-right"></i>
         </button>
         <h1 class="text-xl font-bold">تفاصيل المستثمر</h1>
@@ -130,6 +134,8 @@ function renderInvestorDetailsPage() {
                 <div class="badge badge-primary" style="width: 40px; height: 40px; font-size: 1.25rem;">
                   ${selectedInvestor.name.charAt(0)}
                 </div>
+                
+                ${document.getElementById('settings-sidebar') ? '' : createSidebarTemplate
                 <h2 class="text-lg font-bold">${selectedInvestor.name}</h2>
               </div>
               <div class="flex">
@@ -1572,3 +1578,42 @@ function calculateProportionalProfit(investorId, startDate, endDate) {
   };
 }
 
+function renderInvestorDetailsPage() {
+  if (!selectedInvestor) {
+    navigateTo('investors');
+    return;
+  }
+  
+  const mainContent = document.getElementById('main-content');
+  
+  // ... الكود الحالي لعرض صفحة المستثمر ...
+  
+  // إضافة فئة main-content للمحتوى الرئيسي لتمكين إزاحته عند ظهور الشريط الجانبي
+  mainContent.classList.add('main-content');
+  
+  // ... شيفرة HTML لصفحة المستثمر ...
+  
+  // التأكد من إضافة الشريط الجانبي في نهاية HTML
+  let html = `
+    <div class="container animate-fadeIn main-content">
+      <!-- ... محتوى صفحة تفاصيل المستثمر ... -->
+    </div>
+    
+    <!-- إضافة الشريط الجانبي -->
+    ${document.getElementById('settings-sidebar') ? '' : createSidebarTemplate()}
+  `;
+  
+  mainContent.innerHTML = html;
+  
+  // ... مستمعات الأحداث الحالية ...
+  
+  // تهيئة الشريط الجانبي بعد إنشاء المحتوى
+  setTimeout(() => {
+    initSidebar();
+    
+    // تحديث بيانات الشريط الجانبي
+    if (selectedInvestor) {
+      updateSidebar(selectedInvestor.id);
+    }
+  }, 100);
+}
