@@ -2496,92 +2496,179 @@ input[type="number"]::-webkit-inner-spin-button {
 
 
 
-/* تحسينات الشريط الجانبي من اليسار */
+/* أنماط شريط الإعدادات الجانبي */
 .sidebar-container {
   position: fixed;
-  top: 60px; /* لإبقاء الشريط أسفل شريط العنوان */
-  left: 0; /* تغيير من right إلى left للظهور في اليسار */
+  top: 0;
+  right: 0;
   width: 280px;
-  height: calc(100vh - 60px); /* تعديل الارتفاع ليناسب شريط العنوان */
-  background-color: var(--white, #ffffff);
-  border-left: 1px solid var(--gray-200, #e5e7eb); /* تغيير من border-right إلى border-left */
-  z-index: 39; /* تأكد من أن الرقم أقل من شريط العنوان (40) */
+  height: 100vh;
+  background-color: #f8f9fa;
+  border-right: 1px solid #dee2e6;
+  z-index: 1000;
   overflow-y: auto;
   transition: transform 0.3s ease;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* تغيير اتجاه الظل */
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   direction: rtl;
 }
 
 .sidebar-container.collapsed {
-  transform: translateX(-250px); /* تغيير من +250px إلى -250px */
+  transform: translateX(250px);
 }
 
 .sidebar-toggle {
   position: absolute;
   top: 50%;
-  left: 280px; /* تغيير من right إلى left */
+  right: 280px;
   transform: translateY(-50%);
   width: 30px;
   height: 50px;
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  background-color: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 0 5px 5px 0; /* عكس اتجاه الحواف المستديرة */
+  border-radius: 5px 0 0 5px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 39;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* تغيير اتجاه الظل */
+  z-index: 1001;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-toggle i {
-  transform: rotate(180deg); /* عكس اتجاه السهم */
   transition: transform 0.3s ease;
 }
 
 .sidebar-container.collapsed .sidebar-toggle i {
-  transform: rotate(0deg); /* عكس اتجاه السهم عند الطي */
+  transform: rotate(180deg);
+}
+
+.sidebar-header {
+  padding: 15px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-content {
+  padding: 15px;
+}
+
+.sidebar-section {
+  margin-bottom: 20px;
+}
+
+.sidebar-section-title {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 10px;
+}
+
+.sidebar-section-title i {
+  margin-left: 8px;
+}
+
+.sidebar-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.85rem;
+}
+
+.sidebar-menu-item:hover {
+  background-color: rgba(var(--secondary-color-rgb), 0.1);
+}
+
+.sidebar-menu-item.active {
+  background-color: rgba(var(--secondary-color-rgb), 0.2);
+  font-weight: bold;
+}
+
+.sidebar-menu-item i {
+  margin-left: 10px;
+  font-size: 1rem;
+  min-width: 20px;
+  text-align: center;
+}
+
+.sidebar-badge {
+  background-color: var(--secondary-color);
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-right: auto;
+}
+
+.health-meter {
+  height: 6px;
+  background-color: #e9ecef;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.health-value {
+  height: 100%;
+  background-color: var(--secondary-color);
+  border-radius: 3px;
+}
+
+.sidebar-quick-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.quick-action-btn {
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 8px 5px;
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-action-btn:hover {
+  background-color: #f0f7ff;
+  border-color: var(--secondary-color);
+}
+
+.quick-action-btn i {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: var(--secondary-color);
 }
 
 /* تكييف المحتوى الرئيسي مع وجود الشريط الجانبي */
 .main-content {
-  transition: margin-left 0.3s ease; /* تغيير من margin-right إلى margin-left */
+  transition: margin-right 0.3s ease;
 }
 
 .main-content.with-sidebar {
-  margin-left: 280px; /* تغيير من margin-right إلى margin-left */
-  margin-right: 0; /* إعادة تعيين margin-right */
+  margin-right: 280px;
 }
 
 .main-content.with-collapsed-sidebar {
-  margin-left: 30px; /* تغيير من margin-right إلى margin-left */
-  margin-right: 0; /* إعادة تعيين margin-right */
-}
-
-/* أنماط للوضع المتنقل */
-@media (max-width: 768px) {
-  .sidebar-container {
-    transform: translateX(-100%); /* تغيير من +100% إلى -100% */
-    width: 100%;
-    max-width: 320px;
-    top: 0;
-    height: 100vh;
-  }
-  
-  .sidebar-container.active {
-    transform: translateX(0);
-  }
-  
-  .sidebar-toggle {
-    left: 0; /* تغيير من right إلى left */
-    border-radius: 0 5px 5px 0; /* عكس اتجاه الحواف المستديرة */
-  }
-  
-  .main-content.with-sidebar, 
-  .main-content.with-collapsed-sidebar {
-    margin-left: 0; /* تغيير من margin-right إلى margin-left */
-  }
+  margin-right: 30px;
 }
 
 /* أنماط للوضع المتنقل */
@@ -3316,6 +3403,64 @@ input[type="number"]::-webkit-inner-spin-button {
     .dark-theme .info-card-header {
       border-color: var(--gray-300);
     }
+    
+    /* تصحيح موضع الشريط الجانبي */
+.sidebar-container {
+  position: fixed;
+  top: 60px; /* مسافة من الأعلى بعد شريط العنوان */
+  left: 0;
+  width: 280px;
+  height: calc(100vh - 60px);
+  background-color: var(--white, #ffffff);
+  border-right: 1px solid var(--gray-200, #e5e7eb);
+  z-index: 39;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(0); /* تأكد من أن الشريط ظاهر افتراضياً */
+}
+
+/* حالة إخفاء الشريط */
+.sidebar-container.collapsed {
+  transform: translateX(-280px); /* إخفاء الشريط بالكامل للجانب الأيسر */
+}
+
+/* زر التبديل للشريط */
+.sidebar-toggle {
+  position: absolute;
+  top: 50%;
+  left: 280px; /* موضع زر التبديل على حافة الشريط من اليسار */
+  transform: translateY(-50%);
+  width: 30px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* تكييف المحتوى الرئيسي */
+.main-content {
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.with-sidebar {
+  margin-left: 280px;
+  margin-right: 0;
+  width: calc(100% - 280px);
+}
+
+.main-content.with-collapsed-sidebar {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
   </style>
 </head>
 <body>
@@ -10260,6 +10405,122 @@ function renderSettingsPage() {
 }
 
 
+// إصلاح موضع الشريط الجانبي
+document.addEventListener('DOMContentLoaded', function() {
+  // إضافة أنماط CSS المصححة
+  const styleElement = document.createElement('style');
+  styleElement.textContent = `
+    /* تصحيح موضع الشريط الجانبي */
+    .sidebar-container {
+      position: fixed !important;
+      top: 60px !important;
+      left: 0 !important;
+      right: auto !important;
+      width: 280px !important;
+      height: calc(100vh - 60px) !important;
+      transform: translateX(0) !important;
+      z-index: 39 !important;
+    }
+    
+    .sidebar-container.collapsed {
+      transform: translateX(-280px) !important;
+    }
+    
+    .sidebar-toggle {
+      position: absolute !important;
+      top: 50% !important;
+      left: 280px !important;
+      right: auto !important;
+      transform: translateY(-50%) !important;
+      z-index: 40 !important;
+    }
+    
+    .main-content {
+      transition: margin-left 0.3s ease !important;
+    }
+    
+    .main-content.with-sidebar {
+      margin-left: 280px !important;
+      margin-right: 0 !important;
+      width: calc(100% - 280px) !important;
+    }
+    
+    .main-content.with-collapsed-sidebar {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      width: 100% !important;
+    }
+    
+    /* تصحيح للأجهزة المحمولة */
+    @media (max-width: 768px) {
+      .sidebar-container {
+        transform: translateX(-100%) !important;
+        width: 280px !important;
+      }
+      
+      .sidebar-container.active {
+        transform: translateX(0) !important;
+      }
+      
+      .main-content.with-sidebar,
+      .main-content.with-collapsed-sidebar {
+        margin-left: 0 !important;
+        width: 100% !important;
+      }
+    }
+  `;
+  
+  document.head.appendChild(styleElement);
+  
+  // تعديل دالة تهيئة الشريط إذا كان موجوداً
+  const originalInitSidebar = window.initSidebar;
+  if (originalInitSidebar) {
+    window.initSidebar = function() {
+      // استدعاء الدالة الأصلية
+      originalInitSidebar();
+      
+      // تصحيحات إضافية
+      const sidebar = document.getElementById('settings-sidebar');
+      const mainContent = document.querySelector('.main-content') || document.getElementById('main-content');
+      
+      if (sidebar) {
+        // التأكد من موضع الشريط الصحيح
+        const header = document.querySelector('header');
+        if (header) {
+          sidebar.style.top = `${header.offsetHeight}px`;
+        }
+        
+        // تطبيق الفئات الصحيحة
+        if (!sidebar.classList.contains('collapsed')) {
+          mainContent?.classList.add('with-sidebar');
+          mainContent?.classList.remove('with-collapsed-sidebar');
+        } else {
+          mainContent?.classList.remove('with-sidebar');
+          mainContent?.classList.add('with-collapsed-sidebar');
+        }
+      }
+    };
+  }
+  
+  // تطبيق الإصلاحات على الشريط الحالي إذا كان موجوداً
+  const sidebar = document.getElementById('settings-sidebar');
+  if (sidebar) {
+    const header = document.querySelector('header');
+    if (header) {
+      sidebar.style.top = `${header.offsetHeight}px`;
+    }
+    
+    const mainContent = document.querySelector('.main-content') || document.getElementById('main-content');
+    if (!sidebar.classList.contains('collapsed')) {
+      mainContent?.classList.add('with-sidebar');
+      mainContent?.classList.remove('with-collapsed-sidebar');
+    } else {
+      mainContent?.classList.remove('with-sidebar');
+      mainContent?.classList.add('with-collapsed-sidebar');
+    }
+  }
+});
+
 
   </script>
 <script src="withdrawal-initialization.js"></script>
@@ -10372,19 +10633,6 @@ function renderSettingsPage() {
   }
 </style>
 
-
-
-
-<script>
-// استدعاء تكامل الشريط الجانبي عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof integrateLeftSidebarWithUi === 'function') {
-    integrateLeftSidebarWithUi();
-  } else {
-    console.error('دالة تكامل الشريط الجانبي غير موجودة');
-  }
-});
-</script>
 <script>
 // إضافة دالة للتحقق من السحوبات المجدولة وتنفيذها عند حلول موعدها
 function checkScheduledWithdrawals() {

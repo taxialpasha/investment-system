@@ -2,59 +2,68 @@
 
 // تهيئة شريط الإعدادات الجانبي
 function initSidebar() {
-  // التأكد من وجود عناصر الشريط الجانبي
   const sidebarContainer = document.getElementById('settings-sidebar');
   const sidebarToggle = document.getElementById('sidebar-toggle');
-  const mobileBackdrop = document.getElementById('mobile-backdrop');
+  const mainContent = document.querySelector('.main-content') || document.getElementById('main-content');
   
   if (!sidebarContainer || !sidebarToggle) {
-    console.error('لم يتم العثور على عناصر الشريط الجانبي اللازمة');
+    console.error('لم يتم العثور على عناصر الشريط الجانبي');
     return;
   }
   
-  // تعديل موضع الشريط الجانبي ليتناسب مع شريط العنوان
-  adjustSidebarPosition();
+  // ضبط موضع الشريط وفقًا لارتفاع الهيدر
+  const header = document.querySelector('header');
+  if (header) {
+    const headerHeight = header.offsetHeight;
+    sidebarContainer.style.top = `${headerHeight}px`;
+    sidebarContainer.style.height = `calc(100vh - ${headerHeight}px)`;
+  }
   
-  // إظهار الشريط افتراضياً عند بدء التشغيل (إزالة collapsed)
+  // إظهار الشريط افتراضيًا
   sidebarContainer.classList.remove('collapsed');
   
-  // تحديث فئة المحتوى الرئيسي
-  const mainContent = document.querySelector('.main-content');
+  // تحديث تنسيق المحتوى الرئيسي
   if (mainContent) {
     mainContent.classList.add('with-sidebar');
     mainContent.classList.remove('with-collapsed-sidebar');
   }
-
-  // إضافة مستمع الأحداث لزر التبديل
-  sidebarToggle.addEventListener('click', toggleSidebar);
   
-  // إضافة مستمع الأحداث للستارة الخلفية في الجوال
-  if (mobileBackdrop) {
-    mobileBackdrop.addEventListener('click', closeSidebar);
+  // حدث النقر على زر التبديل
+  sidebarToggle.addEventListener('click', function() {
+    sidebarContainer.classList.toggle('collapsed');
+    
+    if (mainContent) {
+      if (sidebarContainer.classList.contains('collapsed')) {
+        mainContent.classList.remove('with-sidebar');
+        mainContent.classList.add('with-collapsed-sidebar');
+      } else {
+        mainContent.classList.add('with-sidebar');
+        mainContent.classList.remove('with-collapsed-sidebar');
+      }
+    }
+    
+    // حفظ حالة الشريط
+    localStorage.setItem('sidebarState', 
+      sidebarContainer.classList.contains('collapsed') ? 'collapsed' : 'expanded');
+  });
+  
+  // استعادة حالة الشريط من التخزين المحلي
+  const savedState = localStorage.getItem('sidebarState');
+  if (savedState === 'collapsed') {
+    sidebarContainer.classList.add('collapsed');
+    if (mainContent) {
+      mainContent.classList.remove('with-sidebar');
+      mainContent.classList.add('with-collapsed-sidebar');
+    }
   }
   
-  // إضافة مستمعات الأحداث لعناصر القائمة
+  // بقية إعداد الشريط...
   setupSidebarMenuItems();
-  
-  // إضافة مستمعات الأحداث للإجراءات السريعة
   setupQuickActions();
   
-  // تحديث بيانات المستثمر في الشريط الجانبي
   if (selectedInvestor) {
     updateSidebar(selectedInvestor.id);
   }
-  
-  // إضافة مستمع للتغيير في السمة (الوضع الداكن)
-  document.getElementById('toggle-theme')?.addEventListener('click', function() {
-    setTimeout(() => {
-      if (selectedInvestor) {
-        updateSidebar(selectedInvestor.id);
-      }
-    }, 100);
-  });
-  
-  // إضافة مستمع للتغيير في حجم الشاشة
-  window.addEventListener('resize', adjustSidebarPosition);
 }
 
 // تعديل موضع الشريط الجانبي ليتناسب مع شريط العنوان

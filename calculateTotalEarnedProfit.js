@@ -1578,6 +1578,53 @@ function calculateProportionalProfit(investorId, startDate, endDate) {
   };
 }
 
+function createSidebarTemplate() {
+  return `
+    <div id="settings-sidebar" class="sidebar-container">
+      <button id="sidebar-toggle" class="sidebar-toggle">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      
+      <div class="sidebar-header">
+        <div class="flex justify-between items-center">
+          <div>إعدادات المستثمر</div>
+          <div id="investor-initial" class="badge badge-light">م</div>
+        </div>
+      </div>
+      
+      <div class="sidebar-content">
+        <!-- محتوى الشريط الجانبي -->
+        <!-- قسم ملخص الاستثمار -->
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">
+            <i class="fas fa-chart-pie"></i>
+            ملخص الاستثمار
+          </div>
+          <div class="mt-2">
+            <div class="flex justify-between mb-1">
+              <span>المبلغ الإجمالي:</span>
+              <span id="sidebar-total-amount" class="font-bold">0 د.ع</span>
+            </div>
+            <div class="flex justify-between mb-1">
+              <span>الربح الشهري:</span>
+              <span id="sidebar-monthly-profit" class="font-bold text-success">0 د.ع</span>
+            </div>
+            <div class="flex justify-between mb-1">
+              <span>الأرباح المستحقة:</span>
+              <span id="sidebar-due-profit" class="font-bold text-primary">0 د.ع</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- باقي أقسام الشريط الجانبي -->
+        <!-- ... -->
+      </div>
+    </div>
+    
+    <div id="mobile-backdrop" class="mobile-backdrop"></div>
+  `;
+}
+
 function renderInvestorDetailsPage() {
   if (!selectedInvestor) {
     navigateTo('investors');
@@ -1586,34 +1633,31 @@ function renderInvestorDetailsPage() {
   
   const mainContent = document.getElementById('main-content');
   
-  // ... الكود الحالي لعرض صفحة المستثمر ...
-  
-  // إضافة فئة main-content للمحتوى الرئيسي لتمكين إزاحته عند ظهور الشريط الجانبي
-  mainContent.classList.add('main-content');
-  
-  // ... شيفرة HTML لصفحة المستثمر ...
-  
-  // التأكد من إضافة الشريط الجانبي في نهاية HTML
+  // بناء محتوى HTML الرئيسي
   let html = `
-    <div class="container animate-fadeIn main-content">
-      <!-- ... محتوى صفحة تفاصيل المستثمر ... -->
+    <div class="container animate-fadeIn">
+      <!-- محتوى صفحة تفاصيل المستثمر -->
+      <!-- ... -->
     </div>
-    
-    <!-- إضافة الشريط الجانبي -->
-    ${document.getElementById('settings-sidebar') ? '' : createSidebarTemplate()}
   `;
   
   mainContent.innerHTML = html;
   
-  // ... مستمعات الأحداث الحالية ...
+  // إضافة الفئة main-content للعنصر إذا لم تكن موجودة
+  if (!mainContent.classList.contains('main-content')) {
+    mainContent.classList.add('main-content');
+  }
   
-  // تهيئة الشريط الجانبي بعد إنشاء المحتوى
+  // إضافة الشريط الجانبي للصفحة إذا لم يكن موجوداً
+  if (!document.getElementById('settings-sidebar')) {
+    document.body.insertAdjacentHTML('beforeend', createSidebarTemplate());
+  }
+  
+  // تنفيذ التهيئة بعد إضافة العناصر للصفحة
   setTimeout(() => {
     initSidebar();
-    
-    // تحديث بيانات الشريط الجانبي
-    if (selectedInvestor) {
-      updateSidebar(selectedInvestor.id);
-    }
-  }, 100);
+  }, 0);
+  
+  // إضافة مستمعات الأحداث الأخرى
+  // ... الكود الحالي ...
 }
